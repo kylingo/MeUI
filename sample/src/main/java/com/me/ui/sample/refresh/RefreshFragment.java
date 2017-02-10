@@ -12,7 +12,7 @@ import java.util.List;
 public class RefreshFragment extends BaseListFragment {
 
     @Override
-    protected void addFragment(List<FragmentBean> fragmentBeans) {
+    protected void showFragment(List<FragmentBean> fragmentBeans) {
         fragmentBeans.add(new FragmentBean("Ptr", RefreshPtrFragment.class));
         fragmentBeans.add(new FragmentBean("Ultra", RefreshUltraFragment.class));
     }

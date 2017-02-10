@@ -27,7 +27,7 @@ public abstract class BaseListFragment extends BaseFragment implements AdapterVi
     protected FrameLayout mFrameLayout;
     protected ArrayAdapter<FragmentBean> mArrayAdapter;
 
-    protected abstract void addFragment(List<FragmentBean> fragmentBeans);
+    protected abstract void showFragment(List<FragmentBean> fragmentBeans);
 
     @Nullable
     @Override
@@ -45,7 +45,7 @@ public abstract class BaseListFragment extends BaseFragment implements AdapterVi
     protected void addView() {
         ListView listView = new ListView(getActivity());
         List<FragmentBean> fragmentBeans = new ArrayList<>();
-        addFragment(fragmentBeans);
+        showFragment(fragmentBeans);
 
         mArrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, fragmentBeans);
         listView.setAdapter(mArrayAdapter);
@@ -59,16 +59,20 @@ public abstract class BaseListFragment extends BaseFragment implements AdapterVi
         Fragment fragment = null;
         try {
             fragment = (Fragment) item.clazz.newInstance();
+
+            Bundle bundle = new Bundle();
+            bundle.putString(KEY_TITLE, item.title);
+            fragment.setArguments(bundle);
         } catch (java.lang.InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
         if (fragment != null) {
-            addFragment(fragment);
+            showFragment(fragment);
         }
     }
 
-    protected void addFragment(Fragment fragment) {
+    protected void showFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fl_main, fragment, fragment.getClass().getSimpleName());
         fragmentTransaction.addToBackStack(null);

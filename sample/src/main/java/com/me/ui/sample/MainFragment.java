@@ -13,7 +13,7 @@ import java.util.List;
 public class MainFragment extends BaseListFragment {
 
     @Override
-    protected void addFragment(List<FragmentBean> fragmentBeans) {
+    protected void showFragment(List<FragmentBean> fragmentBeans) {
         fragmentBeans.add(new FragmentBean("Refresh", RefreshFragment.class));
     }
 
