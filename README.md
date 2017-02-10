@@ -1,4 +1,2 @@
 # MeUI
 
-## TODO
-* PullToRefresh
