@@ -13,13 +13,12 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.me.ui.sample.R;
-import com.me.ui.sample.bean.FragmentBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tangqi on 16-12-29.
+ * @author tangqi on 16-12-29.
  */
 
 public abstract class BaseListFragment extends BaseFragment implements AdapterView.OnItemClickListener{

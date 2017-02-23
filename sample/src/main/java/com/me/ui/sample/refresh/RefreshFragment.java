@@ -1,12 +1,12 @@
 package com.me.ui.sample.refresh;
 
 import com.me.ui.sample.base.BaseListFragment;
-import com.me.ui.sample.bean.FragmentBean;
+import com.me.ui.sample.base.FragmentBean;
 
 import java.util.List;
 
 /**
- * Created by tangqi on 16-12-30.
+ * @author tangqi on 16-12-30.
  */
 
 public class RefreshFragment extends BaseListFragment {

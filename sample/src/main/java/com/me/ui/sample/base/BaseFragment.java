@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 /**
- * Created by tangqi on 16-12-29.
+ * @author tangqi on 16-12-29.
  */
 
 public class BaseFragment extends Fragment {

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tangqi on 16-12-29.
+ * @author tangqi on 16-12-29.
  */
 
 public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBase.OnRefreshListener2 {
@@ -48,6 +48,7 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
         mHandler = new Handler();
     }
 
+    @SuppressWarnings("unchecked")
     private void initView(View view) {
         mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.lv_refresh);
         mPullToRefreshListView.setOnRefreshListener(this);

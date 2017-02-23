@@ -1,12 +1,11 @@
-package com.me.ui.sample.bean;
+package com.me.ui.sample.base;
 
 /**
- * Created by tangqi on 16-12-30.
+ * @author tangqi on 16-12-30.
  */
-
 public class FragmentBean {
     public String title;
-    public Class<?> clazz;
+    Class<?> clazz;
 
     public FragmentBean(String title, Class<?> clazz) {
         this.title = title;
