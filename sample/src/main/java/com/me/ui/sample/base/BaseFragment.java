@@ -20,7 +20,19 @@ public class BaseFragment extends Fragment {
         Bundle bundle = getArguments();
         if (bundle != null) {
             String title = bundle.getString(KEY_TITLE);
+            setActionBarTitle(title);
+        }
+    }
+
+    protected void setActionBarTitle(String title) {
+        if (getActivity() != null) {
             getActivity().setTitle(title);
+        }
+    }
+
+    protected void setActionBarTitle(int resId) {
+        if (getActivity() != null) {
+            getActivity().setTitle(resId);
         }
     }
 }

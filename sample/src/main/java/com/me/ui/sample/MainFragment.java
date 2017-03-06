@@ -17,4 +17,9 @@ public class MainFragment extends BaseListFragment {
         fragmentBeans.add(new FragmentBean("Refresh", RefreshFragment.class));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setActionBarTitle(R.string.app_name);
+    }
 }
