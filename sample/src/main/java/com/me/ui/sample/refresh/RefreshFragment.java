@@ -15,5 +15,6 @@ public class RefreshFragment extends BaseListFragment {
     protected void showFragment(List<FragmentBean> fragmentBeans) {
         fragmentBeans.add(new FragmentBean("Ptr", RefreshPtrFragment.class));
         fragmentBeans.add(new FragmentBean("Ultra", RefreshUltraFragment.class));
+        fragmentBeans.add(new FragmentBean("UltraText", RefreshUltraTextFragment.class));
     }
 }
