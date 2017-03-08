@@ -16,6 +16,7 @@ Android的UI控件库，代码仓库。
 * Material Design
 * Banner
 * ScrollView
+* 文字高亮
 
 ## 代码库
 * 工具类
