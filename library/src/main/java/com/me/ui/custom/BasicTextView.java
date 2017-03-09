@@ -8,9 +8,14 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.TextView;
 
 import com.me.ui.R;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * @author tangqi on 17-3-9.
@@ -58,6 +63,14 @@ public class BasicTextView extends TextView {
 
         mRect = new Rect();
         mPaint.getTextBounds(mText, 0, mText.length(), mRect);
+
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mText = randomText();
+                postInvalidate();
+            }
+        });
     }
 
     @Override
@@ -111,5 +124,21 @@ public class BasicTextView extends TextView {
     private int getDefaultTextSize() {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, DEFAULT_TEXT_SIZE,
                 getResources().getDisplayMetrics());
+    }
+
+    private String randomText() {
+        Random random = new Random();
+        Set<Integer> set = new HashSet<>();
+        while (set.size() < 4) {
+            int randomInt = random.nextInt(10);
+            set.add(randomInt);
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Integer i : set) {
+            sb.append("").append(i);
+        }
+
+        return sb.toString();
     }
 }

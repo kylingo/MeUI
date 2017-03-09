@@ -11,6 +11,6 @@
         android:layout_gravity="center_horizontal"
         android:padding="10dip"
         app:basicText="9527"
-        app:basicTextColor="@color/colorPrimary"
-        app:basicTextSize="20sp"/>
+        app:basicTextColor="#ff0000"
+        app:basicTextSize="40sp"/>
 </LinearLayout>
