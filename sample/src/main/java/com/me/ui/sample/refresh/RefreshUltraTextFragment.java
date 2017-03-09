@@ -24,9 +24,13 @@ public class RefreshUltraTextFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_refresh_ultra_text, container, false);
-        initView(rootView);
-        return rootView;
+        return inflater.inflate(R.layout.fragment_refresh_ultra_text, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
     }
 
     private void initView(View rootView) {

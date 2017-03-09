@@ -33,9 +33,13 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_refresh, container, false);
+        return inflater.inflate(R.layout.fragment_refresh, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initView(view);
-        return view;
     }
 
     @Override

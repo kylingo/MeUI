@@ -77,4 +77,10 @@
         <attr name="ptrDrawableBottom" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="BasicTextView">
+        <attr name="basicText" format="string"/>
+        <attr name="basicTextColor" format="color"/>
+        <attr name="basicTextSize" format="dimension"/>
+    </declare-styleable>
+
 </resources>

@@ -12,6 +12,6 @@ public class CustomFragment extends BaseListFragment {
 
     @Override
     protected void showFragment(List<FragmentBean> fragmentBeans) {
-        fragmentBeans.add(new FragmentBean("Base", CustomBaseFragment.class));
+        fragmentBeans.add(new FragmentBean("Base", CustomBasicFragment.class));
     }
 }

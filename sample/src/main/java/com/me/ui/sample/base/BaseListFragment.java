@@ -31,17 +31,22 @@ public abstract class BaseListFragment extends BaseFragment implements AdapterVi
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(getContentViewId(), container, false);
-        mFrameLayout = (FrameLayout) view.findViewById(R.id.fl_base);
-        addView();
-        return view;
+        return inflater.inflate(getContentViewId(), container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
     }
 
     protected int getContentViewId() {
         return R.layout.fragment_base;
     }
 
-    protected void addView() {
+    protected void initView(View view) {
+        mFrameLayout = (FrameLayout) view.findViewById(R.id.fl_base);
+
         ListView listView = new ListView(getActivity());
         List<FragmentBean> fragmentBeans = new ArrayList<>();
         showFragment(fragmentBeans);
