@@ -13,8 +13,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="10dip"
+        android:layout_margin="@dimen/margin_common"
+        android:padding="@dimen/padding_common"
         app:basicText="9527"
         app:basicTextColor="#ff0000"
         app:basicTextSize="40sp"/>
+
+    <TextView
+        style="@style/TextItemHeader"
+        android:text="BasicImageView"/>
+
+    <com.me.ui.custom.BasicImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_common"
+        android:padding="@dimen/padding_common"
+        app:image="@mipmap/ic_launcher"
+        app:imageScaleType="center"
+        app:imageText="Hello the weekend!!!"
+        app:imageTextColor="#ff0000"
+        app:imageTextSize="20sp"/>
+
+    <com.me.ui.custom.BasicImageView
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_common"
+        android:padding="@dimen/padding_common"
+        app:image="@mipmap/ic_launcher"
+        app:imageScaleType="center"
+        app:imageText="Hello the weekend!!!"
+        app:imageTextColor="#00ff00"
+        app:imageTextSize="18sp"/>
+
+    <com.me.ui.custom.BasicImageView
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_common"
+        android:padding="@dimen/padding_common"
+        app:image="@mipmap/ic_launcher"
+        app:imageScaleType="center"
+        app:imageText="妹子"
+        app:imageTextColor="#0000ff"
+        app:imageTextSize="15sp"/>
 </LinearLayout>

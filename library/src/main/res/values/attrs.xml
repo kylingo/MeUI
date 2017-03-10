@@ -83,4 +83,15 @@
         <attr name="basicTextSize" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="BasicImageView">
+        <attr name="imageText" format="string"/>
+        <attr name="imageTextColor" format="color"/>
+        <attr name="imageTextSize" format="dimension"/>
+        <attr name="image" format="reference"/>
+        <attr name="imageScaleType">
+            <enum name="fillXY" value="0"/>
+            <enum name="center" value="1"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

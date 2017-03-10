@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.TextView;
 
 import com.me.ui.R;
 
@@ -20,7 +19,7 @@ import java.util.Set;
 /**
  * @author tangqi on 17-3-9.
  */
-public class BasicTextView extends TextView {
+public class BasicTextView extends View {
 
     protected static final int DEFAULT_TEXT_SIZE = 15;
 
