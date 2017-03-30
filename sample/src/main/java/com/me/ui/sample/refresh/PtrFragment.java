@@ -1,12 +1,8 @@
 package com.me.ui.sample.refresh;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,7 +18,7 @@ import java.util.List;
  * @author tangqi on 16-12-29.
  */
 
-public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBase.OnRefreshListener2 {
+public class PtrFragment extends BaseFragment implements PullToRefreshBase.OnRefreshListener2 {
 
     private static final int DELAY_REFRESH = 1000;
 
@@ -30,16 +26,9 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
     private ArrayAdapter<String> mArrayAdapter;
     private Handler mHandler;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_refresh, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
+    protected int getLayoutId() {
+        return R.layout.fragment_refresh;
     }
 
     @Override
@@ -53,7 +42,8 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
     }
 
     @SuppressWarnings("unchecked")
-    private void initView(View view) {
+    @Override
+    protected void initView(View view) {
         mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.lv_refresh);
         mPullToRefreshListView.setOnRefreshListener(this);
         ListView mListView = mPullToRefreshListView.getRefreshableView();

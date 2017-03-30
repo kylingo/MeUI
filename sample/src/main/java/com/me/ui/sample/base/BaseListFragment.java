@@ -1,12 +1,9 @@
 package com.me.ui.sample.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
@@ -21,29 +18,19 @@ import java.util.List;
  * @author tangqi on 16-12-29.
  */
 
-public abstract class BaseListFragment extends BaseFragment implements AdapterView.OnItemClickListener{
+public abstract class BaseListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     protected FrameLayout mFrameLayout;
     protected ArrayAdapter<FragmentBean> mArrayAdapter;
 
     protected abstract void showFragment(List<FragmentBean> fragmentBeans);
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(getContentViewId(), container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
-    }
-
-    protected int getContentViewId() {
+    protected int getLayoutId() {
         return R.layout.fragment_base;
     }
 
+    @Override
     protected void initView(View view) {
         mFrameLayout = (FrameLayout) view.findViewById(R.id.fl_base);
 

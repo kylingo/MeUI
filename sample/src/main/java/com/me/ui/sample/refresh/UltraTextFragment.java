@@ -1,10 +1,6 @@
 package com.me.ui.sample.refresh;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.me.ui.sample.R;
 import com.me.ui.sample.base.BaseFragment;
@@ -17,23 +13,17 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
  * @author tangqi on 16-12-30.
  *         Ultra: https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
  */
-public class RefreshUltraTextFragment extends BaseFragment {
+public class UltraTextFragment extends BaseFragment {
 
     private PtrFrameLayout mPtrFrameLayout;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_refresh_ultra_text, container, false);
+    protected int getLayoutId() {
+        return R.layout.fragment_refresh_ultra_text;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
-    }
-
-    private void initView(View rootView) {
+    protected void initView(View rootView) {
         mPtrFrameLayout = (PtrFrameLayout) rootView.findViewById(R.id.ptr_frame_ultra);
 
         PtrClassicDefaultHeader header = new PtrClassicDefaultHeader(getContext());

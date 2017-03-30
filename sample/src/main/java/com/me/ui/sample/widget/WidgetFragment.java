@@ -1,4 +1,4 @@
-package com.me.ui.sample.custom;
+package com.me.ui.sample.widget;
 
 import com.me.ui.sample.base.BaseListFragment;
 import com.me.ui.sample.base.FragmentBean;
@@ -6,12 +6,11 @@ import com.me.ui.sample.base.FragmentBean;
 import java.util.List;
 
 /**
- * @author tangqi on 17-3-6.
+ * @author studiotang on 17/3/30
  */
-public class CustomFragment extends BaseListFragment {
-
+public class WidgetFragment extends BaseListFragment{
     @Override
     protected void showFragment(List<FragmentBean> fragmentBeans) {
-        fragmentBeans.add(new FragmentBean(BasicFragment.class));
+        fragmentBeans.add(new FragmentBean(LoadingFragment.class));
     }
 }
