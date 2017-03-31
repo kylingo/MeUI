@@ -25,7 +25,7 @@ import android.graphics.drawable.shapes.Shape;
  * A data structure that holds a Shape and various properties that can be used to define
  * how the shape is drawn.
  */
-public class BallsLoadingShapeHolder {
+public class CircleLoadingShapeHolder {
     private float x = 0, y = 0;
     private ShapeDrawable shape;
     private int color;
@@ -93,7 +93,7 @@ public class BallsLoadingShapeHolder {
         s.resize(s.getWidth(), height);
     }
 
-    public BallsLoadingShapeHolder(ShapeDrawable s) {
+    public CircleLoadingShapeHolder(ShapeDrawable s) {
         shape = s;
     }
 }

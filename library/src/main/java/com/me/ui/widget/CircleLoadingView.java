@@ -21,7 +21,7 @@ import android.view.animation.LinearInterpolator;
 
 import java.util.ArrayList;
 
-public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateListener {
+public class CircleLoadingView extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private static final int ROTATE_DURATION = 900;
     private static final int DURATION = 300;
@@ -29,7 +29,7 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
     private int mInitWidth ,mInitHeight;
     private float mBallRadius, mViewSize, mViewRadius;
     private int ballNum = 6;
-    private ArrayList<BallsLoadingShapeHolder> mBalls = new ArrayList<BallsLoadingShapeHolder>(6);
+    private ArrayList<CircleLoadingShapeHolder> mBalls = new ArrayList<CircleLoadingShapeHolder>(6);
     private ObjectAnimator mRotateAnim;
     private ArrayList<Integer> colorList = new ArrayList<Integer>(6);
     private AnimatorSet disappearAnim, appearAnim;
@@ -40,11 +40,11 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
     private boolean mIsOnDraw;
     private boolean mDelayAppearAnim;
 
-    public MeLoadingView(Context context) {
+    public CircleLoadingView(Context context) {
         super(context);
     }
 
-    public MeLoadingView(Context context, AttributeSet attrs) {
+    public CircleLoadingView(Context context, AttributeSet attrs) {
         super(context, attrs);
         int[] attrsArray = new int[]{
                 android.R.attr.layout_width, // 0
@@ -81,11 +81,11 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
         }
     }
 
-    private BallsLoadingShapeHolder addBall(float x, float y) {
+    private CircleLoadingShapeHolder addBall(float x, float y) {
         OvalShape circle = new OvalShape();
         circle.resize(mBallRadius, mBallRadius);
         ShapeDrawable drawable = new ShapeDrawable(circle);
-        BallsLoadingShapeHolder shapeHolder = new BallsLoadingShapeHolder(drawable);
+        CircleLoadingShapeHolder shapeHolder = new CircleLoadingShapeHolder(drawable);
         shapeHolder.setX(x);
         shapeHolder.setY(y);
         Paint paint = drawable.getPaint();
@@ -95,11 +95,11 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
         return shapeHolder;
     }
 
-    private BallsLoadingShapeHolder addBall(float x, float y, int color) {
+    private CircleLoadingShapeHolder addBall(float x, float y, int color) {
         OvalShape circle = new OvalShape();
         circle.resize(mBallRadius, mBallRadius);
         ShapeDrawable drawable = new ShapeDrawable(circle);
-        BallsLoadingShapeHolder shapeHolder = new BallsLoadingShapeHolder(drawable);
+        CircleLoadingShapeHolder shapeHolder = new CircleLoadingShapeHolder(drawable);
         shapeHolder.setX(x);
         shapeHolder.setY(y);
         Paint paint = drawable.getPaint();
@@ -151,7 +151,7 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
                     @Override
                     public void onAnimationStart(Animator animation) {
                         ObjectAnimator objectAnimator = (ObjectAnimator) animation;
-                        BallsLoadingShapeHolder holder = (BallsLoadingShapeHolder) objectAnimator.getTarget();
+                        CircleLoadingShapeHolder holder = (CircleLoadingShapeHolder) objectAnimator.getTarget();
                         if (holder != null) {
                             holder.setAlpha(1f);
                         }
@@ -202,7 +202,7 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         ObjectAnimator objectAnimator = (ObjectAnimator) animation;
-                        BallsLoadingShapeHolder holder = (BallsLoadingShapeHolder) objectAnimator.getTarget();
+                        CircleLoadingShapeHolder holder = (CircleLoadingShapeHolder) objectAnimator.getTarget();
                         if (holder != null) {
                             holder.setAlpha(0f);
                         }
@@ -243,7 +243,7 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
     /**
      * 0 - normal
      */
-    private ObjectAnimator getZero2Normal(BallsLoadingShapeHolder ball, int orderId) {
+    private ObjectAnimator getZero2Normal(CircleLoadingShapeHolder ball, int orderId) {
         PropertyValuesHolder pvhW = PropertyValuesHolder.ofFloat("width",
                 0, ball.getWidth());
         PropertyValuesHolder pvhH = PropertyValuesHolder.ofFloat("height",
@@ -263,7 +263,7 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
     /**
      * normal - 0
      */
-    private ObjectAnimator getNormal2Zero(BallsLoadingShapeHolder ball, int orderId) {
+    private ObjectAnimator getNormal2Zero(CircleLoadingShapeHolder ball, int orderId) {
         PropertyValuesHolder pvhW = PropertyValuesHolder.ofFloat("width",
                 ball.getWidth(), 0);
         PropertyValuesHolder pvhH = PropertyValuesHolder.ofFloat("height",
@@ -294,7 +294,7 @@ public class MeLoadingView extends View implements ValueAnimator.AnimatorUpdateL
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //if (drawBalls) {
-        for (BallsLoadingShapeHolder ball : mBalls) {
+        for (CircleLoadingShapeHolder ball : mBalls) {
             canvas.translate(ball.getX() - mBallRadius / 2, ball.getY() - mBallRadius / 2);
             ball.getShape().draw(canvas);
             canvas.translate(-ball.getX() + mBallRadius / 2, -ball.getY() + mBallRadius / 2);
