@@ -34,10 +34,10 @@ dependencies {
 }
 
 publish {
-    userOrg = 'studiotang'
-    groupId = 'com.github.studiotang'
+    userOrg = 'kylingo'
+    groupId = 'com.github.kylingo'
     artifactId = 'meui'
     publishVersion = '1.0.0'
     desc = 'Android common ui library'
-    website = 'https://github.com/studiotang/MeUI'
+    website = 'https://github.com/kylingo/MeUI'
 }
