@@ -1,1 +1,1 @@
-./gradlew clean build bintrayUpload -PbintrayUser=studiotang -PbintrayKey=e869e0cdc630ee474e1060271dbae86c4b9ea70b -PdryRun=false
+./gradlew clean build bintrayUpload -PbintrayUser=kylingo -PbintrayKey=53dc621b58e4ecdec2f79d30af7204a60ab4ba41 -PdryRun=false
