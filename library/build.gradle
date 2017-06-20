@@ -5,7 +5,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 102
         versionName "1.0.2"
@@ -37,7 +37,7 @@ publish {
     userOrg = 'kylingo'
     groupId = 'com.github.kylingo'
     artifactId = 'meui'
-    publishVersion = '1.0.2'
+    publishVersion = '1.0.3'
     desc = 'Android common ui library'
     website = 'https://github.com/kylingo/MeUI'
 }
