@@ -3,6 +3,7 @@ package com.me.ui.sample.widget;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.sample.widget.custom.CustomFragment;
+import com.me.ui.sample.widget.loading.LoadingFragment;
 import com.me.ui.sample.widget.refresh.RefreshFragment;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public class WidgetFragment extends SampleListFragment {
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("Custom", CustomFragment.class));
         items.add(new FragmentBean("Refresh", RefreshFragment.class));
+        items.add(new FragmentBean("Loading", LoadingFragment.class));
     }
 }
