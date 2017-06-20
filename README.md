@@ -1,8 +1,10 @@
 ## MeUI
 Android的UI控件库，代码仓库，适合快速开发。
 
+[更新记录](./Release.md)
+
 ## 使用方法
-`compile 'com.github.kylingo:meui:1.0.2'`
+`compile 'com.github.kylingo:meui:1.0.3'`
 
 ## UI
 * 自定义
