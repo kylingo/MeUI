@@ -2,7 +2,7 @@
 Android的UI控件库，代码仓库，适合快速开发。
 
 ## 使用方法
-`compile 'com.github.kylingo:meui:1.0.1'`
+`compile 'com.github.kylingo:meui:1.0.2'`
 
 ## UI
 * 自定义
