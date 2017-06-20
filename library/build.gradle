@@ -37,7 +37,7 @@ publish {
     userOrg = 'kylingo'
     groupId = 'com.github.kylingo'
     artifactId = 'meui'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = 'Android common ui library'
     website = 'https://github.com/kylingo/MeUI'
 }
