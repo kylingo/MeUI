@@ -1,5 +1,5 @@
 ## MeUI
-Android的UI控件库，代码仓库。
+Android的UI控件库，代码仓库，适合快速开发。
 
 ## UI
 * 自定义

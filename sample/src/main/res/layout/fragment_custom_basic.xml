@@ -9,7 +9,7 @@
         style="@style/TextItemHeader"
         android:text="BasicTextView"/>
 
-    <com.me.ui.custom.BasicTextView
+    <com.me.ui.widget.custom.BasicTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -23,7 +23,7 @@
         style="@style/TextItemHeader"
         android:text="BasicImageView"/>
 
-    <com.me.ui.custom.BasicImageView
+    <com.me.ui.widget.custom.BasicImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -35,7 +35,7 @@
         app:imageTextColor="#ff0000"
         app:imageTextSize="20sp"/>
 
-    <com.me.ui.custom.BasicImageView
+    <com.me.ui.widget.custom.BasicImageView
         android:layout_width="100dip"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -47,7 +47,7 @@
         app:imageTextColor="#00ff00"
         app:imageTextSize="18sp"/>
 
-    <com.me.ui.custom.BasicImageView
+    <com.me.ui.widget.custom.BasicImageView
         android:layout_width="100dip"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

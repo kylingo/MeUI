@@ -1,21 +1,18 @@
 package com.me.ui.sample;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 
-import com.me.ui.sample.base.BaseActivity;
+import com.me.ui.library.sample.SampleActivity;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends SampleActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected String getSampleTitle() {
+        return getString(R.string.app_name);
+    }
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        Fragment fragment = new MainFragment();
-        fragmentTransaction.add(R.id.fl_main, fragment, MainFragment.class.getSimpleName());
-        fragmentTransaction.commit();
+    @Override
+    protected Fragment getSampleFragment() {
+        return new MainFragment();
     }
 }

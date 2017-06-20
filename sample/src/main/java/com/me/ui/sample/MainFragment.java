@@ -1,9 +1,9 @@
 package com.me.ui.sample;
 
-import com.me.ui.sample.base.BaseListFragment;
-import com.me.ui.sample.base.FragmentBean;
-import com.me.ui.sample.custom.CustomFragment;
-import com.me.ui.sample.refresh.RefreshFragment;
+import com.me.ui.library.sample.FragmentBean;
+import com.me.ui.library.sample.SampleListFragment;
+import com.me.ui.sample.library.LibraryFragment;
+import com.me.ui.sample.widget.WidgetFragment;
 
 import java.util.List;
 
@@ -11,17 +11,11 @@ import java.util.List;
  * @author tangqi on 16-12-29.
  */
 
-public class MainFragment extends BaseListFragment {
+public class MainFragment extends SampleListFragment {
 
     @Override
-    protected void showFragment(List<FragmentBean> fragmentBeans) {
-        fragmentBeans.add(new FragmentBean("Custom", CustomFragment.class));
-        fragmentBeans.add(new FragmentBean("Refresh", RefreshFragment.class));
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        setActionBarTitle(R.string.app_name);
+    protected void addItems(List<FragmentBean> items) {
+        items.add(new FragmentBean("Widget", WidgetFragment.class));
+        items.add(new FragmentBean("Library", LibraryFragment.class));
     }
 }
