@@ -21,7 +21,7 @@ public abstract class SampleListFragment extends SampleFragment<FragmentBean> {
             Bundle bundle = new Bundle();
             bundle.putString(KEY_TITLE, item.title);
             fragment.setArguments(bundle);
-        } catch (java.lang.InstantiationException | IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
