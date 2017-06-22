@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 102
-        versionName "1.0.2"
+//        versionCode 104
+//        versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -37,7 +37,7 @@ publish {
     userOrg = 'kylingo'
     groupId = 'com.github.kylingo'
     artifactId = 'meui'
-    publishVersion = '1.0.3'
+    publishVersion = '1.0.4'
     desc = 'Android common ui library'
     website = 'https://github.com/kylingo/MeUI'
 }
