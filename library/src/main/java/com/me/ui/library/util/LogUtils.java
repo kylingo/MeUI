@@ -30,14 +30,14 @@ public class LogUtils {
     }
 
     public static void i(String tag, String msg) {
-        Log.d(tag, msg);
+        Log.i(tag, msg);
     }
 
     public static void w(String tag, String msg) {
-        Log.d(tag, msg);
+        Log.w(tag, msg);
     }
 
     public static void e(String tag, String msg) {
-        Log.d(tag, msg);
+        Log.e(tag, msg);
     }
 }
