@@ -6,7 +6,7 @@
               android:orientation="vertical">
 
     <TextView
-        style="@style/TextItemHeader"
+        style="@style/SampleTitleText"
         android:text="BasicTextView"/>
 
     <com.me.ui.widget.custom.BasicTextView
@@ -20,9 +20,9 @@
         app:basicTextSize="40sp"/>
 
     <TextView
-        style="@style/TextItemHeader"
+        style="@style/SampleTitleText"
         android:text="BasicImageView"/>
-
+s
     <com.me.ui.widget.custom.BasicImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

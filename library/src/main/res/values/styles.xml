@@ -1,3 +1,12 @@
 <resources>
 
+    <style name="SampleTitleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sample_title_size</item>
+        <item name="android:background">@color/sample_text_bg</item>
+        <item name="android:textColor">@color/sample_text_color</item>
+        <item name="android:padding">@dimen/sample_title_padding</item>
+        <item name="android:maxLines">1</item>
+    </style>
 </resources>
