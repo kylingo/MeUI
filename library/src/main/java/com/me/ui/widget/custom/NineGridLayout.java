@@ -29,7 +29,9 @@ public class NineGridLayout<T> extends LinearLayout {
     private LayoutParams morePara, moreParaColumnFirst;
     private LayoutParams rowPara;
 
-    private OnItemClickListener mOnItemClickListener;
+    private ImageHolder<T> mImageHolder;
+
+    private List<T> imagesList;
 
     public NineGridLayout(Context context) {
         this(context, null);
@@ -48,19 +50,18 @@ public class NineGridLayout<T> extends LinearLayout {
         imagesList = new ArrayList<>();
     }
 
-    private List<T> imagesList;
-
-    private void setData(List<T> list) {
+    public void setData(List<T> list) {
         if (list != null) {
             imagesList.addAll(list);
             requestLayout();
         }
     }
 
-    public void setList(List<T> lists) throws IllegalArgumentException {
+    public void setList(List<T> lists) {
         if (lists == null) {
-            throw new IllegalArgumentException("imageList is null...");
+            return;
         }
+
         imagesList = lists;
 
         if (MAX_WIDTH > 0) {
@@ -184,7 +185,7 @@ public class NineGridLayout<T> extends LinearLayout {
             imageView.setLayoutParams(position % MAX_PER_ROW_COUNT == 0 ? moreParaColumnFirst : morePara);
         } else {
             imageView.setAdjustViewBounds(true);
-            imageView.setScaleType(ScaleType.CENTER_INSIDE);
+            imageView.setScaleType(ScaleType.CENTER_CROP);
             //imageView.setMaxHeight(pxOneMaxWandH);
 
             int expectW = 0;
@@ -193,8 +194,8 @@ public class NineGridLayout<T> extends LinearLayout {
             if (expectW == 0 || expectH == 0) {
                 imageView.setLayoutParams(onePicPara);
             } else {
-                int actualW = 0;
-                int actualH = 0;
+                int actualW;
+                int actualH;
                 float scale = ((float) expectH) / ((float) expectW);
                 if (expectW > pxOneMaxWandH) {
                     actualW = pxOneMaxWandH;
@@ -210,36 +211,24 @@ public class NineGridLayout<T> extends LinearLayout {
             }
         }
 
+        if (mImageHolder != null) {
+            mImageHolder.onItemClick(t, imageView, position);
+            mImageHolder.displayImage(t, imageView, position);
+        }
 //        imageView.setId(photoInfo.url.hashCode());
-        imageView.setOnClickListener(new ImageOnClickListener(position));
 //        imageView.setBackgroundColor(getResources().getColor(R.color.im_font_color_text_hint));
 
         return imageView;
     }
 
+    public interface ImageHolder<T> {
+        void displayImage(T t, ImageView imageView, int position);
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        mOnItemClickListener = onItemClickListener;
+        void onItemClick(T t, View view, int position);
     }
 
-
-    private class ImageOnClickListener implements View.OnClickListener {
-
-        private int position;
-
-        public ImageOnClickListener(int position) {
-            this.position = position;
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(view, position);
-            }
-        }
-    }
-
-    public interface OnItemClickListener {
-        public void onItemClick(View view, int position);
+    @SuppressWarnings("unchecked")
+    public void setImageHolder(ImageHolder<T> imageHolder) {
+        mImageHolder = imageHolder;
     }
 }
