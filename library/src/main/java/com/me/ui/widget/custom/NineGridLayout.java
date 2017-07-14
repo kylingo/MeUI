@@ -13,25 +13,25 @@ import java.util.List;
 /**
  * @author tangqi on 17-7-5.
  *         see {#https://github.com/Naoki2015/CircleDemo}
- *         see {#https://github.com/HMY314/NineGridLayoutttps://github.com/Naoki2015/CircleDemo}
+ *         see {#https://github.com/HMY314/NineGridLayout}
  */
 public class NineGridLayout<T> extends LinearLayout {
 
-    public static int MAX_WIDTH = 0;
-
-    private int pxOneMaxWandH;  // 单张图最大允许宽高
-    private int pxMoreWandH = 0;// 多张图的宽高
-    private int pxImagePadding = 12;// 图片间的间距
+    public int MAX_WIDTH = 0;
 
     private int MAX_PER_ROW_COUNT = 3;// 每行显示最大数
+    private int mPxImagePadding = 12;// 图片间的间距
 
-    private LayoutParams onePicPara;
-    private LayoutParams morePara, moreParaColumnFirst;
-    private LayoutParams rowPara;
+    private int mPxOneMaxWandH;  // 单张图最大允许宽高
+    private int mPxMoreWandH = 0;// 多张图的宽高
+
+    private LayoutParams mOnePicPara;
+    private LayoutParams mMorePara, mMoreParaColumnFirst;
+    private LayoutParams mRowPara;
 
     private ImageHolder<T> mImageHolder;
 
-    private List<T> imagesList;
+    private List<T> mImageList;
 
     public NineGridLayout(Context context) {
         this(context, null);
@@ -47,12 +47,12 @@ public class NineGridLayout<T> extends LinearLayout {
 
     public NineGridLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        imagesList = new ArrayList<>();
+        mImageList = new ArrayList<>();
     }
 
     public void setData(List<T> list) {
         if (list != null) {
-            imagesList.addAll(list);
+            mImageList.addAll(list);
             requestLayout();
         }
     }
@@ -62,11 +62,11 @@ public class NineGridLayout<T> extends LinearLayout {
             return;
         }
 
-        imagesList = lists;
+        mImageList = lists;
 
         if (MAX_WIDTH > 0) {
-            pxMoreWandH = (MAX_WIDTH - pxImagePadding * 2) / 3; //解决右侧图片和内容对不齐问题
-            pxOneMaxWandH = MAX_WIDTH * 2 / 3;
+            mPxMoreWandH = (MAX_WIDTH - mPxImagePadding * 2) / 3; //解决右侧图片和内容对不齐问题
+            mPxOneMaxWandH = MAX_WIDTH * 2 / 3;
             initImageLayoutParams();
         }
 
@@ -79,8 +79,8 @@ public class NineGridLayout<T> extends LinearLayout {
             int width = measureWidth(widthMeasureSpec);
             if (width > 0) {
                 MAX_WIDTH = width;
-                if (imagesList != null && imagesList.size() > 0) {
-                    setList(imagesList);
+                if (mImageList != null && mImageList.size() > 0) {
+                    setList(mImageList);
                 }
             }
         }
@@ -118,13 +118,13 @@ public class NineGridLayout<T> extends LinearLayout {
         int wrap = LayoutParams.WRAP_CONTENT;
         int match = LayoutParams.MATCH_PARENT;
 
-        onePicPara = new LayoutParams(wrap, wrap);
+        mOnePicPara = new LayoutParams(wrap, wrap);
 
-        moreParaColumnFirst = new LayoutParams(pxMoreWandH, pxMoreWandH);
-        morePara = new LayoutParams(pxMoreWandH, pxMoreWandH);
-        morePara.setMargins(pxImagePadding, 0, 0, 0);
+        mMoreParaColumnFirst = new LayoutParams(mPxMoreWandH, mPxMoreWandH);
+        mMorePara = new LayoutParams(mPxMoreWandH, mPxMoreWandH);
+        mMorePara.setMargins(mPxImagePadding, 0, 0, 0);
 
-        rowPara = new LayoutParams(match, wrap);
+        mRowPara = new LayoutParams(match, wrap);
     }
 
     // 根据imageView的数量初始化不同的View布局,还要为每一个View作点击效果
@@ -137,14 +137,14 @@ public class NineGridLayout<T> extends LinearLayout {
             return;
         }
 
-        if (imagesList == null || imagesList.size() == 0) {
+        if (mImageList == null || mImageList.size() == 0) {
             return;
         }
 
-        if (imagesList.size() == 1) {
+        if (mImageList.size() == 1) {
             addView(createImageView(0, false));
         } else {
-            int allCount = imagesList.size();
+            int allCount = mImageList.size();
             if (allCount == 4) {
                 MAX_PER_ROW_COUNT = 2;
             } else {
@@ -156,9 +156,9 @@ public class NineGridLayout<T> extends LinearLayout {
                 LinearLayout rowLayout = new LinearLayout(getContext());
                 rowLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-                rowLayout.setLayoutParams(rowPara);
+                rowLayout.setLayoutParams(mRowPara);
                 if (rowCursor != 0) {
-                    rowLayout.setPadding(0, pxImagePadding, 0, 0);
+                    rowLayout.setPadding(0, mPxImagePadding, 0, 0);
                 }
 
                 int columnCount = allCount % MAX_PER_ROW_COUNT == 0 ? MAX_PER_ROW_COUNT
@@ -178,30 +178,33 @@ public class NineGridLayout<T> extends LinearLayout {
     }
 
     private ImageView createImageView(int position, final boolean isMultiImage) {
-        T t = imagesList.get(position);
+        T t = mImageList.get(position);
         ImageView imageView = new ImageView(getContext());
         if (isMultiImage) {
             imageView.setScaleType(ScaleType.CENTER_CROP);
-            imageView.setLayoutParams(position % MAX_PER_ROW_COUNT == 0 ? moreParaColumnFirst : morePara);
+            imageView.setLayoutParams(position % MAX_PER_ROW_COUNT == 0 ? mMoreParaColumnFirst : mMorePara);
         } else {
             imageView.setAdjustViewBounds(true);
             imageView.setScaleType(ScaleType.CENTER_CROP);
             //imageView.setMaxHeight(pxOneMaxWandH);
 
+            // To get image origin size from T
             int expectW = 0;
             int expectH = 0;
 
+            //noinspection ConstantConditions
             if (expectW == 0 || expectH == 0) {
-                imageView.setLayoutParams(onePicPara);
+                imageView.setLayoutParams(mOnePicPara);
             } else {
+                // TODO show image origin size
                 int actualW;
                 int actualH;
                 float scale = ((float) expectH) / ((float) expectW);
-                if (expectW > pxOneMaxWandH) {
-                    actualW = pxOneMaxWandH;
+                if (expectW > mPxOneMaxWandH) {
+                    actualW = mPxOneMaxWandH;
                     actualH = (int) (actualW * scale);
-                } else if (expectW < pxMoreWandH) {
-                    actualW = pxMoreWandH;
+                } else if (expectW < mPxMoreWandH) {
+                    actualW = mPxMoreWandH;
                     actualH = (int) (actualW * scale);
                 } else {
                     actualW = expectW;
@@ -215,9 +218,9 @@ public class NineGridLayout<T> extends LinearLayout {
             mImageHolder.onItemClick(t, imageView, position);
             mImageHolder.displayImage(t, imageView, position);
         }
+
 //        imageView.setId(photoInfo.url.hashCode());
 //        imageView.setBackgroundColor(getResources().getColor(R.color.im_font_color_text_hint));
-
         return imageView;
     }
 
