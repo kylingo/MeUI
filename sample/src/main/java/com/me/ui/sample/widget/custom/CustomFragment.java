@@ -13,6 +13,7 @@ public class CustomFragment extends SampleListFragment {
     @Override
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("Basic", CustomBasicFragment.class));
+        items.add(new FragmentBean("Clock", ClockFragment.class));
         items.add(new FragmentBean("NineGrid", NineGridFragment.class));
     }
 }
