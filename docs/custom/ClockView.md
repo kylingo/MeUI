@@ -15,6 +15,7 @@
 ### 自定义属性
 ```java
  <com.me.ui.widget.custom.ClockView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:circle_color="@android:color/holo_orange_light"

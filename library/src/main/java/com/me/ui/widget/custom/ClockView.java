@@ -93,6 +93,7 @@ public class ClockView extends View {
         a.recycle();
 
         mPaint = new Paint();
+        mPaint.setAntiAlias(true); // 设置扛锯齿
         mCenterPoint = new Point();
         mRunnable = new Runnable() {
             @Override
@@ -172,7 +173,7 @@ public class ClockView extends View {
     }
 
     protected void drawCircle(Canvas canvas) {
-        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(mCircleWidth);
         mPaint.setColor(mCircleColor != 0 ? mCircleColor : mDefaultColor);
         canvas.drawCircle(mCenterPoint.x, mCenterPoint.y, mRadius, mPaint);
