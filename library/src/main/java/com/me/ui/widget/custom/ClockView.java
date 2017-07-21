@@ -172,13 +172,10 @@ public class ClockView extends View {
     }
 
     protected void drawCircle(Canvas canvas) {
-        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         mPaint.setStrokeWidth(mCircleWidth);
         mPaint.setColor(mCircleColor != 0 ? mCircleColor : mDefaultColor);
         canvas.drawCircle(mCenterPoint.x, mCenterPoint.y, mRadius, mPaint);
-
-        mPaint.setStrokeWidth(mCircleWidth);
-        canvas.drawPoint(mCenterPoint.x, mCenterPoint.y, mPaint);
     }
 
     protected void drawGraduate(Canvas canvas) {
@@ -211,11 +208,11 @@ public class ClockView extends View {
         mPaint.setStrokeWidth(mHourWidth);
         mPaint.setColor(mHourColor != 0 ? mHourColor : mDefaultColor);
 
-        int hour = Calendar.getInstance().get(Calendar.HOUR);
-        int minute = Calendar.getInstance().get(Calendar.MINUTE);
-        double radian = getRadian(hour + minute / 60f, 12);
-        int hourLength = mRadius / 2;
-        doDrawTime(canvas, hourLength, radian);
+        final int hour = Calendar.getInstance().get(Calendar.HOUR);
+        final int minute = Calendar.getInstance().get(Calendar.MINUTE);
+        final double radian = getRadian(hour + minute / 60f, 12);
+        final int hourNeedleLength = mRadius / 2;
+        doDrawTime(canvas, hourNeedleLength, radian);
     }
 
     protected void drawMinute(Canvas canvas) {
@@ -226,8 +223,8 @@ public class ClockView extends View {
         final int minute = Calendar.getInstance().get(Calendar.MINUTE);
         final int second = Calendar.getInstance().get(Calendar.SECOND);
         final double radian = getRadian(minute + second / 60f, 60);
-        final int minuteLength = mRadius - 2 * mGraduateLength;
-        doDrawTime(canvas, minuteLength, radian);
+        final int minuteNeedleLength = mRadius - 2 * mGraduateLength;
+        doDrawTime(canvas, minuteNeedleLength, radian);
     }
 
     protected void drawSecond(Canvas canvas) {
@@ -237,8 +234,8 @@ public class ClockView extends View {
 
         final int second = Calendar.getInstance().get(Calendar.SECOND);
         final double radian = getRadian(second, 60);
-        final int secondLength = mRadius - 2 * mGraduateLength;
-        doDrawTime(canvas, secondLength, radian);
+        final int secondNeedleLength = mRadius - 2 * mGraduateLength;
+        doDrawTime(canvas, secondNeedleLength, radian);
     }
 
     protected void doDrawTime(Canvas canvas, int length, double radian) {
