@@ -110,4 +110,7 @@
         <attr name="second_color" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="NineGridLayout">
+        <attr name="image_padding" format="dimension"/>
+    </declare-styleable>
 </resources>
