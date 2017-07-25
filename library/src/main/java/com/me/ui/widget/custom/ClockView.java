@@ -62,7 +62,7 @@ public class ClockView extends View {
         int count = a.getIndexCount();
         for (int i = 0; i < count; i++) {
             int index = a.getIndex(i);
-            if (index == R.styleable.ClockView_radius) {
+            if (index == R.styleable.ClockView_clock_radius) {
                 mRadius = a.getDimensionPixelSize(index, mRadius);
             } else if (index == R.styleable.ClockView_circle_width) {
                 mCircleWidth = a.getDimensionPixelSize(index, mCircleWidth);

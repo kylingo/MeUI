@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         app:circle_color="@android:color/holo_orange_light"
         app:circle_width="1dp"
+        app:clock_radius="80dp"
         app:default_color="@android:color/holo_orange_dark"
         app:graduate_length="6dp"
         app:graduate_width="1dp"
@@ -16,7 +17,6 @@
         app:hour_width="3dp"
         app:minute_color="@android:color/holo_green_light"
         app:minute_width="2dp"
-        app:radius="80dp"
         app:second_color="@android:color/holo_blue_light"
         app:second_width="1dp"/>
 

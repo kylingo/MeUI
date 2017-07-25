@@ -3,11 +3,18 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center_horizontal"
+              android:background="@mipmap/img_test_03"
               android:orientation="vertical">
+    <com.me.ui.widget.loading.CircleLoadingView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_common"/>
 
     <com.me.ui.widget.loading.MeLoadingView
         android:id="@+id/me_loading_view"
         android:layout_width="40dip"
         android:layout_height="40dip"
-        android:padding="@dimen/padding_common"/>
+        android:padding="@dimen/padding_common"
+        android:visibility="gone"/>
+
 </LinearLayout>

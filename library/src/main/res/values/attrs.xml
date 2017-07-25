@@ -95,7 +95,7 @@
     </declare-styleable>
 
     <declare-styleable name="ClockView">
-        <attr name="radius" format="dimension"/>
+        <attr name="clock_radius" format="dimension"/>
         <attr name="circle_width" format="dimension"/>
         <attr name="graduate_length" format="dimension"/>
         <attr name="graduate_width" format="dimension"/>
@@ -112,5 +112,10 @@
 
     <declare-styleable name="NineGridLayout">
         <attr name="image_padding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleLoadingView">
+        <attr name="outside_radius" format="dimension"/>
+        <attr name="inside_radius" format="dimension"/>
     </declare-styleable>
 </resources>
