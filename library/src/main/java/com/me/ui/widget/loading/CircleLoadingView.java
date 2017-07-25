@@ -1,23 +1,39 @@
 package com.me.ui.widget.loading;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Point;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 
 /**
  * @author tangqi on 17-7-24.
  */
 public class CircleLoadingView extends View {
 
-    private int mRadius = 50;
-    private int mInsideRadius = 15;
+    private static final int ROTATE_DURATION = 800;
+    private static final int TOTAL_ANGLE = 360;
+    private static final int COUNT = 8;
+    private static final String[] DEFAULT_COLORS = {
+            "#FA6762", "#F5C414", "#EFD642", "#B1EB42",
+            "#55F151", "#55E2E9", "#3CB5EB", "#6C5EED"
+    };
 
+    private ObjectAnimator mRotateAnimation;
     private Paint mPaint;
     private Point mCenterPoint;
+    private int mRadius = 50;
+    private int mRadiusWidth = 6;
+    private int mInsideRadius = 15;
+    private int mInsideWidth = 6;
+    private int mTangentWidth = 6;
 
     public CircleLoadingView(Context context) {
         this(context, null);
@@ -37,6 +53,17 @@ public class CircleLoadingView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mCenterPoint = new Point();
+    }
+
+    public void start() {
+        mRotateAnimation = getRotateAnim();
+        mRotateAnimation.start();
+    }
+
+    public void stop() {
+        if (mRotateAnimation != null) {
+            mRotateAnimation.cancel();
+        }
     }
 
     @Override
@@ -82,120 +109,109 @@ public class CircleLoadingView extends View {
 
     private void drawCircle(Canvas canvas) {
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(3);
+        mPaint.setStrokeWidth(mRadiusWidth);
         mPaint.setColor(Color.WHITE);
         canvas.drawCircle(mCenterPoint.x, mCenterPoint.y, mRadius, mPaint);
     }
 
     private void drawInsideCircle(Canvas canvas) {
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(3);
+        mPaint.setStrokeWidth(mInsideWidth);
         mPaint.setColor(Color.WHITE);
         canvas.drawCircle(mCenterPoint.x, mCenterPoint.y, mInsideRadius, mPaint);
     }
 
+    /**
+     * 画切线
+     */
     private void drawTangent(Canvas canvas) {
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(3);
-        mPaint.setColor(Color.WHITE);
-
-        final int totalAngle = 360;
-        final int count = 8;
-        final int averageAngle = totalAngle / count;
+        final int averageAngle = TOTAL_ANGLE / COUNT;
         double tangentAngle = Math.acos((mInsideRadius / (float) mRadius));
 
+        Line firstLine = new Line();
         Line lastLine = new Line();
         Line line = new Line();
-        for (int angle = 0; angle < totalAngle; angle += averageAngle) {
+        for (int angle = 0; angle < TOTAL_ANGLE; angle += averageAngle) {
             float radian = (float) Math.toRadians(angle);
             float startX = (float) (mCenterPoint.x + mInsideRadius * Math.cos(radian));
             float startY = (float) (mCenterPoint.y - mInsideRadius * Math.sin(radian));
             float stopX = (float) (mCenterPoint.x + mRadius * Math.cos(tangentAngle));
             float stopY = (float) (mCenterPoint.y - mRadius * Math.sin(tangentAngle));
+
+            mPaint.setStyle(Paint.Style.STROKE);
+            mPaint.setStrokeWidth(mTangentWidth);
+            mPaint.setColor(Color.WHITE);
             canvas.drawLine(startX, startY, stopX, stopY, mPaint);
 
             line.set(startX, startY, stopX, stopY);
-//            if (angle != 0) {
-//                int index = angle / averageAngle;
-//                drawArc(canvas, line, lastLine, index, angle + 90);
-//            }
+            if (angle != 0) {
+                int index = angle / averageAngle;
+                int startAngle = (int) (TOTAL_ANGLE - Math.toDegrees(tangentAngle));
+                drawArc(canvas, line, lastLine, index, startAngle, averageAngle);
+
+                // 最后一个切线和第一个切线的区域
+                if (angle == TOTAL_ANGLE - averageAngle) {
+                    index = 0;
+                    tangentAngle += Math.toRadians(averageAngle);
+                    startAngle = (int) (TOTAL_ANGLE - Math.toDegrees(tangentAngle));
+                    drawArc(canvas, firstLine, line, index, startAngle, averageAngle);
+                }
+            } else {
+                firstLine.set(startX, startY, stopX, stopY);
+            }
             lastLine.set(startX, startY, stopX, stopY);
 
             tangentAngle += Math.toRadians(averageAngle);
         }
     }
 
-    private void drawArc(Canvas canvas, Line line, Line lastLine, int index, int angle) {
+    /**
+     * 填充扇形
+     */
+    private void drawArc(Canvas canvas, Line line, Line lastLine, int index,
+                         int angle, int sweepAngle) {
         mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setStrokeWidth(mRadiusWidth);
         int color = getArcColor(index);
         if (color != 0) {
             mPaint.setColor(color);
         }
 
-        float radian = (float) Math.toRadians(angle);
-        float sweepRadian = (float) Math.toRadians(45);
-        float left = Math.min(Math.min(line.startX, line.stopX),
-                Math.min(lastLine.startX, lastLine.stopX));
-        float right = Math.max(Math.max(line.startX, line.stopX),
-                Math.max(lastLine.startX, lastLine.stopX));
-        float top = Math.min(Math.min(line.startY, line.stopY),
-                Math.min(lastLine.startY, lastLine.stopY));
-        float bottom = Math.max(Math.max(line.startY, line.stopY),
-                Math.max(lastLine.startY, lastLine.stopY));
-        canvas.drawArc(left, top, right, bottom, radian, sweepRadian, true, mPaint);
-//
-//        Path path = new Path();
-//        path.moveTo(line.startX, line.startY);
-//        path.lineTo(line.stopX, line.stopY);
-//
-//        Path lastPath = new Path();
-//        lastPath.moveTo(lastLine.startX, lastLine.startY);
-//        lastPath.lineTo(lastLine.stopX, lastLine.stopY);
-//        path.addPath(lastPath);
-//        canvas.clipPath(path);
-//        canvas.drawCircle(mCenterPoint.x, mCenterPoint.y, mRadius, mPaint);
+        Path path = new Path();
+        path.moveTo(line.stopX, line.stopY);
+        path.lineTo(line.startX, line.startY);
+        path.lineTo(lastLine.startX, lastLine.startY);
+        path.lineTo(lastLine.stopX, lastLine.stopY);
+        RectF oval = new RectF(mCenterPoint.x - mRadius,
+                mCenterPoint.y - mRadius,
+                mCenterPoint.x + mRadius,
+                mCenterPoint.y + mRadius);
+        path.addArc(oval, angle, sweepAngle);
+        path.close();
+
+        canvas.drawPath(path, mPaint);
     }
 
     private int getArcColor(int index) {
         int color;
-        switch (index) {
-            case 0:
-                color = Color.YELLOW;
-                break;
-
-            case 1:
-                color = Color.CYAN;
-                break;
-
-            case 2:
-                color= Color.GREEN;
-                break;
-
-            case 3:
-                color = Color.RED;
-                break;
-
-            case 4:
-                color = Color.BLUE;
-                break;
-
-            case 5:
-                color = Color.MAGENTA;
-                break;
-
-            case 6:
-                color = Color.DKGRAY;
-                break;
-
-            case 7:
-                color = Color.LTGRAY;
-                break;
-
-            default:
-                color = Color.RED;
+        if (index < DEFAULT_COLORS.length) {
+            String colorString = DEFAULT_COLORS[index];
+            color = Color.parseColor(colorString);
+        } else {
+            color = Color.RED;
         }
 
         return color;
+    }
+
+    private ObjectAnimator getRotateAnim() {
+        PropertyValuesHolder rotation = PropertyValuesHolder.ofFloat("rotation",
+                0, 360);
+        ObjectAnimator rotateAnim = ObjectAnimator.ofPropertyValuesHolder(this, rotation)
+                .setDuration(ROTATE_DURATION);
+        rotateAnim.setRepeatCount(-1);
+        rotateAnim.setInterpolator(new LinearInterpolator());
+        return rotateAnim;
     }
 
     private static class Line {
@@ -211,5 +227,4 @@ public class CircleLoadingView extends View {
             this.stopY = stopY;
         }
     }
-
 }

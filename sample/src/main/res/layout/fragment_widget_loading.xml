@@ -6,6 +6,7 @@
               android:background="@mipmap/img_test_03"
               android:orientation="vertical">
     <com.me.ui.widget.loading.CircleLoadingView
+        android:id="@+id/circle_loading_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_common"/>
