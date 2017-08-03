@@ -15,7 +15,7 @@ public class MainFragment extends SampleListFragment {
 
     @Override
     protected void addItems(List<FragmentBean> items) {
-        items.add(new FragmentBean("Widget", WidgetFragment.class));
-        items.add(new FragmentBean("Library", LibraryFragment.class));
+        items.add(new FragmentBean("组件", WidgetFragment.class));
+        items.add(new FragmentBean("代码库", LibraryFragment.class));
     }
 }

@@ -12,8 +12,9 @@ public class CustomFragment extends SampleListFragment {
 
     @Override
     protected void addItems(List<FragmentBean> items) {
-        items.add(new FragmentBean("Basic", CustomBasicFragment.class));
-        items.add(new FragmentBean("Clock", ClockFragment.class));
-        items.add(new FragmentBean("NineGrid", NineGridFragment.class));
+        items.add(new FragmentBean("简单视图", CustomBasicFragment.class));
+        items.add(new FragmentBean("时钟", ClockFragment.class));
+        items.add(new FragmentBean("九宫格", NineGridFragment.class));
+        items.add(new FragmentBean("涂鸦板", GraffitiFragment.class));
     }
 }

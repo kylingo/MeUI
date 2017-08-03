@@ -15,8 +15,8 @@ public class WidgetFragment extends SampleListFragment {
 
     @Override
     protected void addItems(List<FragmentBean> items) {
-        items.add(new FragmentBean("Custom", CustomFragment.class));
-        items.add(new FragmentBean("Refresh", RefreshFragment.class));
-        items.add(new FragmentBean("Loading", LoadingFragment.class));
+        items.add(new FragmentBean("自定义", CustomFragment.class));
+        items.add(new FragmentBean("下拉刷新", RefreshFragment.class));
+        items.add(new FragmentBean("加载", LoadingFragment.class));
     }
 }
