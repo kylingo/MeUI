@@ -20,7 +20,7 @@ public class GraffitiView extends SurfaceView implements SurfaceHolder.Callback,
     private Paint mPaint;
 
     private boolean isRunning;
-    private boolean isDrawing;
+    private boolean mIsDrawing;
 
     public GraffitiView(Context context) {
         this(context, null);
@@ -51,14 +51,14 @@ public class GraffitiView extends SurfaceView implements SurfaceHolder.Callback,
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(15);
+        mPaint.setStrokeWidth(6);
 
-        isDrawing = true;
+        mIsDrawing = true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        isDrawing = true;
+        mIsDrawing = true;
 
         int x = (int) event.getX();
         int y = (int) event.getY();
@@ -99,14 +99,15 @@ public class GraffitiView extends SurfaceView implements SurfaceHolder.Callback,
     @Override
     public void run() {
         while (isRunning) {
-            if (isDrawing) {
+            if (mIsDrawing) {
                 draw();
             }
         }
     }
 
     public void clean() {
-        initView();
+        mPath.reset();
+        mIsDrawing = true;
     }
 
     private void draw() {
@@ -122,6 +123,6 @@ public class GraffitiView extends SurfaceView implements SurfaceHolder.Callback,
             }
         }
 
-        isDrawing = false;
+        mIsDrawing = false;
     }
 }
