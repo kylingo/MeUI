@@ -32,7 +32,7 @@ public class CustomBasicFragment extends BaseFragment {
         CharSequence html = Html.fromHtml(text, new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
-                Drawable drawable = getActivity().getDrawable(R.mipmap.ic_launcher);
+                Drawable drawable = getActivity().getDrawable(R.drawable.ic_launcher);
                 if (drawable != null) {
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 }
@@ -48,7 +48,7 @@ public class CustomBasicFragment extends BaseFragment {
         Pattern pattern = Pattern.compile(regString);
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
-            builder.setSpan(new ImageSpan(getActivity(), R.mipmap.ic_launcher),
+            builder.setSpan(new ImageSpan(getActivity(), R.drawable.ic_launcher),
                     matcher.start(), matcher.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
 

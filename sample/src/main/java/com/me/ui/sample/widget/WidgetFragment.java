@@ -6,6 +6,7 @@ import com.me.ui.sample.widget.custom.CustomFragment;
 import com.me.ui.sample.widget.decoration.DecorationFragment;
 import com.me.ui.sample.widget.loading.LoadingFragment;
 import com.me.ui.sample.widget.refresh.RefreshFragment;
+import com.me.ui.sample.widget.web.WebIndexFragment;
 
 import java.util.List;
 
@@ -20,5 +21,6 @@ public class WidgetFragment extends SampleListFragment {
         items.add(new FragmentBean("下拉刷新", RefreshFragment.class));
         items.add(new FragmentBean("加载", LoadingFragment.class));
         items.add(new FragmentBean("分割线", DecorationFragment.class));
+        items.add(new FragmentBean("网页加载", WebIndexFragment.class));
     }
 }

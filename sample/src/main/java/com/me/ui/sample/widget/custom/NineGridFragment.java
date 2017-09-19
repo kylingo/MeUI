@@ -45,9 +45,9 @@ public class NineGridFragment extends BaseFragment {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < MAX_COUNT; i++) {
             if (i % 2 == 0) {
-                list.add(R.mipmap.img_test_01);
+                list.add(R.drawable.img_test_01);
             } else {
-                list.add(R.mipmap.img_test_02);
+                list.add(R.drawable.img_test_02);
             }
         }
         return list;
