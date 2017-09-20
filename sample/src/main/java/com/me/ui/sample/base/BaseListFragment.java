@@ -40,14 +40,19 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
         }
 
         initRecyclerView(mRecyclerView);
-
-        ColorAdapter adapter = new ColorAdapter();
+        RecyclerView.Adapter adapter = getAdapter();
         mRecyclerView.setAdapter(adapter);
-        adapter.setData(getData());
+
     }
 
     protected void initRecyclerView(RecyclerView recyclerView) {
 
+    }
+
+    protected RecyclerView.Adapter getAdapter() {
+        ColorAdapter adapter = new ColorAdapter();
+        adapter.setData(getData());
+        return adapter;
     }
 
     protected List<ColorItem> getData() {

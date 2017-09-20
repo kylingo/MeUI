@@ -59,7 +59,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.MainHolder> 
 
     public static class MainHolder extends RecyclerView.ViewHolder {
 
-        TextView tvMain;
+        public TextView tvMain;
 
         public MainHolder(View itemView) {
             super(itemView);
