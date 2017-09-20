@@ -1,4 +1,4 @@
-package com.me.ui.sample.widget.decoration;
+package com.me.ui.sample.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

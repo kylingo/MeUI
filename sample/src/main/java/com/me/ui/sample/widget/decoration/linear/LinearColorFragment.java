@@ -3,7 +3,7 @@ package com.me.ui.sample.widget.decoration.linear;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.me.ui.sample.widget.decoration.BaseListFragment;
+import com.me.ui.sample.base.BaseListFragment;
 import com.me.ui.widget.decoration.LinearItemDecoration;
 
 /**

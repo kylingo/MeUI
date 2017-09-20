@@ -3,7 +3,7 @@ package com.me.ui.sample.widget.decoration.grid;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.me.ui.sample.widget.decoration.BaseListFragment;
+import com.me.ui.sample.base.BaseListFragment;
 
 /**
  * @author tangqi on 17-6-20.

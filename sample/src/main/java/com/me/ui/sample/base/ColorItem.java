@@ -1,4 +1,4 @@
-package com.me.ui.sample.widget.decoration;
+package com.me.ui.sample.base;
 
 /**
  * @author tangqi on 17-6-19.
