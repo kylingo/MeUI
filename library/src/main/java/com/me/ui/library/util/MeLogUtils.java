@@ -5,32 +5,43 @@ import android.util.Log;
 /**
  * @author tangqi on 17-6-26.
  */
-public class LogUtils {
+public class MeLogUtils {
+
+    private static boolean flag = true;
+
+    // log control
+    public static void setState(boolean enable) {
+        flag = enable;
+    }
 
     // log tag by class name
     public static void d(Class clazz, String msg) {
-        Log.d(clazz.getSimpleName(), msg);
+        d(clazz.getSimpleName(), msg);
     }
 
     public static void i(Class clazz, String msg) {
-        Log.i(clazz.getSimpleName(), msg);
+        i(clazz.getSimpleName(), msg);
     }
 
     public static void w(Class clazz, String msg) {
-        Log.w(clazz.getSimpleName(), msg);
+        w(clazz.getSimpleName(), msg);
     }
 
     public static void e(Class clazz, String msg) {
-        Log.e(clazz.getSimpleName(), msg);
+        e(clazz.getSimpleName(), msg);
     }
 
     // log tag by string
     public static void d(String tag, String msg) {
-        Log.d(tag, msg);
+        if (flag) {
+            Log.d(tag, msg);
+        }
     }
 
     public static void i(String tag, String msg) {
-        Log.i(tag, msg);
+        if (flag) {
+            Log.i(tag, msg);
+        }
     }
 
     public static void w(String tag, String msg) {

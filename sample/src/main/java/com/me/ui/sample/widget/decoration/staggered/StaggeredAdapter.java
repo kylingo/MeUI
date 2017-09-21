@@ -3,7 +3,7 @@ package com.me.ui.sample.widget.decoration.staggered;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.me.ui.library.util.MeViewUtils;
+import com.blankj.utilcode.util.ConvertUtils;
 import com.me.ui.sample.base.ColorAdapter;
 
 import java.util.Random;
@@ -20,7 +20,7 @@ public class StaggeredAdapter extends ColorAdapter {
         super.onBindViewHolder(holder, position);
         holder.tvMain.setLayoutParams(
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        MeViewUtils.dip2px(holder.tvMain.getContext(), getRandom())));
+                        ConvertUtils.dp2px(getRandom())));
     }
 
     protected int getRandom() {
