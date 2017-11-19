@@ -2,6 +2,7 @@ package com.me.ui.sample.widget;
 
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleListFragment;
+import com.me.ui.sample.widget.anim.AnimFragment;
 import com.me.ui.sample.widget.custom.CustomFragment;
 import com.me.ui.sample.widget.decoration.DecorationFragment;
 import com.me.ui.sample.widget.loading.LoadingFragment;
@@ -22,5 +23,6 @@ public class WidgetFragment extends SampleListFragment {
         items.add(new FragmentBean("加载", LoadingFragment.class));
         items.add(new FragmentBean("分割线", DecorationFragment.class));
         items.add(new FragmentBean("网页加载", WebIndexFragment.class));
+        items.add(new FragmentBean("动画", AnimFragment.class));
     }
 }
