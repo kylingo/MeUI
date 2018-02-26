@@ -1,13 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 23
 
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion 14
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
 
@@ -27,8 +28,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:23.4.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+publish {
+    userOrg = 'kylingo'
+    groupId = 'com.github.kylingo'
+    artifactId = 'quickly'
+    publishVersion = '1.0.0'
+    desc = 'Android common quickly library'
+    website = 'https://github.com/kylingo/MeUI'
 }
