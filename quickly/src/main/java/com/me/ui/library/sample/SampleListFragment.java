@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
-import com.me.ui.R;
+import com.me.ui.quickly.R;
+
 
 /**
  * @author tangqi on 16-12-29.

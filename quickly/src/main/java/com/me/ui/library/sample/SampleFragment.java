@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.me.ui.R;
+import com.me.ui.quickly.R;
 
 import java.util.ArrayList;
 import java.util.List;

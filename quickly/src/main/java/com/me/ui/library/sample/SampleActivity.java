@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import com.me.ui.R;
+import com.me.ui.quickly.R;
 
 import java.util.List;
 
