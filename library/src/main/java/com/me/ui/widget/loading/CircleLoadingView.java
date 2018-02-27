@@ -44,11 +44,7 @@ public class CircleLoadingView extends View {
     }
 
     public CircleLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
-    }
-
-    public CircleLoadingView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
@@ -74,7 +70,7 @@ public class CircleLoadingView extends View {
         if (specWidthMode == MeasureSpec.EXACTLY) {
             width = specWidthSize;
         } else {
-            width = mRadius * 2 + getPaddingStart() + getPaddingEnd();
+            width = mRadius * 2 + getPaddingLeft() + getPaddingRight();
         }
 
         int specHeightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -204,7 +200,7 @@ public class CircleLoadingView extends View {
         return color;
     }
 
-    private ObjectAnimator getRotateAnim() {
+    private ObjectAnimator  getRotateAnim() {
         PropertyValuesHolder rotation = PropertyValuesHolder.ofFloat("rotation",
                 0, 360);
         ObjectAnimator rotateAnim = ObjectAnimator.ofPropertyValuesHolder(this, rotation)

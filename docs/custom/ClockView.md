@@ -2,7 +2,7 @@
 一个漂亮的时钟控件
 
 ## 控件效果
-![](./image/ClockView.gif)
+<img src="./image/ClockView.gif" width="50%"/>
 
 ## 使用方法
 ### 简单使用
