@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.me.ui.sample"
-        minSdkVersion 23
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 100
         versionName "1.0.0"
@@ -20,18 +20,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        // 设置编译的lint开关，程序在build的时候，会执行lint检查，有任何的错误或者警告提示，都会终止构建
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'in.srain.cube:ultra-ptr:1.0.11'
-    compile 'com.blankj:utilcode:1.9.0'
-    compile 'com.airbnb.android:lottie:2.3.0'
-    compile project(':library')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'in.srain.cube:ultra-ptr:1.0.11'
+    implementation 'com.blankj:utilcode:1.9.0'
+    implementation 'com.airbnb.android:lottie:2.3.0'
+    implementation project(':library')
     implementation project(':quickly')
 }
