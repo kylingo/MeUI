@@ -30,9 +30,9 @@ public class RefreshUltraFragment extends BaseFragment {
 
     @Override
     protected void initView(View rootView) {
-        mPtrFrameLayout = (PtrFrameLayout) rootView.findViewById(R.id.ptr_frame_ultra);
+        mPtrFrameLayout = rootView.findViewById(R.id.ptr_frame_ultra);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.lv_ultra);
+        ListView listView = rootView.findViewById(R.id.lv_ultra);
         mArrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, getData());
         listView.setAdapter(mArrayAdapter);
 

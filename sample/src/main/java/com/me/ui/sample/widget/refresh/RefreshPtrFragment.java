@@ -1,7 +1,5 @@
 package com.me.ui.sample.widget.refresh;
 
-import android.content.Context;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -24,17 +22,6 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
 
     private PullToRefreshListView mPullToRefreshListView;
     private ArrayAdapter<String> mArrayAdapter;
-    private Handler mHandler;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        initData();
-    }
-
-    private void initData() {
-        mHandler = new Handler();
-    }
 
     @Override
     protected int getContentViewId() {
@@ -44,7 +31,7 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
     @SuppressWarnings("unchecked")
     @Override
     protected void initView(View view) {
-        mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.lv_refresh);
+        mPullToRefreshListView = view.findViewById(R.id.lv_refresh);
         mPullToRefreshListView.setOnRefreshListener(this);
         ListView mListView = mPullToRefreshListView.getRefreshableView();
 
@@ -66,7 +53,7 @@ public class RefreshPtrFragment extends BaseFragment implements PullToRefreshBas
 
     @Override
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
-        mHandler.postDelayed(new Runnable() {
+        mPullToRefreshListView.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mArrayAdapter.addAll(getData());
