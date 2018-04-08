@@ -1,7 +1,7 @@
 package com.me.ui.sample.widget.refresh;
 
-import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.library.sample.FragmentBean;
+import com.me.ui.library.sample.SampleListFragment;
 
 import java.util.List;
 
@@ -16,5 +16,6 @@ public class RefreshFragment extends SampleListFragment {
         items.add(new FragmentBean("Ptr", RefreshPtrFragment.class));
         items.add(new FragmentBean("Ultra", RefreshUltraFragment.class));
         items.add(new FragmentBean("UltraText", RefreshUltraTextFragment.class));
+        items.add(new FragmentBean("Smart", RefreshSmartFragment.class));
     }
 }
