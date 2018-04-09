@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * @author kylingo on 18/4/8
+ *         https://github.com/scwang90/SmartRefreshLayout
  */
 public class RefreshSmartFragment extends BaseFragment {
 
