@@ -12,6 +12,6 @@ public class LibraryFragment extends SampleListFragment {
 
     @Override
     protected void addItems(List<FragmentBean> items) {
-
+        items.add(new FragmentBean("下载", DownloadFragment.class));
     }
 }

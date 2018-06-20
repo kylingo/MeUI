@@ -2,4 +2,9 @@
     <string name="app_name">MeUI</string>
     <string name="decs_text">三月桃花盛开时，十里春风不如李。</string>
     <string name="graffiti_clean">清除</string>
+    <string name="download_start">start</string>
+    <string name="download_pause">pause</string>
+    <string name="download_delete">delete</string>
+    <string name="download_finish">finish</string>
+    <string name="download_error">error</string>
 </resources>

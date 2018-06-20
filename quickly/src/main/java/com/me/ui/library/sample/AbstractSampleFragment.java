@@ -1,5 +1,6 @@
 package com.me.ui.library.sample;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,10 +15,17 @@ import android.view.ViewGroup;
 public abstract class AbstractSampleFragment extends Fragment {
 
     public static final String KEY_TITLE = "key_title";
+    protected Context mContext;
 
     protected abstract int getContentViewId();
 
     protected abstract void initView(View view);
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+    }
 
     @Nullable
     @Override
