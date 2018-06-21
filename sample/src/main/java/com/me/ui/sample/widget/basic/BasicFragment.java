@@ -1,0 +1,19 @@
+package com.me.ui.sample.widget.basic;
+
+import com.me.ui.library.sample.FragmentBean;
+import com.me.ui.library.sample.SampleListFragment;
+import com.me.ui.sample.widget.TestFragment;
+
+import java.util.List;
+
+/**
+ * @author kylingo on 18/6/21
+ */
+public class BasicFragment extends SampleListFragment {
+
+    @Override
+    protected void addItems(List<FragmentBean> items) {
+        items.add(new FragmentBean("测试", TestFragment.class));
+        items.add(new FragmentBean("文本样式", SpanFragment.class));
+    }
+}
