@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 夜间主题 -->
+    <color name="color_primary">#21292C</color>
+    <color name="color_primary_dark">#11191C</color>
+</resources>
