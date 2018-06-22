@@ -8,6 +8,7 @@ import com.me.ui.sample.widget.custom.CustomFragment;
 import com.me.ui.sample.widget.decoration.DecorationFragment;
 import com.me.ui.sample.widget.loading.LoadingFragment;
 import com.me.ui.sample.widget.refresh.RefreshFragment;
+import com.me.ui.sample.widget.screen.ScreenFragment;
 import com.me.ui.sample.widget.web.WebIndexFragment;
 
 import java.util.List;
@@ -26,5 +27,6 @@ public class WidgetFragment extends SampleListFragment {
         items.add(new FragmentBean("分割线", DecorationFragment.class));
         items.add(new FragmentBean("网页加载", WebIndexFragment.class));
         items.add(new FragmentBean("动画", AnimFragment.class));
+        items.add(new FragmentBean("截屏", ScreenFragment.class));
     }
 }

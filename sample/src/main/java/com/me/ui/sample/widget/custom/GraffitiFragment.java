@@ -3,7 +3,7 @@ package com.me.ui.sample.widget.custom;
 import android.view.View;
 import android.widget.Button;
 
-import com.me.ui.sample.BaseFragment;
+import com.me.ui.sample.base.BaseFragment;
 import com.me.ui.sample.R;
 import com.me.ui.widget.custom.GraffitiView;
 

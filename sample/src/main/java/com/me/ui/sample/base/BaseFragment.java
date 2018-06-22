@@ -1,4 +1,4 @@
-package com.me.ui.sample;
+package com.me.ui.sample.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

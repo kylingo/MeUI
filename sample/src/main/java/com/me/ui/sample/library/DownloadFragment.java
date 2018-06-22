@@ -9,7 +9,7 @@ import com.me.ui.library.download.DownloadItem;
 import com.me.ui.library.download.DownloadStorageHelper;
 import com.me.ui.library.download.DownloadTask;
 import com.me.ui.library.download.DownloadTaskListener;
-import com.me.ui.sample.BaseFragment;
+import com.me.ui.sample.base.BaseFragment;
 import com.me.ui.sample.R;
 
 import java.util.concurrent.LinkedBlockingQueue;

@@ -16,6 +16,7 @@ public abstract class AbstractSampleFragment extends Fragment {
 
     public static final String KEY_TITLE = "key_title";
     protected Context mContext;
+    protected View mRootView;
 
     protected abstract int getContentViewId();
 
@@ -36,6 +37,7 @@ public abstract class AbstractSampleFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mRootView = view;
         initView(view);
     }
 

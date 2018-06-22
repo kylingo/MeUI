@@ -2,7 +2,7 @@ package com.me.ui.sample.widget.anim;
 
 import android.view.View;
 
-import com.me.ui.sample.BaseFragment;
+import com.me.ui.sample.base.BaseFragment;
 import com.me.ui.sample.R;
 
 /**

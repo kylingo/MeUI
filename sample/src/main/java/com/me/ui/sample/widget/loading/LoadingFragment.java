@@ -2,7 +2,7 @@ package com.me.ui.sample.widget.loading;
 
 import android.view.View;
 
-import com.me.ui.sample.BaseFragment;
+import com.me.ui.sample.base.BaseFragment;
 import com.me.ui.sample.R;
 import com.me.ui.widget.loading.CircleLoadingView;
 import com.me.ui.widget.loading.MeLoadingView;

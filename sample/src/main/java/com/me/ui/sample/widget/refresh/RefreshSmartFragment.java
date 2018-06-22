@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.me.ui.sample.BaseFragment;
+import com.me.ui.sample.base.BaseFragment;
 import com.me.ui.sample.R;
 import com.me.ui.sample.base.RefreshAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;

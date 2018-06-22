@@ -10,6 +10,7 @@ import com.me.ui.widget.decoration.LinearItemDecoration;
  * @author tangqi on 17-6-20.
  */
 public class LinearColorFragment extends BaseListFragment {
+
     @Override
     protected RecyclerView.LayoutManager getLayoutManager() {
         return new LinearLayoutManager(getActivity());

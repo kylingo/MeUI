@@ -1,26 +1,33 @@
 package com.me.ui.sample.widget.web;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.me.ui.library.sample.AbstractSampleFragment;
 import com.me.ui.sample.R;
+import com.me.ui.sample.base.BaseMenuFragment;
 
 /**
  * @author studiotang on 17/9/19
  */
-public class WebFragment extends AbstractSampleFragment {
-    private static final int DELAY_DIFF = 2000;
+public class WebFragment extends BaseMenuFragment {
     private static final String DEFAULT_URL = "https://kylingo.github.io";
-    private long mLastExitTime;
 
-    private WebView mWebView;
-    private ProgressBar mProgressBar;
+    private static final int MIN_FONT_SIZE = 8;
+    private static final int MIN_LOGICAL_FONT_SIZE = 8;
+    private static final int DEFAULT_FONT_SIZE = 16;
+    private static final int DEFAULT_FIXED_FONT_SIZE = 13;
+
+    protected WebView mWebView;
+    protected ProgressBar mProgressBar;
 
     @Override
     protected int getContentViewId() {
@@ -32,8 +39,7 @@ public class WebFragment extends AbstractSampleFragment {
         mProgressBar = (ProgressBar) view.findViewById(R.id.pb_web_load);
 
         mWebView = (WebView) view.findViewById(R.id.wv_web);
-        mWebView.getSettings().setDefaultTextEncodingName("UTF-8");
-        mWebView.getSettings().setJavaScriptEnabled(true);
+        initSettings();
         loadDefaultUrl();
 
         mWebView.setWebViewClient(new CustomWebViewClient());
@@ -52,6 +58,11 @@ public class WebFragment extends AbstractSampleFragment {
                 return false;
             }
         });
+    }
+
+    @Override
+    protected void onMenuClick(MenuItem item) {
+
     }
 
     private class CustomWebViewClient extends WebViewClient {
@@ -88,7 +99,38 @@ public class WebFragment extends AbstractSampleFragment {
         }
     }
 
-    ;
+    protected void initSettings() {
+        WebSettings webSettings = mWebView.getSettings();
+        if(webSettings != null) {
+            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+            webSettings.setUseWideViewPort(true);
+            webSettings.setLoadsImagesAutomatically(true);
+            webSettings.setJavaScriptEnabled(true);
+            webSettings.setDefaultTextEncodingName("utf-8");
+            webSettings.setJavaScriptCanOpenWindowsAutomatically(false);
+            webSettings.setMinimumFontSize(MIN_FONT_SIZE);
+            webSettings.setMinimumLogicalFontSize(MIN_LOGICAL_FONT_SIZE);
+            webSettings.setDefaultFontSize(DEFAULT_FONT_SIZE);
+            webSettings.setDefaultFixedFontSize(DEFAULT_FIXED_FONT_SIZE);
+            webSettings.setTextSize(WebSettings.TextSize.NORMAL);
+            webSettings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
+            webSettings.setLightTouchEnabled(false);
+            webSettings.setSaveFormData(true);
+            webSettings.setSavePassword(true);
+            webSettings.setLoadWithOverviewMode(true);
+            webSettings.setNeedInitialFocus(false);
+            webSettings.setSupportMultipleWindows(false);
+            webSettings.setAllowFileAccess(true);
+            webSettings.setAppCacheEnabled(true);
+            webSettings.setDomStorageEnabled(true);
+            webSettings.setDatabaseEnabled(true);
+            if (Build.VERSION.SDK_INT >= 21) {
+                webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                CookieManager cookieManager = CookieManager.getInstance();
+                cookieManager.setAcceptThirdPartyCookies(mWebView, true);
+            }
+        }
+    }
 
     protected void loadDefaultUrl() {
         loadUrl(getDefaultUrl());
