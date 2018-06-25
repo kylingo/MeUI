@@ -12,9 +12,13 @@ import com.me.ui.sample.support.config.SpKey;
  */
 public class ThemeUtils {
 
-    public static void changeTheme(@NonNull Activity activity, boolean isLight) {
+    /**
+     * Change theme
+     *
+     * @see #reCreate(Activity) take effect
+     */
+    public static void changeTheme(boolean isLight) {
         SPUtils.getInstance().put(SpKey.THEME, isLight);
-        setTheme(activity);
     }
 
     public static void setTheme(@NonNull Activity activity) {

@@ -16,7 +16,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 * 进度条
 * 对话框
 * 动画
-* 夜间模式
+* [夜间模式]
 * 主题更改
 * Material Design
 * Banner

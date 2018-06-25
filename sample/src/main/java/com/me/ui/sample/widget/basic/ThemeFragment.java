@@ -26,12 +26,12 @@ public class ThemeFragment extends BaseFragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_theme_light:
-                ThemeUtils.changeTheme(getActivity(), true);
+                ThemeUtils.changeTheme(true);
                 ThemeUtils.reCreate(getActivity());
                 break;
 
             case R.id.btn_theme_dark:
-                ThemeUtils.changeTheme(getActivity(), false);
+                ThemeUtils.changeTheme(false);
                 ThemeUtils.reCreate(getActivity());
                 break;
         }
