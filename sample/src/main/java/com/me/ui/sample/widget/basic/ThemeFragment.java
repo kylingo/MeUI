@@ -1,7 +1,7 @@
 package com.me.ui.sample.widget.basic;
 
 import com.me.ui.library.sample.SampleFragment;
-import com.me.ui.sample.support.util.ThemeUtils;
+import com.me.ui.sample.library.util.ThemeUtils;
 
 import java.util.List;
 

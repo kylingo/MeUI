@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.me.ui.library.sample.SampleActivity;
-import com.me.ui.sample.support.util.ThemeUtils;
+import com.me.ui.sample.library.util.ThemeUtils;
 
 public class MainActivity extends SampleActivity {
 

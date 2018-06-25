@@ -5,7 +5,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.me.ui.sample.support.util.ThemeUtils;
+import com.me.ui.sample.library.util.ThemeUtils;
 
 /**
  * @author kylingo on 18/6/22

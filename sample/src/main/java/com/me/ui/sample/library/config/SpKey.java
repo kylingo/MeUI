@@ -1,4 +1,4 @@
-package com.me.ui.sample.support.config;
+package com.me.ui.sample.library.config;
 
 /**
  * @author kylingo on 18/6/22
