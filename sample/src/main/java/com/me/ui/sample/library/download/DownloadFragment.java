@@ -1,4 +1,4 @@
-package com.me.ui.sample.library;
+package com.me.ui.sample.library.download;
 
 import android.view.View;
 import android.widget.TextView;
