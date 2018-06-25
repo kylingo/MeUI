@@ -12,7 +12,4 @@
     <string name="screen_shot_draw">draw</string>
     <string name="screen_shot_decor">decor</string>
     <string name="screen_shot_list">list</string>
-
-    <string name="theme_light">Light</string>
-    <string name="theme_dark">Dark</string>
 </resources>

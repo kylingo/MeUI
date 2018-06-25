@@ -1,36 +1,30 @@
 package com.me.ui.sample.widget.basic;
 
-import android.view.View;
-
-import com.me.ui.sample.R;
-import com.me.ui.sample.base.BaseFragment;
+import com.me.ui.library.sample.SampleFragment;
 import com.me.ui.sample.support.util.ThemeUtils;
+
+import java.util.List;
 
 /**
  * @author kylingo on 18/6/22
  */
-public class ThemeFragment extends BaseFragment implements View.OnClickListener {
+public class ThemeFragment extends SampleFragment<String> {
 
     @Override
-    protected int getContentViewId() {
-        return R.layout.fragment_theme;
+    protected void addItems(List<String> items) {
+        items.add("Light");
+        items.add("Dark");
     }
 
     @Override
-    protected void initView(View view) {
-        view.findViewById(R.id.btn_theme_light).setOnClickListener(this);
-        view.findViewById(R.id.btn_theme_dark).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_theme_light:
+    protected void onClickItem(String item) {
+        switch (item) {
+            case "Light":
                 ThemeUtils.changeTheme(true);
                 ThemeUtils.reCreate(getActivity());
                 break;
 
-            case R.id.btn_theme_dark:
+            case "Dark":
                 ThemeUtils.changeTheme(false);
                 ThemeUtils.reCreate(getActivity());
                 break;

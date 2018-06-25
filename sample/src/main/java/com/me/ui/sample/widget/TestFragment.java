@@ -1,32 +1,30 @@
 package com.me.ui.sample.widget;
 
-import android.view.View;
 import android.widget.Toast;
 
-import com.me.ui.sample.base.BaseFragment;
-import com.me.ui.sample.R;
+import com.me.ui.library.sample.SampleFragment;
+
+import java.util.List;
 
 /**
  * Description
  * Author:  Kevin.Tang
  * Date:    18/3/20 11:52
  */
-public class TestFragment extends BaseFragment {
+public class TestFragment extends SampleFragment<String> {
 
     @Override
-    protected int getContentViewId() {
-        return R.layout.fragment_test;
+    protected void addItems(List<String> items) {
+        items.add("Toast");
     }
 
     @Override
-    protected void initView(View view) {
-        view.findViewById(R.id.btn_toast).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    protected void onClickItem(String item) {
+        switch (item) {
+            case "Toast":
                 // 部分手机的Toast有问题，显示"应用名称:toast"
                 Toast.makeText(getContext(), "这是一个Toast", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+                break;
+        }
     }
 }
