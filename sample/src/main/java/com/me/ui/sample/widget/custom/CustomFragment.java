@@ -16,5 +16,6 @@ public class CustomFragment extends SampleListFragment {
         items.add(new FragmentBean("时钟", ClockFragment.class));
         items.add(new FragmentBean("九宫格", NineGridFragment.class));
         items.add(new FragmentBean("涂鸦板", GraffitiFragment.class));
+        items.add(new FragmentBean("摇骰子", DiceFragment.class));
     }
 }

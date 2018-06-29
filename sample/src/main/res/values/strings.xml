@@ -12,4 +12,7 @@
     <string name="screen_shot_draw">draw</string>
     <string name="screen_shot_decor">decor</string>
     <string name="screen_shot_list">list</string>
+
+    <string name="dice_start">Start</string>
+    <string name="dice_reset">Reset</string>
 </resources>
