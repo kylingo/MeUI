@@ -12,5 +12,6 @@ public class AnimFragment extends SampleListFragment {
     @Override
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("Lottie动画", LottieFragment.class));
+        items.add(new FragmentBean("飘屏动画", ExplodeFragment.class));
     }
 }
