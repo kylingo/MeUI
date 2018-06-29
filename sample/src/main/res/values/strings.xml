@@ -15,4 +15,6 @@
 
     <string name="dice_start">Start</string>
     <string name="dice_reset">Reset</string>
+
+    <string name="global_message_title">这是一条站内消息</string>
 </resources>
