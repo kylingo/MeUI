@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -58,5 +62,6 @@ dependencies {
 
     // bind view
     implementation 'com.github.kylingo:bindview:1.0.1'
+    implementation 'com.github.kylingo:bindview-annotation:1.0.1'
     annotationProcessor 'com.github.kylingo:bindview-compile:1.0.1'
 }
