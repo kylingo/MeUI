@@ -57,6 +57,6 @@ dependencies {
     implementation 'com.github.zomato:androidphotofilters:1.0.1'
 
     // bind view
-//    implementation 'com.github.kylingo:bindview:1.0.0'
-//    annotationProcessor 'com.github.kylingo:bindview-compile:1.0.0'
+    implementation 'com.github.kylingo:bindview:1.0.1'
+    annotationProcessor 'com.github.kylingo:bindview-compile:1.0.1'
 }
