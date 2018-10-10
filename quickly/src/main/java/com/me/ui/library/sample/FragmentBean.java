@@ -1,9 +1,11 @@
 package com.me.ui.library.sample;
 
+import java.io.Serializable;
+
 /**
  * @author tangqi on 16-12-30.
  */
-public class FragmentBean {
+public class FragmentBean implements Serializable {
     public String title;
     public Class<?> clazz;
 

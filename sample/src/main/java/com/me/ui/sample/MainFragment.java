@@ -3,6 +3,7 @@ package com.me.ui.sample;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.sample.library.LibraryFragment;
+import com.me.ui.sample.thirdparty.ThirdPartyFragment;
 import com.me.ui.sample.widget.WidgetFragment;
 
 import java.util.List;
@@ -17,5 +18,6 @@ public class MainFragment extends SampleListFragment {
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("组件", WidgetFragment.class));
         items.add(new FragmentBean("代码库", LibraryFragment.class));
+        items.add(new FragmentBean("第三方库", ThirdPartyFragment.class));
     }
 }

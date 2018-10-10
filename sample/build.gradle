@@ -17,6 +17,12 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        // ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -61,7 +67,11 @@ dependencies {
     implementation 'com.github.zomato:androidphotofilters:1.0.1'
 
     // bind view
-    implementation 'com.github.kylingo:bindview:1.0.1'
-    implementation 'com.github.kylingo:bindview-annotation:1.0.1'
-    annotationProcessor 'com.github.kylingo:bindview-compile:1.0.1'
+    implementation 'com.github.kylingo:bindview:1.0.2'
+    implementation 'com.github.kylingo:bindview-annotation:1.0.2'
+    annotationProcessor 'com.github.kylingo:bindview-compile:1.0.2'
+
+    // router
+    implementation 'com.alibaba:arouter-api:1.4.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }

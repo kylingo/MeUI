@@ -22,6 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- ARouter -->
+        <activity
+            android:name=".thirdparty.arouter.activity.RouterTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".thirdparty.arouter.activity.RouterSchemeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".thirdparty.arouter.activity.SchemeFilterActivity">
+            <intent-filter>
+                <data
+                    android:host="kylingo.com"
+                    android:scheme="arouter"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.me.ui.sample;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
 
 /**
@@ -15,5 +16,12 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Utils.init(this);
+
+        // ARouter
+        if (BuildConfig.DEBUG) {
+            ARouter.openDebug();
+            ARouter.openLog();
+        }
+        ARouter.init(this);
     }
 }
