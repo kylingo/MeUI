@@ -17,4 +17,9 @@
     <string name="dice_reset">Reset</string>
 
     <string name="global_message_title">这是一条站内消息</string>
+
+    <string name="constraint_text_01">这是第一块文字</string>
+    <string name="constraint_text_02">没有底部约束，所以不会居中</string>
+    <string name="constraint_text_03">上下均设置了约束，所以会居于中间</string>
+    <string name="constraint_text_04">宽高比布局</string>
 </resources>

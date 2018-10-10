@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_constraint_01"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_margin="20dp"
+        android:background="#f5ec7e"
+        android:gravity="center"
+        android:text="@string/constraint_text_01"
+        android:textColor="@color/color_primary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_constraint_02"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_constraint_02"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#68b0f9"
+        android:text="@string/constraint_text_02"
+        app:layout_constraintLeft_toRightOf="@id/tv_constraint_01"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_constraint_01"/>
+
+    <!-- Bias属性可以设置偏移量 范围0~1，默认为0.5居中 -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#984ff7"
+        android:gravity="center"
+        android:text="@string/constraint_text_03"
+        app:layout_constraintBottom_toBottomOf="@id/tv_constraint_01"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintLeft_toRightOf="@id/tv_constraint_01"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_constraint_02"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <!-- 当视图设置为不可见时，以该视图中心小圆点作为参考，重新布局。可依赖layout_goneMarginBottom等属性 -->
+
+    <TextView
+        android:id="@+id/tv_constraint_03"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="#f5ec7e"
+        android:gravity="center"
+        android:text="@string/constraint_text_04"
+        app:layout_constraintDimensionRatio="h, 16:7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_constraint_01"/>
+
+    <TextView
+        android:id="@+id/tv_constraint_04"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="#5476fd"
+        android:gravity="center"
+        android:text="@string/constraint_text_04"
+        app:layout_constraintDimensionRatio="w, 3:9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_constraint_03"/>
+
+    <!-- layout_constraintHorizontal_weight可以指定比例 -->
+
+    <!-- 指示线，用来定位，只能指定一个方向，不会展示-->
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_line_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8"/>
+
+    <!-- layout_constraintHorizontal_chainStyle可以指定链条约束方式 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@id/guide_line_01"
+        app:layout_constraintTop_toBottomOf="@id/tv_constraint_04"/>
+
+</android.support.constraint.ConstraintLayout>

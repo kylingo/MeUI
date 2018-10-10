@@ -18,5 +18,6 @@ public class BasicFragment extends SampleListFragment {
         items.add(new FragmentBean("主题切换", ThemeFragment.class));
         items.add(new FragmentBean("Clip测试", ClipChildrenFragment.class));
         items.add(new FragmentBean("全站消息", GlobalMessageFragment.class));
+        items.add(new FragmentBean("约束布局", ConstraintFragment.class));
     }
 }
