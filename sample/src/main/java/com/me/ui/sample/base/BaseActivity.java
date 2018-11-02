@@ -13,7 +13,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        ThemeUtils.setTheme(this);
+        updateTheme();
         super.onCreate(savedInstanceState);
+    }
+
+    protected void updateTheme() {
+        ThemeUtils.setTheme(this);
     }
 }

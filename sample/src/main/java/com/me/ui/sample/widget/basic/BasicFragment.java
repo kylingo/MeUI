@@ -20,5 +20,6 @@ public class BasicFragment extends SampleListFragment {
         items.add(new FragmentBean("全站消息", GlobalMessageFragment.class));
         items.add(new FragmentBean("约束布局", ConstraintFragment.class));
         items.add(new FragmentBean("协调布局", CoordinatorFragment.class));
+        items.add(new FragmentBean("沉浸式", StatusBarFragment.class));
     }
 }
