@@ -42,7 +42,7 @@ publish {
     userOrg = 'kylingo'
     groupId = 'com.github.kylingo'
     artifactId = 'quickly'
-    publishVersion = '1.0.7'
+    publishVersion = '1.0.8'
     desc = 'Android common quickly library'
     website = 'https://github.com/kylingo/MeUI'
 }
