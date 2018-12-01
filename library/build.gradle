@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 //    buildToolsVersion "23.0.3"
     defaultConfig {
         minSdkVersion 14
@@ -37,7 +37,7 @@ publish {
     userOrg = 'kylingo'
     groupId = 'com.github.kylingo'
     artifactId = 'meui'
-    publishVersion = '1.0.6'
+    publishVersion = '1.0.7'
     desc = 'Android common ui library'
     website = 'https://github.com/kylingo/MeUI'
 }

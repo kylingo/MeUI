@@ -48,6 +48,7 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".widget.basic.StatusBarColorActivity"
             android:screenOrientation="portrait"/>
@@ -55,6 +56,10 @@
             android:name=".widget.basic.StatusBarImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <activity
+            android:name=".widget.basic.InputMethodActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

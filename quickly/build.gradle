@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 
 
 
@@ -42,7 +42,7 @@ publish {
     userOrg = 'kylingo'
     groupId = 'com.github.kylingo'
     artifactId = 'quickly'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.7'
     desc = 'Android common quickly library'
     website = 'https://github.com/kylingo/MeUI'
 }
