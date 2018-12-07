@@ -45,7 +45,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 
 ## 技术
 - [发布jcenter库](./docs/library/Bintray.md)
-- 插件化
+- [插件化](./docs/library/Plugin.md)
 - 热更新
 - 代码框架
 - 性能优化
