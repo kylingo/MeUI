@@ -5,6 +5,7 @@ import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.sample.library.basic.LibraryBasicFragment;
 import com.me.ui.sample.library.download.DownloadFragment;
 import com.me.ui.sample.library.log.LogFragment;
+import com.me.ui.sample.library.plugin.PluginFragment;
 import com.me.ui.sample.library.security.EncryptFragment;
 
 import java.util.List;
@@ -20,5 +21,6 @@ public class LibraryFragment extends SampleListFragment {
         items.add(new FragmentBean("加密", EncryptFragment.class));
         items.add(new FragmentBean("下载", DownloadFragment.class));
         items.add(new FragmentBean("日志", LogFragment.class));
+        items.add(new FragmentBean("插件", PluginFragment.class));
     }
 }
