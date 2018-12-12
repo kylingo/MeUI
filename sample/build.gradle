@@ -49,8 +49,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     // internal library
-    implementation project(':library')
-    implementation project(':quickly')
+    implementation project(':lib_meui')
+    implementation project(':lib_quickly')
+    implementation project(':lib_util')
 
     // support
     implementation 'com.android.support:appcompat-v7:27.1.1'
