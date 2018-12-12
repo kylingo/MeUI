@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.blankj.utilcode.util.Utils;
 import com.me.ui.sample.library.log.MLog;
+import com.me.ui.util.Utils;
 
 /**
  * Description

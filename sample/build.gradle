@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
 
     // util
-    implementation 'com.blankj:utilcode:1.9.0'
+//    implementation 'com.blankj:utilcode:1.9.0'
 
     // animation
     implementation 'com.airbnb.android:lottie:2.3.0'

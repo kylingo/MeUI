@@ -3,8 +3,8 @@ package com.me.ui.sample.widget.decoration.staggered;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.blankj.utilcode.util.ConvertUtils;
 import com.me.ui.sample.base.ColorAdapter;
+import com.me.ui.util.ConvertUtils;
 
 import java.util.Random;
 

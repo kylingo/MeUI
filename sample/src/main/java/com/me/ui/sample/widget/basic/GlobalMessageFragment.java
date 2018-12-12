@@ -12,9 +12,9 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.blankj.utilcode.util.SizeUtils;
 import com.me.ui.library.sample.SampleFragment;
 import com.me.ui.sample.R;
+import com.me.ui.util.SizeUtils;
 
 import java.util.List;
 

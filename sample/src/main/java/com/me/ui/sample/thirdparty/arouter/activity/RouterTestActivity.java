@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.blankj.utilcode.util.LogUtils;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.sample.base.BaseActivity;
+import com.me.ui.util.LogUtils;
 
 /**
  * @author kylingo on 18/10/10

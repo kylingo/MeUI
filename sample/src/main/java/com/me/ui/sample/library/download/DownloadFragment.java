@@ -3,14 +3,14 @@ package com.me.ui.sample.library.download;
 import android.view.View;
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.me.ui.library.download.DownloadItem;
 import com.me.ui.library.download.DownloadStorageHelper;
 import com.me.ui.library.download.DownloadTask;
 import com.me.ui.library.download.DownloadTaskListener;
-import com.me.ui.sample.base.BaseFragment;
 import com.me.ui.sample.R;
+import com.me.ui.sample.base.BaseFragment;
+import com.me.ui.util.LogUtils;
+import com.me.ui.util.ToastUtils;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

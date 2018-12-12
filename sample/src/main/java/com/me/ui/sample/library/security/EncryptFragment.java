@@ -1,8 +1,8 @@
 package com.me.ui.sample.library.security;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.me.ui.library.sample.SampleFragment;
 import com.me.ui.library.security.Rc4Utils;
+import com.me.ui.util.LogUtils;
 
 import java.util.List;
 

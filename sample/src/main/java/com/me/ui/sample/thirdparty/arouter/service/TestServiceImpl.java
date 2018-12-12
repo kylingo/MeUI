@@ -3,7 +3,7 @@ package com.me.ui.sample.thirdparty.arouter.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.blankj.utilcode.util.ToastUtils;
+import com.me.ui.util.ToastUtils;
 
 /**
  * @author kylingo on 18/10/10

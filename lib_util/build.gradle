@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 27
@@ -27,4 +28,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+publish {
+    userOrg = 'kylingo'
+    groupId = 'com.github.kylingo'
+    artifactId = 'util'
+    publishVersion = '1.0.9'
+    desc = 'Android common util library'
+    website = 'https://github.com/kylingo/MeUI'
 }

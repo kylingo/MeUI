@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
-import com.blankj.utilcode.util.ScreenUtils;
-import com.blankj.utilcode.util.SizeUtils;
+import com.me.ui.util.ScreenUtils;
+import com.me.ui.util.SizeUtils;
 
 import java.util.Random;
 
