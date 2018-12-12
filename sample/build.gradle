@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.me.ui.sample"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 100
         versionName "1.0.0"
 
