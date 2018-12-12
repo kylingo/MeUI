@@ -1,11 +1,11 @@
-package com.me.ui.library.util;
+package com.me.ui.library.helper;
 
 import android.util.Log;
 
 /**
  * @author tangqi on 17-6-26.
  */
-public class MeLogUtils {
+public class MeLogger {
 
     private static boolean flag = true;
 

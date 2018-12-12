@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
-import com.me.ui.library.util.CacheUtils;
-import com.me.ui.library.util.ScreenShotUtils;
+import com.me.ui.library.helper.CacheHelper;
+import com.me.ui.library.helper.ScreenShotHelper;
 import com.me.ui.sample.widget.web.WebFragment;
 
 /**
@@ -39,7 +39,7 @@ public class WebShotFragment extends WebFragment {
     }
 
     private void getScreenShot() {
-        String filePath = CacheUtils.getScreenShotPath(mContext, "web");
-        ScreenShotUtils.createScreenShot(mWebView, filePath);
+        String filePath = CacheHelper.getScreenShotPath(mContext, "web");
+        ScreenShotHelper.createScreenShot(mWebView, filePath);
     }
 }

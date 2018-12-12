@@ -4,8 +4,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
 
-import com.me.ui.library.util.CacheUtils;
-import com.me.ui.library.util.ScreenShotUtils;
+import com.me.ui.library.helper.CacheHelper;
+import com.me.ui.library.helper.ScreenShotHelper;
 import com.me.ui.sample.R;
 import com.me.ui.sample.base.BaseMenuFragment;
 
@@ -27,8 +27,8 @@ public class ScrollShotFragment extends BaseMenuFragment {
     }
 
     private void getScreenShot(ScrollView scrollView) {
-        String filePath = CacheUtils.getScreenShotPath(mContext, "scroll");
-        ScreenShotUtils.createScreenShot(scrollView, filePath);
+        String filePath = CacheHelper.getScreenShotPath(mContext, "scroll");
+        ScreenShotHelper.createScreenShot(scrollView, filePath);
     }
 
     @Override

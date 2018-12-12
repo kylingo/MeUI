@@ -2,7 +2,7 @@ package com.me.ui.sample.library.plugin;
 
 import android.content.Context;
 
-import com.me.ui.library.util.ClassLoaderUtils;
+import com.me.ui.library.helper.ClassLoaderHelper;
 
 import java.io.File;
 
@@ -25,13 +25,13 @@ public class PluginLoader {
 
     public static Class<?> loadDexClass(Context context, String fileName, String className) {
         String dexFilePath = context.getExternalCacheDir() + File.separator + fileName;
-        return ClassLoaderUtils.loadDexClass(context, dexFilePath, className);
+        return ClassLoaderHelper.loadDexClass(context, dexFilePath, className);
     }
 
     /**
      * 只能加载已安装的apk
      */
     public static Class<?> loadPathClass(Context context, String pluginAction, String className) {
-        return ClassLoaderUtils.loadPathClass(context, pluginAction, className);
+        return ClassLoaderHelper.loadPathClass(context, pluginAction, className);
     }
 }

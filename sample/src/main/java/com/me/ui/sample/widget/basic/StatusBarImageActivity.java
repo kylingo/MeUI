@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.me.ui.library.util.StatusBarTranslucentUtils;
+import com.me.ui.library.helper.StatusBarTranslucentHelper;
 import com.me.ui.sample.R;
 import com.me.ui.sample.base.BaseActivity;
 
@@ -21,10 +21,10 @@ public class StatusBarImageActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status_bar_image);
 
-        StatusBarTranslucentUtils.setStatusBarTranslucent(this);
-        StatusBarTranslucentUtils.setStatusBarDarkMode(this, true);
+        StatusBarTranslucentHelper.setStatusBarTranslucent(this);
+        StatusBarTranslucentHelper.setStatusBarDarkMode(this, true);
 
-        int pStatusBarHeight = StatusBarTranslucentUtils.getStatusBarHeight(this);
+        int pStatusBarHeight = StatusBarTranslucentHelper.getStatusBarHeight(this);
         View viewPlaceHolder = findViewById(R.id.view_place_holder);
         FrameLayout.LayoutParams holderParams = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, pStatusBarHeight);

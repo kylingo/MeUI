@@ -1,4 +1,4 @@
-package com.me.ui.library.util;
+package com.me.ui.library.helper;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +22,7 @@ import dalvik.system.PathClassLoader;
  * @author kylingo
  * @since 2018/12/07 15:04
  */
-public class ClassLoaderUtils {
+public class ClassLoaderHelper {
     private static final String TAG = "PluginLoader";
 
     public static Class<?> loadDexClass(Context context, String dexFilePath, String className) {

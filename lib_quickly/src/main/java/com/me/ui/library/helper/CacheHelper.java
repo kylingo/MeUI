@@ -1,4 +1,4 @@
-package com.me.ui.library.util;
+package com.me.ui.library.helper;
 
 import android.content.Context;
 
@@ -7,7 +7,7 @@ import java.io.File;
 /**
  * @author kylingo on 18/6/22
  */
-public class CacheUtils {
+public class CacheHelper {
 
     /**
      * 获取缓存根目录

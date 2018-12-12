@@ -1,4 +1,4 @@
-package com.me.ui.library.util;
+package com.me.ui.library.helper;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -22,7 +22,7 @@ import java.util.List;
  *
  * @author kylingo on 18/6/22
  */
-public class ScreenShotUtils {
+public class ScreenShotHelper {
 
     /**
      * 截屏的最大高度，也可以限制bitmap总大小

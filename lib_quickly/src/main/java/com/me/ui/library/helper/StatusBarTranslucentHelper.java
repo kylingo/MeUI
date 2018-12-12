@@ -1,4 +1,4 @@
-package com.me.ui.library.util;
+package com.me.ui.library.helper;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
  * @author tangqi
  * @since 2018/11/02 13:00
  */
-public class StatusBarTranslucentUtils {
+public class StatusBarTranslucentHelper {
 
     /**
      * 设置状态栏透明

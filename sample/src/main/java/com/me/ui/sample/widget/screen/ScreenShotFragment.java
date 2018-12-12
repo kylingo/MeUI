@@ -12,8 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.me.ui.library.util.CacheUtils;
-import com.me.ui.library.util.ScreenShotUtils;
+import com.me.ui.library.helper.CacheHelper;
+import com.me.ui.library.helper.ScreenShotHelper;
 import com.me.ui.sample.R;
 import com.me.ui.sample.base.BaseListFragment;
 import com.me.ui.widget.decoration.LinearItemDecoration;
@@ -70,14 +70,14 @@ public class ScreenShotFragment extends BaseListFragment {
      * 使用Canvas画
      */
     private void generateScreenShot(View rootView) {
-        String filePath = CacheUtils.getScreenShotPath(mContext, "canvas");
-        ScreenShotUtils.createScreenShot(rootView, filePath);
+        String filePath = CacheHelper.getScreenShotPath(mContext, "canvas");
+        ScreenShotHelper.createScreenShot(rootView, filePath);
     }
 
     private void generateRecyclerView() {
         Bitmap bitmap = shotRecyclerView(mRecyclerView);
-        String filePath = CacheUtils.getScreenShotPath(mContext, "recylcer");
-        ScreenShotUtils.generateScreenFile(bitmap, filePath);
+        String filePath = CacheHelper.getScreenShotPath(mContext, "recylcer");
+        ScreenShotHelper.generateScreenFile(bitmap, filePath);
     }
 
     /**
