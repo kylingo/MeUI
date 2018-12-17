@@ -16,6 +16,7 @@ public class LibraryBasicFragment extends SampleListFragment {
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("注解", AnnotationFragment.class));
         items.add(new FragmentBean("DataBinding", null));
+        items.add(new FragmentBean("照相", TakePhotoFragment.class));
     }
 
     @Override

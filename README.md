@@ -9,8 +9,8 @@ Android的UI控件库，代码仓库，适合快速开发。
 `compile 'com.github.kylingo:meui:1.0.8'`
 
 ## UI
-- [自定义](./docs/custom/)
-- [刷新控件](./docs/refresh/Refresh.md)
+- [自定义](./docs/meui/custom/)
+- [刷新控件](./docs/meui/refresh/Refresh.md)
 - [底部导航]
 - 侧滑导航
 - 顶部导航
@@ -28,6 +28,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 ## 代码库
 - [工具类](./docs/util/Util.md)
 - [下载]
+- [版本适配](./docs/quickly/VersionFit.md)
 - 数据库
 - 算法
 - [设计模式]
@@ -36,16 +37,16 @@ Android的UI控件库，代码仓库，适合快速开发。
 - 第三方登陆
 - 弹幕库
 - Socket通信
-- [图片处理]
+- [图片处理](./docs/meui/image/Image.md)
 - 摄像头
 - 文件管理
 - 分辨率适配
-- [注解](./docs/library/Annotation.md)
+- [注解](./docs/quickly/Annotation.md)
 - 支付、登陆、分享
 
 ## 技术
-- [发布jcenter库](./docs/library/Bintray.md)
-- [插件化](./docs/library/Plugin.md)
+- [发布jcenter库](./docs/quickly/Bintray.md)
+- [插件化](./docs/quickly/Plugin.md)
 - 热更新
 - 代码框架
 - 性能优化
