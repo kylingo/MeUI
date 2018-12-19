@@ -28,6 +28,7 @@
             android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
+            android:multiprocess="true"
             tools:replace="name,authorities,exported,grantUriPermissions">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
