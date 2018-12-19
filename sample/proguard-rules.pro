@@ -36,3 +36,7 @@
 -keepnames class * {
     @com.alibaba.android.arouter.facade.annotation.Autowired <fields>;
 }
+
+# bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
