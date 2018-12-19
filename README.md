@@ -43,6 +43,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 - 分辨率适配
 - [注解](./docs/quickly/Annotation.md)
 - 支付、登陆、分享
+- [播放器](./docs/quickly/Player.md)
 
 ## 技术
 - [发布jcenter库](./docs/quickly/Bintray.md)
