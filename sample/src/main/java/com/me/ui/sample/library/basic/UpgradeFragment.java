@@ -25,7 +25,7 @@ public class UpgradeFragment extends SampleFragment<String> {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 测试时将apk拷贝到assets目录
+        // 测试时将apk拷贝到assets目录，sample-debug.apk
         CopyUtils.assetsCopy(getActivity(), "apk", CopyUtils.getCachePath(getActivity()));
     }
 
