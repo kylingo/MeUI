@@ -1,54 +1,20 @@
 package com.me.ui.sample;
 
-import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
-
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.me.ui.sample.library.log.MLog;
-import com.me.ui.util.ProcessUtils;
-import com.me.ui.util.Utils;
-import com.tencent.bugly.Bugly;
-import com.tencent.bugly.crashreport.CrashReport.UserStrategy;
+import com.tencent.tinker.loader.app.TinkerApplication;
+import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 /**
- * Description
- * Author:  Kevin.Tang
- * Date:    17/9/21 下午9:23
+ * @author kylingo
+ * @since 2019/01/04 14:33
  */
-public class SampleApplication extends Application {
-
-    private static SampleApplication mApplication;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mApplication = this;
-        Utils.init(this);
-
-        // ARouter
-        if (BuildConfig.DEBUG) {
-            ARouter.openDebug();
-            ARouter.openLog();
-        }
-        ARouter.init(this);
-
-        // Logger
-        MLog.config();
-
-        // Bugly
-        UserStrategy strategy = new UserStrategy(getApplicationContext());
-        strategy.setUploadProcess(ProcessUtils.isMainProcess());
-        Bugly.init(getApplicationContext(), "dd620d6b4a", false, strategy);
-    }
-
-    public static Context getContext() {
-        return mApplication;
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
+public class SampleApplication extends TinkerApplication {
+    public SampleApplication() {
+        super(
+                //tinkerFlags, which types is supported
+                //dex only, library only, all support
+                ShareConstants.TINKER_ENABLE_ALL,
+                // This is passed as a string so the shell application does not
+                // have a binary dependency on your ApplicationLifeCycle class.
+                "com.me.ui.sample.SampleApplicationLike");
     }
 }
