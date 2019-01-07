@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.android.component.library.router.RouterManager;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleFragment;
 import com.me.ui.sample.thirdparty.arouter.service.TestService;
@@ -27,7 +28,7 @@ public class ARouterFragment extends SampleFragment<String> {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ARouter.getInstance().inject(this);
+//        ARouter.getInstance().inject(this);
     }
 
     @Override
@@ -35,6 +36,7 @@ public class ARouterFragment extends SampleFragment<String> {
         items.add("路由");
         items.add("自定义协议");
         items.add("暴露服务");
+        items.add("ARouter打包aar");
     }
 
     @Override
@@ -78,6 +80,10 @@ public class ARouterFragment extends SampleFragment<String> {
 
             case "暴露服务":
                 mService.test("kylingo");
+                break;
+
+            case "ARouter打包aar":
+                RouterManager.navigationFeatureA();
                 break;
         }
     }
