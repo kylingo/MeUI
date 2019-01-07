@@ -1,6 +1,6 @@
 package com.me.ui.sample.library.config;
 
-import com.me.ui.sample.SampleApplication;
+import com.me.ui.sample.SampleApplicationLike;
 
 import java.io.File;
 
@@ -12,7 +12,7 @@ public class MePath {
     public static final String PATH_LOG = getCachePath("log");
 
     private static String getCachePath(String path) {
-        File cacheDir = SampleApplication.getContext().getExternalCacheDir();
+        File cacheDir = SampleApplicationLike.getContext().getExternalCacheDir();
         if (cacheDir != null) {
             File child = new File(cacheDir, path);
             if (child.mkdirs()) {
