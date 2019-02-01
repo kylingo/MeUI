@@ -1,4 +1,4 @@
-package com.me.ui.sample.widget.basic;
+package com.me.ui.sample.thirdparty.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

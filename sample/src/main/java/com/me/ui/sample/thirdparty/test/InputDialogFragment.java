@@ -1,4 +1,4 @@
-package com.me.ui.sample.widget.basic;
+package com.me.ui.sample.thirdparty.test;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
