@@ -28,7 +28,7 @@ public class ARouterFragment extends SampleFragment<String> {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        ARouter.getInstance().inject(this);
+        ARouter.getInstance().inject(this);
     }
 
     @Override
@@ -79,7 +79,9 @@ public class ARouterFragment extends SampleFragment<String> {
                 break;
 
             case "暴露服务":
-                mService.test("kylingo");
+                if (mService != null) {
+                    mService.test("kylingo");
+                }
                 break;
 
             case "ARouter打包aar":
