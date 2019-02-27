@@ -32,14 +32,14 @@ public class InputMethodActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_input:
-                showSendView();
+                showCommentView();
                 break;
         }
     }
 
-    private void showSendView() {
-        final InputDialogFragment inputDialogFragment = new InputDialogFragment();
-        FragmentUtils.show(this, inputDialogFragment, InputDialogFragment.TAG);
+    private void showCommentView() {
+        final InputCommentFragment inputCommentFragment = new InputCommentFragment();
+        FragmentUtils.show(this, inputCommentFragment, R.id.fl_comment_container);
     }
 
     /**

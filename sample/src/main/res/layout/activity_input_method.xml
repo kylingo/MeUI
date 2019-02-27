@@ -26,4 +26,10 @@
         android:background="@color/colorAccent"
         android:padding="10dp"
         android:text="@string/send_message_hint"/>
+
+    <FrameLayout
+        android:id="@+id/fl_comment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
 </FrameLayout>

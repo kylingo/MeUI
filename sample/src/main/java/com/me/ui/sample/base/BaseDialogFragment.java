@@ -2,9 +2,13 @@ package com.me.ui.sample.base;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -14,12 +18,28 @@ import com.me.ui.sample.R;
  * @author kylingo
  * @since 2018/11/26 12:19
  */
-public class BaseDialogFragment extends AppCompatDialogFragment {
+public abstract class BaseDialogFragment extends AppCompatDialogFragment {
+
+    protected abstract int getContentViewId();
+
+    protected abstract void initView(View view);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, getStyleTheme());
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(getContentViewId(), container);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
     }
 
     @Override

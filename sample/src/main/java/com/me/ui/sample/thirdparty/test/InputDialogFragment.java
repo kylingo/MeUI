@@ -1,12 +1,8 @@
 package com.me.ui.sample.thirdparty.test;
 
 import android.content.DialogInterface;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,19 +21,13 @@ public class InputDialogFragment extends BaseDialogFragment implements View.OnCl
     private EditText mEditText;
     private TextView mTvSend;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_input_method, container);
+    protected int getContentViewId() {
+        return R.layout.fragment_input_method;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
-    }
-
-    private void initView(View view) {
+    protected void initView(View view) {
         mTvSend = view.findViewById(R.id.tv_input_send);
         mTvSend.setOnClickListener(this);
 

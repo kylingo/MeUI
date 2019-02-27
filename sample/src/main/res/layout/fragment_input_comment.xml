@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <LinearLayout
+        android:id="@+id/ll_input_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/gray"
+            android:gravity="center"
+            android:text="Comment list"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="comment 1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="comment 2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="comment 3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="comment 4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="comment 5"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_send_comment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/gray"
+            android:gravity="center"
+            android:text="Send comment"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_input_comment_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_input_comment"/>
+</RelativeLayout>

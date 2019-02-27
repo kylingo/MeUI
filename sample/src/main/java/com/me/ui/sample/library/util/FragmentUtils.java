@@ -39,11 +39,41 @@ public class FragmentUtils {
         ft.commitAllowingStateLoss();
     }
 
+    public static void show(FragmentActivity activity, Fragment fragment, int container) {
+        if (isDestroyed(activity)) {
+            return;
+        }
+
+        FragmentManager manager = activity.getSupportFragmentManager();
+        if (manager == null) {
+            return;
+        }
+
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.replace(container, fragment);
+        ft.commitAllowingStateLoss();
+    }
+
     public static void show(Context context, Fragment fragment, String tag) {
         if (context instanceof FragmentActivity) {
             FragmentActivity activity = (FragmentActivity) context;
             show(activity, fragment, tag);
         }
+    }
+
+    public static void remove(FragmentActivity activity, Fragment fragment) {
+        if (isDestroyed(activity)) {
+            return;
+        }
+
+        FragmentManager manager = activity.getSupportFragmentManager();
+        if (manager == null) {
+            return;
+        }
+
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.remove(fragment);
+        ft.commitAllowingStateLoss();
     }
 
     private static boolean isDestroyed(Context context) {
