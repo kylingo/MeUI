@@ -52,6 +52,8 @@ android {
     }
 }
 
+apply from: '../aspect_app.gradle'
+
 dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -101,4 +103,7 @@ dependencies {
     compileOnly('com.tencent.tinker:tinker-android-anno:1.9.1')
     //tinker's main Android lib
     implementation('com.tencent.tinker:tinker-android-lib:1.9.1')
+
+    // aspect
+    implementation 'org.aspectj:aspectjrt:1.8.9'
 }
