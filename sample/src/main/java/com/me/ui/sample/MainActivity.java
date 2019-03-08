@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import com.me.ui.library.sample.SampleActivity;
 import com.me.ui.sample.library.util.ThemeUtils;
 
-public class MainActivity extends SampleActivity {
+public class MainActivity extends SampleActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
