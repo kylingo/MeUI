@@ -15,9 +15,10 @@ public class MePath {
         File cacheDir = SampleApplicationLike.getContext().getExternalCacheDir();
         if (cacheDir != null) {
             File child = new File(cacheDir, path);
-            if (child.mkdirs()) {
-                return child.getAbsolutePath();
+            if (!child.exists()) {
+                child.mkdirs();
             }
+            return child.getAbsolutePath();
         }
 
         return null;
