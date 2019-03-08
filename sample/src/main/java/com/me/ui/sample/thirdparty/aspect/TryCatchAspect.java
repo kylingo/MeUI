@@ -1,7 +1,7 @@
 package com.me.ui.sample.thirdparty.aspect;
 
 
-import com.android.component.library.util.LogUtils;
+import com.me.ui.util.LogUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

@@ -9,7 +9,6 @@ import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.android.component.library.router.RouterManager;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleFragment;
 import com.me.ui.sample.thirdparty.arouter.service.TestService;
@@ -85,7 +84,7 @@ public class ARouterFragment extends SampleFragment<String> {
                 break;
 
             case "ARouter打包aar":
-                RouterManager.navigationFeatureA();
+//                RouterManager.navigationFeatureA();
                 break;
         }
     }

@@ -25,7 +25,7 @@ public class RouterTestActivity extends BaseActivity {
             long id = bundle.getLong("id");
             FragmentBean obj = (FragmentBean) bundle.getSerializable("obj");
 
-            LogUtils.i("flag:" + flag + " id:" + id + " obj:" + obj);
+            LogUtils.i(null, "flag:" + flag + " id:" + id + " obj:" + obj);
         }
     }
 }

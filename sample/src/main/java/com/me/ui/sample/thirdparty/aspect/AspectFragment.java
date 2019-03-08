@@ -2,9 +2,9 @@ package com.me.ui.sample.thirdparty.aspect;
 
 import android.view.View;
 
-import com.android.component.library.util.LogUtils;
 import com.me.ui.sample.R;
 import com.me.ui.sample.base.BaseFragment;
+import com.me.ui.util.LogUtils;
 
 /**
  * @author kylingo
