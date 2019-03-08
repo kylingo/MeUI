@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:title="搜索" />
+
+    <item
+        android:id="@+id/menu_action_refresh"
+        android:title="刷新" />
+
+    <item
+        android:id="@+id/menu_action_read_mode"
+        android:title="切换模式" />
+
+    <item
+        android:id="@+id/menu_action_feedback"
+        android:title="用户反馈" />
+</menu>

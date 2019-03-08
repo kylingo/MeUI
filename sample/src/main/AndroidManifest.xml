@@ -50,12 +50,12 @@
 
         <!-- ARouter -->
         <activity
-            android:name=".thirdparty.arouter.activity.RouterTestActivity"
+            android:name="com.me.ui.sample.thirdparty.arouter.activity.RouterTestActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".thirdparty.arouter.activity.RouterSchemeActivity"
+            android:name="com.me.ui.sample.thirdparty.arouter.activity.RouterSchemeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".thirdparty.arouter.activity.SchemeFilterActivity">
+        <activity android:name="com.me.ui.sample.thirdparty.arouter.activity.SchemeFilterActivity">
             <intent-filter>
                 <data
                     android:host="kylingo.com"
@@ -69,18 +69,18 @@
         </activity>
 
         <activity
-            android:name=".widget.basic.StatusBarColorActivity"
+            android:name="com.me.ui.sample.widget.basic.StatusBarColorActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".widget.basic.StatusBarImageActivity"
+            android:name="com.me.ui.sample.widget.basic.StatusBarImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity
-            android:name=".thirdparty.test.InputMethodActivity"
+            android:name="com.me.ui.sample.thirdparty.test.InputMethodActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".library.basic.DataBindingActivity"
+            android:name="com.me.ui.sample.library.basic.DataBindingActivity"
             android:screenOrientation="portrait"/>
     </application>
 

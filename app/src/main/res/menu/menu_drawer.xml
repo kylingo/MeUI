@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:title="主页"
+            android:icon="@mipmap/drawer_action_share"/>
+        <item
+            android:id="@+id/nav_collection"
+            android:title="收藏"
+            android:icon="@mipmap/drawer_action_collection"/>
+        <item
+            android:id="@+id/nav_read"
+            android:title="历史"
+            android:icon="@mipmap/drawer_action_read"/>
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_pick_photo"
+            android:checked="false"
+            android:title="照片选取" />
+        <item
+            android:id="@+id/nav_pick_place"
+            android:checked="false"
+            android:title="位置选取" />
+        <item
+            android:id="@+id/nav_settings"
+            android:checked="false"
+            android:title="设置" />
+        <item
+            android:id="@+id/nav_about"
+            android:checked="false"
+            android:title="关于" />
+    </group>
+
+</menu>

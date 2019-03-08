@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">知乎日报</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="natigation_open">Navigation View</string>
+    <string name="navigation_closed">Navigation View Closed</string>
+</resources>

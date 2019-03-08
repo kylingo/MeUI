@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".PermissionUtils$PermissionActivity"
+            android:name="com.me.ui.util.PermissionUtils$PermissionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:multiprocess="true"
             android:theme="@style/ActivityTranslucent"
