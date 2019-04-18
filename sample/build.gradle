@@ -63,7 +63,7 @@ dependencies {
 
     // internal library
     implementation project(':lib_meui')
-    implementation project(':lib_quickly')
+    implementation project(':lib_framework')
     implementation project(':lib_util')
 
     // support

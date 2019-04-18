@@ -1,1 +1,1 @@
-include ':lib_meui', ':sample', ':lib_quickly', ':lib_util', 'app'
+include ':lib_meui', ':sample', ':lib_framework', ':lib_util', 'app'
