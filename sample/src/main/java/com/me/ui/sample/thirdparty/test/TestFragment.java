@@ -20,6 +20,7 @@ public class TestFragment extends SampleFragment<String> {
         items.add("Toast");
         items.add("输入法");
         items.add("Scheme");
+        items.add("Profile");
     }
 
     @Override
@@ -39,6 +40,13 @@ public class TestFragment extends SampleFragment<String> {
             case "Scheme": {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("imgotv://minivideo?vid=1d10db2c9dc44756a59e00312ab9144d"));
+                startActivity(intent);
+                break;
+            }
+
+            case "Profile": {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("imgotv://noahprofile?uid=6c7b934382814507b45df4cb8c99988d"));
                 startActivity(intent);
                 break;
             }
