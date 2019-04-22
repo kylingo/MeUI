@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.me.ui.sample.MainActivity">
+    tools:context="com.me.ui.sample.SampleMainActivity">
 
     <com.me.ui.widget.refresh.PullToRefreshListView
         android:id="@+id/lv_refresh"

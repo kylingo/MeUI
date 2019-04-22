@@ -40,7 +40,7 @@
         </provider>
 
         <activity
-            android:name="com.me.ui.sample.MainActivity"
+            android:name="com.me.ui.sample.SampleMainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
