@@ -1,4 +1,4 @@
-package com.me.ui.view.adapter;
+package com.me.ui.zhihu.page.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.me.ui.R;
-import com.me.ui.domain.config.Constants;
-import com.me.ui.domain.config.ExtraKey;
-import com.me.ui.domain.util.ImageLoaderUtils;
+import com.me.ui.zhihu.domain.config.Constants;
+import com.me.ui.zhihu.domain.config.ExtraKey;
+import com.me.ui.zhihu.domain.util.ImageLoaderUtils;
 import com.me.ui.zhihu.model.entity.Daily;
-import com.me.ui.view.page.activity.WebActivity;
+import com.me.ui.zhihu.page.activity.WebActivity;
 
 import java.util.List;
 

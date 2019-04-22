@@ -1,4 +1,4 @@
-package com.me.ui.view.view;
+package com.me.ui.common.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,7 +15,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import com.me.ui.R;
 
@@ -26,7 +25,7 @@ import com.me.ui.R;
  * @author tangqi
  * @date 2015年10月15日下午10:53:22
  */
-public class CircleImageView extends ImageView {
+public class CircleImageView extends android.support.v7.widget.AppCompatImageView {
 
 	private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 

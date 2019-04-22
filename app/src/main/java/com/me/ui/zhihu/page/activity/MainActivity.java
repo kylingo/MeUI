@@ -1,4 +1,4 @@
-package com.me.ui.view.page.activity;
+package com.me.ui.zhihu.page.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.me.ui.R;
-import com.me.ui.view.adapter.DailyPagerAdpater;
+import com.me.ui.zhihu.page.adapter.DailyPagerAdpater;
 
 import butterknife.BindView;
 

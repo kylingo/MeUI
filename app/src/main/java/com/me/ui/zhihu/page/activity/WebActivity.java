@@ -1,4 +1,4 @@
-package com.me.ui.view.page.activity;
+package com.me.ui.zhihu.page.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,8 +24,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.me.ui.R;
-import com.me.ui.domain.config.ExtraKey;
-import com.me.ui.view.view.GlidePaletteListenerImp;
+import com.me.ui.zhihu.domain.config.ExtraKey;
+import com.me.ui.common.view.GlidePaletteListenerImp;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

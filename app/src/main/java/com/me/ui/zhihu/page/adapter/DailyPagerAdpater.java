@@ -1,13 +1,13 @@
-package com.me.ui.view.adapter;
+package com.me.ui.zhihu.page.adapter;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.me.ui.domain.config.Constants;
-import com.me.ui.domain.config.ExtraKey;
-import com.me.ui.view.page.fragment.DailyFragment;
+import com.me.ui.zhihu.domain.config.Constants;
+import com.me.ui.zhihu.domain.config.ExtraKey;
+import com.me.ui.zhihu.page.fragment.DailyFragment;
 
 import java.util.Calendar;
 

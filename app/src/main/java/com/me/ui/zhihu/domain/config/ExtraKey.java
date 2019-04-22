@@ -1,4 +1,4 @@
-package com.me.ui.domain.config;
+package com.me.ui.zhihu.domain.config;
 
 /**
  * 全局Key配置

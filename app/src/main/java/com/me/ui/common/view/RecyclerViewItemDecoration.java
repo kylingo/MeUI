@@ -1,4 +1,4 @@
-package com.me.ui.view.view;
+package com.me.ui.common.view;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,4 +1,4 @@
-package com.me.ui.domain.util;
+package com.me.ui.zhihu.domain.util;
 
 import android.text.TextUtils;
 import android.widget.ImageView;

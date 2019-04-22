@@ -1,4 +1,4 @@
-package com.me.ui.view.page.activity;
+package com.me.ui.zhihu.page.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

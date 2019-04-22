@@ -1,4 +1,4 @@
-package com.me.ui.view.page.fragment;
+package com.me.ui.zhihu.page.fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,13 +16,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.me.ui.R;
-import com.me.ui.domain.config.Constants;
-import com.me.ui.domain.config.ExtraKey;
+import com.me.ui.zhihu.domain.config.Constants;
+import com.me.ui.zhihu.domain.config.ExtraKey;
 import com.me.ui.zhihu.model.entity.Daily;
 import com.me.ui.zhihu.model.entity.DailyResult;
-import com.me.ui.view.adapter.DailyListAdapter;
-import com.google.gson.Gson;
+import com.me.ui.zhihu.page.adapter.DailyListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
