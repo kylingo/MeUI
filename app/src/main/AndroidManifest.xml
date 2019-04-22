@@ -46,6 +46,10 @@
         <activity
             android:name=".zhihu.page.activity.ZhiHuWebActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".wanandroid.page.activity.WanMainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

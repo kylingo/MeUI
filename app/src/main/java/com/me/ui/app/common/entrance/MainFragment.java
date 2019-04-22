@@ -2,8 +2,9 @@ package com.me.ui.app.common.entrance;
 
 import android.content.Intent;
 
-import com.me.ui.library.sample.SampleFragment;
+import com.me.ui.app.wanandroid.page.activity.WanMainActivity;
 import com.me.ui.app.zhihu.page.activity.ZhiHuMainActivity;
+import com.me.ui.library.sample.SampleFragment;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class MainFragment extends SampleFragment<String> {
             }
 
             case "玩Android": {
-                Intent intent = new Intent(getActivity(), ZhiHuMainActivity.class);
+                Intent intent = new Intent(getActivity(), WanMainActivity.class);
                 startActivity(intent);
                 break;
             }
