@@ -57,4 +57,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.0.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+    // adapter
+//    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.0'
 }
