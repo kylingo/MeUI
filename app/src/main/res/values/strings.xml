@@ -8,4 +8,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="natigation_open">Navigation View</string>
     <string name="navigation_closed">Navigation View Closed</string>
+    <string name="wan_main">首页</string>
+    <string name="wan_find">体系</string>
+    <string name="wan_wechat_channel">公众号</string>
+    <string name="wan_me">我的</string>
 </resources>
