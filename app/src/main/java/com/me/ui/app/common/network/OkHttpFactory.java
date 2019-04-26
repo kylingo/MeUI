@@ -1,4 +1,4 @@
-package com.me.ui.app.wanandroid.network;
+package com.me.ui.app.common.network;
 
 
 import com.me.ui.library.helper.MeLogger;

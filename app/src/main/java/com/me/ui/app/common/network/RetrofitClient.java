@@ -1,6 +1,4 @@
-package com.me.ui.app.wanandroid.network;
-
-import com.me.ui.app.wanandroid.config.WanConstants;
+package com.me.ui.app.common.network;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -12,25 +10,23 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 public class RetrofitClient {
     private static final RetrofitClient sInstance = new RetrofitClient();
-    private IWanApi mNetAPi;
-
     public static RetrofitClient getInstance() {
         return sInstance;
     }
 
-    public RetrofitClient() {
+    private RetrofitClient() {
+
+    }
+
+    public <T> T buildApi(String baseUrl, Class<T> apiClass) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(WanConstants.BASE_URL)
+                .baseUrl(baseUrl)
                 .client(OkHttpFactory.getsInstance().getOkHttpClient())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        mNetAPi = retrofit.create(IWanApi.class);
-    }
-
-    public IWanApi getNetApi() {
-        return mNetAPi;
+        return retrofit.create(apiClass);
     }
 }
