@@ -8,12 +8,12 @@ configurations.all {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion rootProject.ext.setting.compileSdkVersion
 
     defaultConfig {
         applicationId "com.me.ui.sample"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.setting.minSdkVersion
+        targetSdkVersion rootProject.ext.setting.targetSdkVersion
         versionCode 100
         versionName "1.0.0"
         multiDexEnabled true
@@ -67,10 +67,10 @@ dependencies {
     implementation project(':lib_util')
 
     // support
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.setting.supportVersion}"
+    implementation "com.android.support:recyclerview-v7:${rootProject.ext.setting.supportVersion}"
+    implementation "com.android.support:design:${rootProject.ext.setting.supportVersion}"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support:multidex:1.0.3'
 
     // refresh
