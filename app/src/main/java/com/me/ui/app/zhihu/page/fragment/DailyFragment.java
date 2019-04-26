@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
@@ -130,28 +128,20 @@ public class DailyFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     private void refresh() {
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.ZHIHU_DAILY_NEWS + date,
-
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Gson gson = new Gson();
+                response -> {
+                    Gson gson = new Gson();
 //                        Log.d("Debug", "response:" + response);
-                        DailyResult dailyResult = gson.fromJson(response, DailyResult.class);
-                        mNewsList.clear();
-                        mNewsList.addAll(dailyResult.stories);
-                        mAdapter.notifyDataSetChanged();
+                    DailyResult dailyResult = gson.fromJson(response, DailyResult.class);
+                    mNewsList.clear();
+                    mNewsList.addAll(dailyResult.stories);
+                    mAdapter.notifyDataSetChanged();
 
-                        finishRefresh();
-                    }
+                    finishRefresh();
                 },
 
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+                error -> {
 //                        Toast.makeText(getActivity(), "加载失败", Toast.LENGTH_SHORT).show();
-                        finishRefresh();
-                    }
-
+                    finishRefresh();
                 });
         requestQueue.add(stringRequest);
 

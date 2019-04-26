@@ -55,7 +55,7 @@ public class ZhiHuMainActivity extends BaseActivity {
 
     @Override
     protected int getContentViewId() {
-        return R.layout.activity_main;
+        return R.layout.activity_zhihu_main;
     }
 
     @Override
