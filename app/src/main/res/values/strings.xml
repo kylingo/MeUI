@@ -12,4 +12,6 @@
     <string name="wan_find">体系</string>
     <string name="wan_wechat_channel">公众号</string>
     <string name="wan_me">我的</string>
+    <string name="wan_main_article_category_sample">性能优化</string>
+    <string name="wan_main_article_time_sample">2019-04-28</string>
 </resources>

@@ -1,37 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dip"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dip"
+    android:layout_marginTop="5dip"
+    android:orientation="horizontal"
+    card_view:cardBackgroundColor="@color/cardview_light_background"
+    card_view:cardCornerRadius="5dp">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
+        android:id="@+id/ll_card_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dip"
-        android:layout_marginTop="5dip"
-        android:orientation="horizontal"
-        card_view:cardBackgroundColor="@color/cardview_light_background"
-        card_view:cardCornerRadius="5dp">
+        android:orientation="vertical"
+        android:padding="16dip">
 
         <LinearLayout
-            android:id="@+id/ll_card_parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dip">
+            android:orientation="horizontal">
+
+            <com.me.ui.app.common.view.CircleImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
-                android:id="@+id/tv_wan_main_article"
-                style="@style/TextAppearance.AppCompat.Body1"
+                android:id="@+id/tv_wan_main_article_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/abc_list_item_padding_horizontal_material"
-                android:text="今天是七夕节..."
-                android:textSize="14sp"/>
+                android:layout_marginLeft="5dp"
+                android:text="@string/app_name"
+                android:textColor="@color/secondary_text"
+                android:textSize="14dp"/>
+
+            <TextView
+                android:id="@+id/tv_wan_main_article_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/wan_main_article_category_sample"
+                android:textColor="@color/primary"
+                android:textSize="14dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_wan_main_article"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="2"
+            android:text="今天是七夕节..."
+            android:textSize="14dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_wan_main_article_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wan_main_article_time_sample"
+                android:textColor="@color/secondary_text"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_wan_main_article_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tag"
+                    android:textColor="@color/md_red_800"
+                    android:textSize="12dp"/>
+            </LinearLayout>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

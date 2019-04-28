@@ -133,7 +133,7 @@ public class WanArticleBean {
         private int userId;
         private int visible;
         private int zan;
-        private List<?> tags;
+        private List<Tag> tags;
 
         public String getApkLink() {
             return apkLink;
@@ -319,12 +319,39 @@ public class WanArticleBean {
             this.zan = zan;
         }
 
-        public List<?> getTags() {
+        public List<Tag> getTags() {
             return tags;
         }
 
-        public void setTags(List<?> tags) {
+        public void setTags(List<Tag> tags) {
             this.tags = tags;
+        }
+
+        public static class Tag {
+
+            /**
+             * name : 导航
+             * url : /navi#274
+             */
+
+            private String name;
+            private String url;
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
         }
     }
 }
