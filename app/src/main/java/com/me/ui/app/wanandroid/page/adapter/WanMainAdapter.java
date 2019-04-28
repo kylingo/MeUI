@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseAdapter;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
+import com.me.ui.app.wanandroid.page.activity.WanWebActivity;
 import com.me.ui.util.TimeUtils;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
  * @author tangqi
  * @since 2019/04/27 00:32
  */
-public class WanMainAdapter extends BaseAdapter<WanArticleBean.DatasBean> {
+public class WanMainAdapter extends BaseAdapter<WanArticleBean.DatasBean> implements View.OnClickListener {
 
     public WanMainAdapter() {
         super();
@@ -59,7 +60,18 @@ public class WanMainAdapter extends BaseAdapter<WanArticleBean.DatasBean> {
                 viewHolder.tvTag.setText(tag);
                 viewHolder.tvTag.setVisibility(View.VISIBLE);
             }
+
+            viewHolder.itemView.setTag(position);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = (int) v.getTag();
+        WanArticleBean.DatasBean datasBean = getItem(position);
+        datasBean.getLink();
+
+        WanWebActivity.launch(v.getContext(), datasBean.getTitle(), datasBean.getLink());
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {
@@ -77,6 +89,8 @@ public class WanMainAdapter extends BaseAdapter<WanArticleBean.DatasBean> {
             tvCategory = itemView.findViewById(R.id.tv_wan_main_article_category);
             tvTime = itemView.findViewById(R.id.tv_wan_main_article_time);
             tvTag = itemView.findViewById(R.id.tv_wan_main_article_tag);
+
+            itemView.setOnClickListener(WanMainAdapter.this);
         }
     }
 }

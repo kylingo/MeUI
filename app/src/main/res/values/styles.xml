@@ -79,4 +79,16 @@
         <item name="android:layout_weight">1.0</item>
     </style>
 
+    <!-- 横向进度条 -->
+    <style name="WidgetProgressBarHorizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <!--<item name="android:progressDrawable">@android:drawable/progress_horizontal</item>-->
+        <item name="android:progressDrawable">@drawable/custom_progress_horizontal</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
 </resources>

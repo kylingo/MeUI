@@ -51,6 +51,10 @@
         <activity
             android:name=".wanandroid.page.activity.WanMainActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".wanandroid.page.activity.WanWebActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

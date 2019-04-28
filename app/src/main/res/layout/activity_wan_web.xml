@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_wan_web_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/primary_dark"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/wv_web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:id="@+id/pb_web_load"
+            style="@style/WidgetProgressBarHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+    </FrameLayout>
+
+</LinearLayout>
