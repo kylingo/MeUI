@@ -7,6 +7,8 @@ import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.data.WanNavigationBean;
+import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
 import com.me.ui.app.wanandroid.data.WanTreeBean;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 
@@ -50,5 +52,17 @@ public class WanNetEngine {
 
     public Observable<WanModule<WanArticleBean>> getTreeCategory(int page, int cid) {
         return mWanApi.getTreeCategory(page, cid);
+    }
+
+    public Observable<WanListModule<WanNavigationBean>> getNavigation() {
+        return mWanApi.getNavigation();
+    }
+
+    public Observable<WanListModule<WanProjectTreeBean>> getProjectTree() {
+        return mWanApi.getProjectTree();
+    }
+
+    public Observable<WanModule<WanArticleBean>> getProjectCategory(int page, int cid) {
+        return mWanApi.getProjectCategory(page, cid);
     }
 }

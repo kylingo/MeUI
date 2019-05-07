@@ -5,6 +5,8 @@ import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.data.WanNavigationBean;
+import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
 import com.me.ui.app.wanandroid.data.WanTreeBean;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 
@@ -36,4 +38,13 @@ public interface WanApi {
 
     @GET("article/list/{page}/json")
     Observable<WanModule<WanArticleBean>> getTreeCategory(@Path("page") int page, @Query("cid") int cid);
+
+    @GET("navi/json")
+    Observable<WanListModule<WanNavigationBean>> getNavigation();
+
+    @GET("project/tree/json")
+    Observable<WanListModule<WanProjectTreeBean>> getProjectTree();
+
+    @GET("project/list/{page}/json")
+    Observable<WanModule<WanArticleBean>> getProjectCategory(@Path("page") int page, @Query("cid") int cid);
 }
