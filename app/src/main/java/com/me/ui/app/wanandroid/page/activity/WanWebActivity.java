@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseActivity;
+import com.me.ui.app.wanandroid.page.view.WanTitleView;
 
 /**
  * @author kylingo
@@ -61,8 +62,8 @@ public class WanWebActivity extends BaseActivity {
     }
 
     protected void initView() {
-        mTvTitle = findViewById(R.id.tv_wan_web_title);
-        mTvTitle.setText(mTitle);
+        WanTitleView wanTitleView = findViewById(R.id.view_wan_web_title);
+        wanTitleView.setTitle(mTitle);
         mProgressBar = findViewById(R.id.pb_web_load);
 
         mWebView = findViewById(R.id.wv_web);

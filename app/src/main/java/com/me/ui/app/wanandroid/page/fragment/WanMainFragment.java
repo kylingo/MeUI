@@ -13,6 +13,7 @@ import com.me.ui.app.wanandroid.api.WanNetEngine;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.page.adapter.WanMainAdapter;
+import com.me.ui.app.wanandroid.page.view.WanTitleView;
 
 import java.util.List;
 
@@ -41,6 +42,9 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
 
     @Override
     protected void initView(View view) {
+        WanTitleView wanTitleView = view.findViewById(R.id.view_wan_main_title);
+        wanTitleView.setTitle(getString(R.string.wan_main));
+
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLayoutManager);

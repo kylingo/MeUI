@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseActivity;
+import com.me.ui.app.wanandroid.page.activity.WanMainActivity;
 
 import butterknife.BindView;
 
@@ -69,10 +70,9 @@ public class SplashActivity extends BaseActivity {
      * 跳转到主页
      */
     private void startActivity() {
-        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        Intent intent = new Intent(SplashActivity.this, WanMainActivity.class);
         startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in,
-                android.R.anim.fade_out);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
 }
