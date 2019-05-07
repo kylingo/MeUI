@@ -7,6 +7,7 @@ import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.data.WanTreeBean;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 
 import rx.Observable;
@@ -41,5 +42,9 @@ public class WanNetEngine {
 
     public Observable<WanListModule<WanHotKeyBean>> getMainHotKey() {
         return mWanApi.getMainHotKey();
+    }
+
+    public Observable<WanListModule<WanTreeBean>> getTreeList() {
+        return mWanApi.getTreeList();
     }
 }

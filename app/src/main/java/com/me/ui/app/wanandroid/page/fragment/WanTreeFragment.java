@@ -10,9 +10,9 @@ import com.me.ui.app.common.base.BaseFragment;
 import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
-import com.me.ui.app.wanandroid.data.WanArticleBean;
-import com.me.ui.app.wanandroid.data.WanModule;
-import com.me.ui.app.wanandroid.page.adapter.WanMainAdapter;
+import com.me.ui.app.wanandroid.data.WanListModule;
+import com.me.ui.app.wanandroid.data.WanTreeBean;
+import com.me.ui.app.wanandroid.page.adapter.WanTreeAdapter;
 import com.me.ui.app.wanandroid.page.view.WanTitleView;
 
 import java.util.List;
@@ -20,31 +20,31 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * @author tangqi
- * @since 2019/04/26 23:43
+ * @author kylingo
+ * @since 2019/05/07 13:17
  */
-public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class WanTreeFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private RecyclerView.LayoutManager mLayoutManager;
-    private WanMainAdapter mAdapter;
+    private WanTreeAdapter mAdapter;
 
-    @BindView(R.id.view_wan_main_title)
+    @BindView(R.id.view_wan_tree_title)
     WanTitleView mWanTitleView;
 
-    @BindView(R.id.srl_wan_main)
+    @BindView(R.id.srl_wan_tree)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
-    @BindView(R.id.rv_wan_main)
+    @BindView(R.id.rv_wan_tree)
     RecyclerView mRecyclerView;
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_wan_main;
+        return R.layout.fragment_wan_tree;
     }
 
     @Override
     protected void initView(View view) {
-        mWanTitleView.setTitle(getString(R.string.wan_main));
+        mWanTitleView.setTitle(getString(R.string.wan_tree));
 
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setHasFixedSize(true);
@@ -52,7 +52,7 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
 
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.primary);
-        mAdapter = new WanMainAdapter();
+        mAdapter = new WanTreeAdapter();
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -63,9 +63,9 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
     }
 
     private void loadData() {
-        WanNetEngine.getInstance().getMainArticleList(0)
+        WanNetEngine.getInstance().getTreeList()
                 .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanModule<WanArticleBean>>() {
+                .subscribe(new RxSubscriber<WanListModule<WanTreeBean>>() {
                     @Override
                     public void onError(Throwable e) {
                         if (e != null) {
@@ -75,15 +75,10 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
                     }
 
                     @Override
-                    public void onNext(WanModule<WanArticleBean> wanModule) {
+                    public void onNext(WanListModule<WanTreeBean> wanModule) {
                         if (wanModule != null) {
-                            WanArticleBean wanArticleBean = wanModule.getData();
-                            if (wanArticleBean != null) {
-                                List<WanArticleBean.DatasBean> datasBeans = wanArticleBean.getDatas();
-                                if (datasBeans != null) {
-                                    mAdapter.setData(datasBeans);
-                                }
-                            }
+                            List<WanTreeBean> wanTreeBeans = wanModule.getData();
+                            mAdapter.setData(wanTreeBeans);
                         }
                         mSwipeRefreshLayout.setRefreshing(false);
                     }

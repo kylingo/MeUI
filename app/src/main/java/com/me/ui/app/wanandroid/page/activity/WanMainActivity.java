@@ -17,8 +17,10 @@ import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.data.WanTreeBean;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 import com.me.ui.app.wanandroid.page.fragment.WanMainFragment;
+import com.me.ui.app.wanandroid.page.fragment.WanTreeFragment;
 
 /**
  * @author tangqi
@@ -27,7 +29,7 @@ import com.me.ui.app.wanandroid.page.fragment.WanMainFragment;
 public class WanMainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
     private WanMainFragment mFirstFragment;
-    private WanMainFragment mSecondFragment;
+    private WanTreeFragment mSecondFragment;
     private WanMainFragment mThirdFragment;
     private WanMainFragment mFourthFragment;
 
@@ -51,7 +53,7 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
 
         RadioGroup mGroup = findViewById(R.id.main_radio);
         mFirstFragment = new WanMainFragment();
-        mSecondFragment = new WanMainFragment();
+        mSecondFragment = new WanTreeFragment();
         mThirdFragment = new WanMainFragment();
         mFourthFragment = new WanMainFragment();
         mFormerTag = FIRST_TAG;
@@ -203,6 +205,24 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
                     @Override
                     public void onNext(WanListModule<WanHotKeyBean> wanHotKeyBeanWanListModule) {
                         if (wanHotKeyBeanWanListModule != null) {
+
+                        }
+                    }
+                });
+
+        WanNetEngine.getInstance().getTreeList()
+                .compose(RxHelper.getErrAndIOSchedulerTransformer())
+                .subscribe(new RxSubscriber<WanListModule<WanTreeBean>>() {
+                    @Override
+                    public void onError(Throwable e) {
+                        if (e != null) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onNext(WanListModule<WanTreeBean> wanTreeBeanWanListModule) {
+                        if (wanTreeBeanWanListModule != null) {
 
                         }
                     }

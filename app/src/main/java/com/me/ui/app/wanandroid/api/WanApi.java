@@ -5,6 +5,7 @@ import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.data.WanTreeBean;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 
 import retrofit2.http.GET;
@@ -28,4 +29,7 @@ public interface WanApi {
 
     @GET("hotkey/json")
     Observable<WanListModule<WanHotKeyBean>> getMainHotKey();
+
+    @GET("tree/json")
+    Observable<WanListModule<WanTreeBean>> getTreeList();
 }
