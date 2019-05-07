@@ -10,6 +10,7 @@ import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -31,5 +32,8 @@ public interface WanApi {
     Observable<WanListModule<WanHotKeyBean>> getMainHotKey();
 
     @GET("tree/json")
-    Observable<WanListModule<WanTreeBean>> getTreeList();
+    Observable<WanListModule<WanTreeBean>> getTree();
+
+    @GET("article/list/{page}/json")
+    Observable<WanModule<WanArticleBean>> getTreeCategory(@Path("page") int page, @Query("cid") int cid);
 }

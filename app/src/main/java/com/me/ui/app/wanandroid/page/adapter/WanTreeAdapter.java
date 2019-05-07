@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseAdapter;
 import com.me.ui.app.wanandroid.data.WanTreeBean;
+import com.me.ui.app.wanandroid.page.activity.WanTreeCategoryActivity;
 
 import java.util.List;
 
@@ -42,13 +43,16 @@ public class WanTreeAdapter extends BaseAdapter<WanTreeBean> implements View.OnC
                 }
             }
             viewHolder.tvChild.setText(sb.toString());
+            viewHolder.itemView.setTag(position);
         }
 
     }
 
     @Override
     public void onClick(View v) {
-
+        int position = (int) v.getTag();
+        WanTreeBean wanTreeBean = getItem(position);
+        WanTreeCategoryActivity.launch(v.getContext(), wanTreeBean);
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {

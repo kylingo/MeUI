@@ -44,7 +44,11 @@ public class WanNetEngine {
         return mWanApi.getMainHotKey();
     }
 
-    public Observable<WanListModule<WanTreeBean>> getTreeList() {
-        return mWanApi.getTreeList();
+    public Observable<WanListModule<WanTreeBean>> getTree() {
+        return mWanApi.getTree();
+    }
+
+    public Observable<WanModule<WanArticleBean>> getTreeCategory(int page, int cid) {
+        return mWanApi.getTreeCategory(page, cid);
     }
 }

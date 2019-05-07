@@ -63,7 +63,7 @@ public class WanTreeFragment extends BaseFragment implements SwipeRefreshLayout.
     }
 
     private void loadData() {
-        WanNetEngine.getInstance().getTreeList()
+        WanNetEngine.getInstance().getTree()
                 .compose(RxHelper.getErrAndIOSchedulerTransformer())
                 .subscribe(new RxSubscriber<WanListModule<WanTreeBean>>() {
                     @Override
