@@ -10,11 +10,8 @@ import com.me.ui.app.common.base.BaseActivity;
 import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
-import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
-import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.data.WanNavigationBean;
-import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
 import com.me.ui.app.wanandroid.page.adapter.WanNavigationAdapter;
 import com.me.ui.app.wanandroid.page.view.WanTitleView;
 
@@ -66,24 +63,6 @@ public class WanNavigationActivity extends BaseActivity implements SwipeRefreshL
     protected void initData() {
         loadData();
         mSwipeRefreshLayout.setRefreshing(true);
-
-        WanNetEngine.getInstance().getProjectCategory(0, 294)
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanModule<WanArticleBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanModule<WanArticleBean> wanNavigationBeanWanListModule) {
-                        if (wanNavigationBeanWanListModule != null) {
-
-                        }
-                    }
-                });
     }
 
     public void loadData() {

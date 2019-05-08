@@ -1,12 +1,13 @@
 package com.me.ui.app.wanandroid.data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author kylingo
  * @since 2019/05/07 17:44
  */
-public class WanProjectTreeBean {
+public class WanProjectTreeBean implements Serializable {
 
     /**
      * children : []

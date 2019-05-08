@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseAdapter;
 import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
+import com.me.ui.app.wanandroid.page.activity.WanProjectActivity;
 
 /**
  * @author kylingo
@@ -40,6 +41,7 @@ public class WanProjectTreeAdapter extends BaseAdapter<WanProjectTreeBean> imple
     public void onClick(View v) {
         int position = (int) v.getTag();
         WanProjectTreeBean wanProjectTreeBean = getItem(position);
+        WanProjectActivity.launch(v.getContext(), wanProjectTreeBean);
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {
