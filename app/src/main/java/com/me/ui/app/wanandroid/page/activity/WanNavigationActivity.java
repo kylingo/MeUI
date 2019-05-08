@@ -1,9 +1,9 @@
-package com.me.ui.app.wanandroid.page.fragment;
+package com.me.ui.app.wanandroid.page.activity;
 
-import android.view.View;
+import android.os.Bundle;
 
 import com.me.ui.app.R;
-import com.me.ui.app.common.base.BaseFragment;
+import com.me.ui.app.common.base.BaseActivity;
 import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
@@ -17,19 +17,24 @@ import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
  * @author kylingo
  * @since 2019/05/07 17:34
  */
-public class WanNavigationFragment extends BaseFragment {
+public class WanNavigationActivity extends BaseActivity {
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_wan_navigation;
+        return R.layout.activity_wan_navigation;
     }
 
     @Override
-    protected void initView(View view) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initView();
+        initData();
+    }
+
+    protected void initView() {
 
     }
 
-    @Override
     protected void initData() {
         WanNetEngine.getInstance().getNavigation()
                 .compose(RxHelper.getErrAndIOSchedulerTransformer())
