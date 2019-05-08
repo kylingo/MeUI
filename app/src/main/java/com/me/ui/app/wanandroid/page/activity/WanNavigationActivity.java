@@ -67,24 +67,6 @@ public class WanNavigationActivity extends BaseActivity implements SwipeRefreshL
         loadData();
         mSwipeRefreshLayout.setRefreshing(true);
 
-        WanNetEngine.getInstance().getProjectTree()
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanListModule<WanProjectTreeBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanListModule<WanProjectTreeBean> wanNavigationBeanWanListModule) {
-                        if (wanNavigationBeanWanListModule != null) {
-
-                        }
-                    }
-                });
-
         WanNetEngine.getInstance().getProjectCategory(0, 294)
                 .compose(RxHelper.getErrAndIOSchedulerTransformer())
                 .subscribe(new RxSubscriber<WanModule<WanArticleBean>>() {

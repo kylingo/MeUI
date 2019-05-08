@@ -3,6 +3,7 @@ package com.me.ui.app.wanandroid.page.fragment;
 import android.content.Intent;
 
 import com.me.ui.app.wanandroid.page.activity.WanNavigationActivity;
+import com.me.ui.app.wanandroid.page.activity.WanProjectTreeActivity;
 import com.me.ui.library.sample.SampleFragment;
 
 import java.util.List;
@@ -28,8 +29,11 @@ public class WanFindListFragment extends SampleFragment<String> {
                 break;
             }
 
-            case "项目":
+            case "项目": {
+                Intent intent = new Intent(getActivity(), WanProjectTreeActivity.class);
+                startActivity(intent);
                 break;
+            }
         }
     }
 }
