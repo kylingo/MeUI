@@ -60,4 +60,7 @@ dependencies {
 
     // adapter
 //    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.0'
+
+    // flow layout
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
 }
