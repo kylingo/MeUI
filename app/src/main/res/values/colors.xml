@@ -31,5 +31,5 @@
     <color name="tab_line1_bg">#D6D6D6</color><!-- 微信主页底部导航线条1 -->
     <color name="tab_line2_bg">#F2F2F2</color><!-- 微信主页底部导航线条2 -->
 
-    <color name="bg_wan_tag">#CCCCCC</color>
+    <color name="bg_wan_tag">#DDDDDD</color>
 </resources>

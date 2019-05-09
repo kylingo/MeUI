@@ -22,6 +22,7 @@ public class WanProjectActivity extends BaseListActivity<WanArticleBean.DatasBea
     private static final String KEY_DATA = "key_data";
     private WanProjectTreeBean mWanProjectTreeBean;
     private int mCid;
+    private String mTitle;
 
     public static void launch(Context context, WanProjectTreeBean wanProjectTreeBean) {
         Intent intent = new Intent(context, WanProjectActivity.class);
@@ -33,6 +34,7 @@ public class WanProjectActivity extends BaseListActivity<WanArticleBean.DatasBea
     protected void initData() {
         parseIntent();
         super.initData();
+        setActionBarTitle(mTitle);
     }
 
     private void parseIntent() {
@@ -40,6 +42,7 @@ public class WanProjectActivity extends BaseListActivity<WanArticleBean.DatasBea
         if (intent != null) {
             mWanProjectTreeBean = (WanProjectTreeBean) intent.getSerializableExtra(KEY_DATA);
             mCid = mWanProjectTreeBean.getId();
+            mTitle = mWanProjectTreeBean.getName();
         } else {
             mCid = 294;
         }

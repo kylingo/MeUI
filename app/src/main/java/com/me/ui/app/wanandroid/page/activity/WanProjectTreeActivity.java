@@ -21,7 +21,7 @@ public class WanProjectTreeActivity extends BaseListActivity<WanProjectTreeBean>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.wan_project));
+        setActionBarTitle(getString(R.string.wan_project));
     }
 
     @Override

@@ -34,7 +34,7 @@ public abstract class BaseListActivity<T> extends BaseActivity implements SwipeR
 
     protected abstract void loadData();
 
-    protected void setTitle(String title) {
+    protected void setActionBarTitle(String title) {
         mWanTitleView.setTitle(title);
     }
 
@@ -50,7 +50,7 @@ public abstract class BaseListActivity<T> extends BaseActivity implements SwipeR
         initData();
     }
 
-    private void initView() {
+    protected void initView() {
         mAdapter = getAdapter();
 
         mLayoutManager = new LinearLayoutManager(this);
