@@ -10,7 +10,10 @@ import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
 import com.me.ui.app.wanandroid.data.WanTreeBean;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -47,4 +50,14 @@ public interface WanApi {
 
     @GET("project/list/{page}/json")
     Observable<WanModule<WanArticleBean>> getProjectCategory(@Path("page") int page, @Query("cid") int cid);
+
+    @POST("user/register/json")
+    Observable<Object> postUserRegister(@Query("username") String username, @Query("password") String password);
+
+    @FormUrlEncoded
+    @POST("user/login/json")
+    Observable<Object> postUserLogin(@Field("username") String username, @Field("password") String password);
+
+    @GET("user/logout/json")
+    Observable<Void> postUserLoginOut();
 }

@@ -20,6 +20,7 @@ import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 import com.me.ui.app.wanandroid.page.fragment.WanFindFragment;
 import com.me.ui.app.wanandroid.page.fragment.WanMainFragment;
+import com.me.ui.app.wanandroid.page.fragment.WanMeFragment;
 import com.me.ui.app.wanandroid.page.fragment.WanTreeFragment;
 
 /**
@@ -31,7 +32,7 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
     private WanMainFragment mFirstFragment;
     private WanTreeFragment mSecondFragment;
     private WanFindFragment mThirdFragment;
-    private WanMainFragment mFourthFragment;
+    private WanMeFragment mFourthFragment;
 
     private String mFormerTag;
     private final static String FIRST_TAG = "FirstFragment";
@@ -55,7 +56,7 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
         mFirstFragment = new WanMainFragment();
         mSecondFragment = new WanTreeFragment();
         mThirdFragment = new WanFindFragment();
-        mFourthFragment = new WanMainFragment();
+        mFourthFragment = new WanMeFragment();
         mFormerTag = FIRST_TAG;
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_content, mFirstFragment, FIRST_TAG).commit();

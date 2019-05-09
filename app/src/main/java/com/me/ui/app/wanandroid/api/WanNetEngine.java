@@ -65,4 +65,12 @@ public class WanNetEngine {
     public Observable<WanModule<WanArticleBean>> getProjectCategory(int page, int cid) {
         return mWanApi.getProjectCategory(page, cid);
     }
+
+    public Observable<Object> postUserRegister(String username, String password) {
+        return mWanApi.postUserRegister(username, password);
+    }
+
+    public Observable<Object> postUserLogin(String username, String password) {
+        return mWanApi.postUserLogin(username, password);
+    }
 }
