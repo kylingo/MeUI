@@ -91,4 +91,8 @@ public class WanNetEngine {
     public Observable<WanModule<WanCommonBean>> postUncollectArticle(int aid) {
         return mWanApi.postUncollectArticle(aid);
     }
+
+    public Observable<WanModule<WanArticleBean>> getSearch(int page, String keywords) {
+        return mWanApi.getSearch(page, keywords);
+    }
 }

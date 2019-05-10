@@ -4,7 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="natigation_open">Navigation View</string>
     <string name="navigation_closed">Navigation View Closed</string>
@@ -18,4 +18,5 @@
     <string name="wan_main_article_category_sample">性能优化</string>
     <string name="wan_main_article_time_sample">2019-04-28</string>
     <string name="wan_mine_collect">我的收藏</string>
+    <string name="wan_search">搜索</string>
 </resources>

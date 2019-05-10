@@ -75,4 +75,8 @@ public interface WanApi {
     @FormUrlEncoded
     Observable<WanModule<WanCommonBean>> postUncollectArticle(@Path("aid") int aid);
 
+    @POST("article/query/{page}/json")
+    @FormUrlEncoded
+    Observable<WanModule<WanArticleBean>> getSearch(@Path("page") int page, @Field("k") String keywords);
+
 }
