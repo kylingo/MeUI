@@ -1,5 +1,6 @@
 package com.me.ui.app.wanandroid.page.fragment;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.me.ui.app.R;
@@ -9,6 +10,7 @@ import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
 import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.page.activity.WanCollectActivity;
 import com.me.ui.app.wanandroid.page.view.WanTitleView;
 
 import butterknife.BindView;
@@ -100,5 +102,11 @@ public class WanMeFragment extends BaseFragment {
                         }
                     }
                 });
+    }
+
+    @OnClick(R.id.tv_wan_mine_collect)
+    public void onClickMineCollect() {
+        Intent intent = new Intent(getActivity(), WanCollectActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,10 +1,11 @@
 package com.me.ui.app.wanandroid.api;
 
-import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanBannerBean;
+import com.me.ui.app.wanandroid.data.WanCommonBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
+import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.data.WanNavigationBean;
 import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
@@ -62,4 +63,16 @@ public interface WanApi {
 
     @GET("user/logout/json")
     Observable<WanModule<WanLoginData>> getUserLoginOut();
+
+    @GET("lg/collect/list/{page}/json")
+    Observable<WanModule<WanArticleBean>> getCollectArticleList(@Path("page") int page);
+
+    @POST("lg/collect/{aid}/json")
+    @FormUrlEncoded
+    Observable<WanModule<WanCommonBean>> postCollectArticle(@Path("aid") int aid);
+
+    @POST("lg/uncollect_originId/{aid}/json")
+    @FormUrlEncoded
+    Observable<WanModule<WanCommonBean>> postUncollectArticle(@Path("aid") int aid);
+
 }

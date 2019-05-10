@@ -54,4 +54,19 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/line"/>
+
+    <TextView
+        android:id="@+id/tv_wan_mine_collect"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="@string/wan_mine_collect"
+        android:textColor="@color/black_text"
+        android:textSize="14dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"/>
 </LinearLayout>

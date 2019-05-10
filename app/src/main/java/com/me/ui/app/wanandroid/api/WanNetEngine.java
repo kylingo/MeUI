@@ -2,11 +2,12 @@ package com.me.ui.app.wanandroid.api;
 
 import com.me.ui.app.common.network.RetrofitClient;
 import com.me.ui.app.wanandroid.config.WanConstants;
-import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanBannerBean;
+import com.me.ui.app.wanandroid.data.WanCommonBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
+import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.data.WanNavigationBean;
 import com.me.ui.app.wanandroid.data.WanProjectTreeBean;
@@ -77,5 +78,17 @@ public class WanNetEngine {
 
     public Observable<WanModule<WanLoginData>> getUserLoginOut() {
         return mWanApi.getUserLoginOut();
+    }
+
+    public Observable<WanModule<WanArticleBean>> getCollectArticleList(int page) {
+        return mWanApi.getCollectArticleList(page);
+    }
+
+    public Observable<WanModule<WanCommonBean>> postCollectArticle(int aid) {
+        return mWanApi.postCollectArticle(aid);
+    }
+
+    public Observable<WanModule<WanCommonBean>> postUncollectArticle(int aid) {
+        return mWanApi.postUncollectArticle(aid);
     }
 }
