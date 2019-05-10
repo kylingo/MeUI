@@ -1,5 +1,6 @@
 package com.me.ui.app.wanandroid.api;
 
+import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
@@ -51,13 +52,14 @@ public interface WanApi {
     @GET("project/list/{page}/json")
     Observable<WanModule<WanArticleBean>> getProjectCategory(@Path("page") int page, @Query("cid") int cid);
 
-    @POST("user/register/json")
-    Observable<Object> postUserRegister(@Query("username") String username, @Query("password") String password);
-
+    @POST("user/register")
     @FormUrlEncoded
-    @POST("user/login/json")
-    Observable<Object> postUserLogin(@Field("username") String username, @Field("password") String password);
+    Observable<WanModule<WanLoginData>> postUserRegister(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
+
+    @POST("user/login")
+    @FormUrlEncoded
+    Observable<WanModule<WanLoginData>> postUserLogin(@Field("username") String username, @Field("password") String password);
 
     @GET("user/logout/json")
-    Observable<Void> postUserLoginOut();
+    Observable<WanModule<WanLoginData>> getUserLoginOut();
 }

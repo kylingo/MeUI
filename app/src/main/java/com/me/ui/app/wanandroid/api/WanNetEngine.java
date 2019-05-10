@@ -2,6 +2,7 @@ package com.me.ui.app.wanandroid.api;
 
 import com.me.ui.app.common.network.RetrofitClient;
 import com.me.ui.app.wanandroid.config.WanConstants;
+import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanHotKeyBean;
@@ -66,11 +67,15 @@ public class WanNetEngine {
         return mWanApi.getProjectCategory(page, cid);
     }
 
-    public Observable<Object> postUserRegister(String username, String password) {
-        return mWanApi.postUserRegister(username, password);
+    public Observable<WanModule<WanLoginData>> postUserRegister(String username, String password, String repassword) {
+        return mWanApi.postUserRegister(username, password, repassword);
     }
 
-    public Observable<Object> postUserLogin(String username, String password) {
+    public Observable<WanModule<WanLoginData>> postUserLogin(String username, String password) {
         return mWanApi.postUserLogin(username, password);
+    }
+
+    public Observable<WanModule<WanLoginData>> getUserLoginOut() {
+        return mWanApi.getUserLoginOut();
     }
 }
