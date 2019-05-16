@@ -12,7 +12,6 @@ import com.me.ui.app.common.base.BaseActivity;
 import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
-import com.me.ui.app.wanandroid.data.WanBannerBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
 import com.me.ui.app.wanandroid.page.fragment.WanFindFragment;
@@ -136,24 +135,6 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
     }
 
     private void apiTest() {
-        WanNetEngine.getInstance().getMainBanner()
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanListModule<WanBannerBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanListModule<WanBannerBean> wanBannerBeanWanListModule) {
-                        if (wanBannerBeanWanListModule != null) {
-
-                        }
-                    }
-                });
-
         WanNetEngine.getInstance().getMainWebsite()
                 .compose(RxHelper.getErrAndIOSchedulerTransformer())
                 .subscribe(new RxSubscriber<WanListModule<WanWebsiteBean>>() {

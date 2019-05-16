@@ -12,6 +12,8 @@ import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
+import com.me.ui.app.wanandroid.data.WanBannerBean;
+import com.me.ui.app.wanandroid.data.WanListModule;
 import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.page.activity.WanSearchActivity;
 import com.me.ui.app.wanandroid.page.adapter.WanMainAdapter;
@@ -67,6 +69,7 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
 
     @Override
     protected void initData() {
+        loadBanner();
         loadData();
         mSwipeRefreshLayout.setRefreshing(true);
     }
@@ -95,6 +98,26 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
                             }
                         }
                         mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                });
+    }
+
+    private void loadBanner() {
+        WanNetEngine.getInstance().getMainBanner()
+                .compose(RxHelper.getErrAndIOSchedulerTransformer())
+                .subscribe(new RxSubscriber<WanListModule<WanBannerBean>>() {
+                    @Override
+                    public void onError(Throwable e) {
+                        if (e != null) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onNext(WanListModule<WanBannerBean> wanBannerBeanWanListModule) {
+                        if (wanBannerBeanWanListModule != null) {
+
+                        }
                     }
                 });
     }
