@@ -45,6 +45,13 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
     @Override
     protected void initView(View view) {
         mWanTitleView.setTitle(getString(R.string.wan_main));
+        mWanTitleView.setRightResource(R.mipmap.ic_search);
+        mWanTitleView.setRightOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setHasFixedSize(true);

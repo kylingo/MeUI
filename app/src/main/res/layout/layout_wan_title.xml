@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="48dp"
+    android:background="@color/primary_dark">
 
     <TextView
         android:id="@+id/tv_wan_title"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/primary_dark"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="28dp"
         android:gravity="center"
         android:maxLines="1"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:textColor="@color/white"
-        android:textSize="15dp"/>
-</LinearLayout>
+        android:textSize="18dp"/>
+
+    <ImageView
+        android:id="@+id/iv_wan_right_menu"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:padding="12dp"
+        android:src="@mipmap/ic_search"
+        android:visibility="gone"/>
+</FrameLayout>
