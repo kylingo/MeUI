@@ -8,7 +8,6 @@ import com.me.ui.app.common.base.BaseFragment;
 import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
-import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.page.activity.WanCollectActivity;
@@ -109,26 +108,5 @@ public class WanMeFragment extends BaseFragment {
     public void onClickMineCollect() {
         Intent intent = new Intent(getActivity(), WanCollectActivity.class);
         startActivity(intent);
-    }
-
-    @OnClick(R.id.tv_wan_search)
-    public void onClickSearch() {
-        WanNetEngine.getInstance().getSearch(0, "android")
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanModule<WanArticleBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanModule<WanArticleBean> wanArticleBeanWanModule) {
-                        if (wanArticleBeanWanModule != null) {
-
-                        }
-                    }
-                });
     }
 }

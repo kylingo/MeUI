@@ -1,5 +1,6 @@
 package com.me.ui.app.wanandroid.page.fragment;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
 import com.me.ui.app.wanandroid.data.WanArticleBean;
 import com.me.ui.app.wanandroid.data.WanModule;
+import com.me.ui.app.wanandroid.page.activity.WanSearchActivity;
 import com.me.ui.app.wanandroid.page.adapter.WanMainAdapter;
 import com.me.ui.app.wanandroid.page.view.WanTitleView;
 
@@ -49,7 +51,7 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
         mWanTitleView.setRightOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                launchSearchActivity();
             }
         });
 
@@ -100,5 +102,10 @@ public class WanMainFragment extends BaseFragment implements SwipeRefreshLayout.
     @Override
     public void onRefresh() {
         loadData();
+    }
+
+    private void launchSearchActivity() {
+        Intent intent = new Intent(getActivity(), WanSearchActivity.class);
+        startActivity(intent);
     }
 }

@@ -78,6 +78,14 @@
         <activity
             android:name=".wanandroid.page.activity.WanCollectActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".wanandroid.page.activity.WanSearchActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".wanandroid.page.activity.WanSearchResultActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

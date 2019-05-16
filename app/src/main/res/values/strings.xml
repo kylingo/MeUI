@@ -19,4 +19,5 @@
     <string name="wan_main_article_time_sample">2019-04-28</string>
     <string name="wan_mine_collect">我的收藏</string>
     <string name="wan_search">搜索</string>
+    <string name="wan_search_hint">发现更多干货</string>
 </resources>
