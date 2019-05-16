@@ -46,7 +46,8 @@ public class WanNavigationAdapter extends BaseAdapter<WanNavigationBean> {
                     TagFlowLayout tagFlowLayout = (TagFlowLayout) parent;
                     WanNavigationBean.ArticlesBean bean = (WanNavigationBean.ArticlesBean) tagFlowLayout.getAdapter()
                             .getItem(position);
-                    WanWebActivity.launch(view.getContext(), bean.getTitle(), bean.getLink());
+                    WanWebActivity.launch(view.getContext(), bean.getTitle(), bean.getLink(),
+                            bean.getId(), bean.isCollect());
                     return true;
                 }
             });

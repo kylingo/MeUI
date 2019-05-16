@@ -88,7 +88,7 @@ public class WanNetEngine {
         return mWanApi.postCollectArticle(aid);
     }
 
-    public Observable<WanModule<WanCommonBean>> postUncollectArticle(int aid) {
+    public Observable<WanModule<WanCommonBean>> postUnCollectArticle(int aid) {
         return mWanApi.postUncollectArticle(aid);
     }
 

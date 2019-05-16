@@ -71,7 +71,8 @@ public class WanMainAdapter extends BaseAdapter<WanArticleBean.DatasBean> implem
         WanArticleBean.DatasBean datasBean = getItem(position);
         datasBean.getLink();
 
-        WanWebActivity.launch(v.getContext(), datasBean.getTitle(), datasBean.getLink());
+        WanWebActivity.launch(v.getContext(), datasBean.getTitle(), datasBean.getLink(),
+                datasBean.getId(), datasBean.isCollect());
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {

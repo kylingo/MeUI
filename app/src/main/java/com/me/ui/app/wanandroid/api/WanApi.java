@@ -68,11 +68,9 @@ public interface WanApi {
     Observable<WanModule<WanArticleBean>> getCollectArticleList(@Path("page") int page);
 
     @POST("lg/collect/{aid}/json")
-    @FormUrlEncoded
     Observable<WanModule<WanCommonBean>> postCollectArticle(@Path("aid") int aid);
 
     @POST("lg/uncollect_originId/{aid}/json")
-    @FormUrlEncoded
     Observable<WanModule<WanCommonBean>> postUncollectArticle(@Path("aid") int aid);
 
     @POST("article/query/{page}/json")

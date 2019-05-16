@@ -13,11 +13,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseActivity;
+import com.me.ui.app.common.rx.RxHelper;
+import com.me.ui.app.common.rx.RxSubscriber;
+import com.me.ui.app.wanandroid.api.WanNetEngine;
+import com.me.ui.app.wanandroid.data.WanCommonBean;
+import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.page.view.WanTitleView;
+import com.me.ui.util.ToastUtils;
 
 /**
  * @author kylingo
@@ -31,15 +36,18 @@ public class WanWebActivity extends BaseActivity {
     private static final int DEFAULT_FIXED_FONT_SIZE = 13;
 
     protected WebView mWebView;
-    protected TextView mTvTitle;
     protected ProgressBar mProgressBar;
     protected String mTitle;
     protected String mUrl;
+    protected int mId;
+    protected boolean mIsCollect;
 
-    public static void launch(Context context, String title, String url) {
+    public static void launch(Context context, String title, String url, int id, boolean isCollect) {
         Intent intent = new Intent(context, WanWebActivity.class);
         intent.putExtra("title", title);
         intent.putExtra("url", url);
+        intent.putExtra("id", id);
+        intent.putExtra("isCollect", isCollect);
         context.startActivity(intent);
     }
 
@@ -59,13 +67,22 @@ public class WanWebActivity extends BaseActivity {
         Intent intent = getIntent();
         mTitle = intent.getStringExtra("title");
         mUrl = intent.getStringExtra("url");
+        mId = intent.getIntExtra("id", 0);
+        mIsCollect = intent.getBooleanExtra("isCollect", false);
     }
 
     protected void initView() {
         WanTitleView wanTitleView = findViewById(R.id.view_wan_web_title);
         wanTitleView.setTitle(mTitle);
-        mProgressBar = findViewById(R.id.pb_web_load);
+        wanTitleView.setRightResource(R.mipmap.ic_search);
+        wanTitleView.setRightOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickCollect();
+            }
+        });
 
+        mProgressBar = findViewById(R.id.pb_web_load);
         mWebView = findViewById(R.id.wv_web);
         initSettings();
         loadUrl(mUrl);
@@ -157,5 +174,49 @@ public class WanWebActivity extends BaseActivity {
 
     private void loadUrl(String url) {
         mWebView.loadUrl(url);
+    }
+
+    private void onClickCollect() {
+        if (mIsCollect) {
+            unCollectArticle();
+        } else {
+            collectArticle();
+        }
+    }
+
+    private void unCollectArticle() {
+        WanNetEngine.getInstance().postUnCollectArticle(mId)
+                .compose(RxHelper.getErrAndIOSchedulerTransformer())
+                .subscribe(new RxSubscriber<WanModule<WanCommonBean>>() {
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtils.showShort("取消收藏失败");
+                    }
+
+                    @Override
+                    public void onNext(WanModule<WanCommonBean> wanCommonBeanWanModule) {
+                        mIsCollect = false;
+                        ToastUtils.showShort("取消收藏成功");
+                    }
+
+                });
+    }
+
+    private void collectArticle() {
+        WanNetEngine.getInstance().postCollectArticle(mId)
+                .compose(RxHelper.getErrAndIOSchedulerTransformer())
+                .subscribe(new RxSubscriber<WanModule<WanCommonBean>>() {
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtils.showShort("收藏失败");
+                    }
+
+                    @Override
+                    public void onNext(WanModule<WanCommonBean> wanCommonBeanWanModule) {
+                        mIsCollect = true;
+                        ToastUtils.showShort("收藏成功");
+                    }
+
+                });
     }
 }
