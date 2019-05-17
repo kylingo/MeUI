@@ -29,13 +29,7 @@ public class WanSearchResultActivity extends BaseListActivity<WanArticleBean.Dat
     }
 
     @Override
-    protected void initData() {
-        parseIntent();
-        super.initData();
-        setActionBarTitle(mKeywords);
-    }
-
-    private void parseIntent() {
+    protected void parseIntent() {
         Intent intent = getIntent();
         if (intent != null) {
             mKeywords = intent.getStringExtra(KEY_DATA);
@@ -44,6 +38,11 @@ public class WanSearchResultActivity extends BaseListActivity<WanArticleBean.Dat
         if (TextUtils.isEmpty(mKeywords)) {
             mKeywords = "android";
         }
+    }
+
+    @Override
+    protected String getTitleName() {
+        return mKeywords;
     }
 
     @Override

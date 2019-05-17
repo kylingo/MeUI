@@ -33,13 +33,7 @@ public class WanProjectActivity extends BaseListActivity<WanArticleBean.DatasBea
     }
 
     @Override
-    protected void initData() {
-        parseIntent();
-        super.initData();
-        setActionBarTitle(mTitle);
-    }
-
-    private void parseIntent() {
+    protected void parseIntent() {
         Intent intent = getIntent();
         if (intent != null) {
             mWanProjectTreeBean = (WanProjectTreeBean) intent.getSerializableExtra(KEY_DATA);
@@ -48,6 +42,11 @@ public class WanProjectActivity extends BaseListActivity<WanArticleBean.DatasBea
         } else {
             mCid = 294;
         }
+    }
+
+    @Override
+    protected String getTitleName() {
+        return mTitle;
     }
 
     @Override

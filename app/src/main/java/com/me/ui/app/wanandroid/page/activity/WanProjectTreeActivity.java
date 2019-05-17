@@ -1,7 +1,5 @@
 package com.me.ui.app.wanandroid.page.activity;
 
-import android.os.Bundle;
-
 import com.me.ui.app.R;
 import com.me.ui.app.common.base.BaseAdapter;
 import com.me.ui.app.common.base.BaseListActivity;
@@ -21,9 +19,13 @@ import com.me.ui.app.wanandroid.page.adapter.WanProjectTreeAdapter;
 public class WanProjectTreeActivity extends BaseListActivity<WanProjectTreeBean> {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setActionBarTitle(getString(R.string.wan_project));
+    protected void parseIntent() {
+
+    }
+
+    @Override
+    protected String getTitleName() {
+        return getString(R.string.wan_project);
     }
 
     @Override

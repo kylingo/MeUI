@@ -30,13 +30,13 @@ public abstract class BaseListActivity<T> extends BaseActivity implements SwipeR
     @BindView(R.id.rv_wan_list)
     RecyclerView mRecyclerView;
 
+    protected abstract void parseIntent();
+
+    protected abstract String getTitleName();
+
     protected abstract BaseAdapter<T> getAdapter();
 
     protected abstract void loadData();
-
-    protected void setActionBarTitle(String title) {
-        mWanTitleView.setTitle(title);
-    }
 
     @Override
     protected int getContentViewId() {
@@ -46,11 +46,13 @@ public abstract class BaseListActivity<T> extends BaseActivity implements SwipeR
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        parseIntent();
         initView();
         initData();
     }
 
     protected void initView() {
+        mWanTitleView.setTitle(getTitleName());
         mAdapter = getAdapter();
 
         mLayoutManager = new LinearLayoutManager(this);

@@ -17,9 +17,13 @@ import com.me.ui.app.wanandroid.page.adapter.WanMainAdapter;
 public class WanCollectActivity extends BaseListActivity<WanArticleBean.DatasBean> {
 
     @Override
-    protected void initView() {
-        super.initView();
-        setActionBarTitle(getString(R.string.wan_mine_collect));
+    protected void parseIntent() {
+
+    }
+
+    @Override
+    protected String getTitleName() {
+        return getString(R.string.wan_mine_collect);
     }
 
     @Override
