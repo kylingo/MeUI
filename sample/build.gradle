@@ -97,7 +97,7 @@ dependencies {
 
     // bugly
     implementation 'com.tencent.bugly:crashreport:latest.release'
-    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+//    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
 
     //optional, help to generate the final application
     compileOnly('com.tencent.tinker:tinker-android-anno:1.9.1')

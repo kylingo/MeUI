@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.me.ui.library.sample.SampleFragment;
+import com.me.ui.sample.thirdparty.aspect.TryCatch;
 
 import java.util.List;
 
@@ -38,9 +39,7 @@ public class TestFragment extends SampleFragment<String> {
             }
 
             case "Scheme": {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("imgotv://minivideo?vid=1d10db2c9dc44756a59e00312ab9144d"));
-                startActivity(intent);
+                schemeTest();
                 break;
             }
 
@@ -51,5 +50,18 @@ public class TestFragment extends SampleFragment<String> {
                 break;
             }
         }
+    }
+
+    @TryCatch
+    private void schemeTest() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        // 底层页
+//        String scheme = "imgotv://minivideo?vid=1d10db2c9dc44756a59e00312ab9144d";
+
+        // 微剧
+        String scheme = "imgotv://minivideo?vid=4c4681ab572d476c9a3df452a9eeb5cb&episodeType=1";
+
+        intent.setData(Uri.parse(scheme));
+        startActivity(intent);
     }
 }
