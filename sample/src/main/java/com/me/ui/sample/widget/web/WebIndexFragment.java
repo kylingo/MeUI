@@ -14,5 +14,6 @@ public class WebIndexFragment extends SampleListFragment {
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("加载网页", WebFragment.class));
         items.add(new FragmentBean("加载MD", WebMdFragment.class));
+        items.add(new FragmentBean("浏览器", WebBrowserFragment.class));
     }
 }
