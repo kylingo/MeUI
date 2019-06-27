@@ -12,14 +12,11 @@ import com.me.ui.app.common.base.BaseActivity;
 import com.me.ui.app.common.rx.RxHelper;
 import com.me.ui.app.common.rx.RxSubscriber;
 import com.me.ui.app.wanandroid.api.WanNetEngine;
-import com.me.ui.app.wanandroid.data.WanArticleBean;
-import com.me.ui.app.wanandroid.data.WanBannerBean;
-import com.me.ui.app.wanandroid.data.WanHotKeyBean;
 import com.me.ui.app.wanandroid.data.WanListModule;
-import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.data.WanWebsiteBean;
+import com.me.ui.app.wanandroid.page.fragment.WanFindFragment;
 import com.me.ui.app.wanandroid.page.fragment.WanMainFragment;
-import com.me.ui.app.wanandroid.page.fragment.WanNavigationFragment;
+import com.me.ui.app.wanandroid.page.fragment.WanMeFragment;
 import com.me.ui.app.wanandroid.page.fragment.WanTreeFragment;
 
 /**
@@ -30,8 +27,8 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
 
     private WanMainFragment mFirstFragment;
     private WanTreeFragment mSecondFragment;
-    private WanNavigationFragment mThirdFragment;
-    private WanMainFragment mFourthFragment;
+    private WanFindFragment mThirdFragment;
+    private WanMeFragment mFourthFragment;
 
     private String mFormerTag;
     private final static String FIRST_TAG = "FirstFragment";
@@ -54,14 +51,14 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
         RadioGroup mGroup = findViewById(R.id.main_radio);
         mFirstFragment = new WanMainFragment();
         mSecondFragment = new WanTreeFragment();
-        mThirdFragment = new WanNavigationFragment();
-        mFourthFragment = new WanMainFragment();
+        mThirdFragment = new WanFindFragment();
+        mFourthFragment = new WanMeFragment();
         mFormerTag = FIRST_TAG;
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_content, mFirstFragment, FIRST_TAG).commit();
         mGroup.setOnCheckedChangeListener(this);
 
-        apiTest();
+//        apiTest();
     }
 
     /**
@@ -138,42 +135,6 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
     }
 
     private void apiTest() {
-        WanNetEngine.getInstance().getMainArticleList(0)
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanModule<WanArticleBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanModule<WanArticleBean> wanModule) {
-                        if (wanModule != null) {
-
-                        }
-                    }
-                });
-
-        WanNetEngine.getInstance().getMainBanner()
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanListModule<WanBannerBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanListModule<WanBannerBean> wanBannerBeanWanListModule) {
-                        if (wanBannerBeanWanListModule != null) {
-
-                        }
-                    }
-                });
-
         WanNetEngine.getInstance().getMainWebsite()
                 .compose(RxHelper.getErrAndIOSchedulerTransformer())
                 .subscribe(new RxSubscriber<WanListModule<WanWebsiteBean>>() {
@@ -187,24 +148,6 @@ public class WanMainActivity extends BaseActivity implements RadioGroup.OnChecke
                     @Override
                     public void onNext(WanListModule<WanWebsiteBean> wanWebsiteBeanWanListModule) {
                         if (wanWebsiteBeanWanListModule != null) {
-
-                        }
-                    }
-                });
-
-        WanNetEngine.getInstance().getMainHotKey()
-                .compose(RxHelper.getErrAndIOSchedulerTransformer())
-                .subscribe(new RxSubscriber<WanListModule<WanHotKeyBean>>() {
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e != null) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onNext(WanListModule<WanHotKeyBean> wanHotKeyBeanWanListModule) {
-                        if (wanHotKeyBeanWanListModule != null) {
 
                         }
                     }

@@ -58,6 +58,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
 
+    // cokkie
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
     // adapter
 //    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.0'
+
+    // flow layout
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
 }

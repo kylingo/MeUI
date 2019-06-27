@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.me.ui.app.R;
@@ -19,6 +20,7 @@ import com.me.ui.app.R;
 public class WanTitleView extends FrameLayout {
 
     private TextView mTvTitle;
+    private ImageView mIvRightMenu;
 
     public WanTitleView(@NonNull Context context) {
         super(context);
@@ -38,9 +40,19 @@ public class WanTitleView extends FrameLayout {
     private void init(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_wan_title, this);
         mTvTitle = view.findViewById(R.id.tv_wan_title);
+        mIvRightMenu = view.findViewById(R.id.iv_wan_right_menu);
     }
 
     public void setTitle(String title) {
         mTvTitle.setText(title);
+    }
+
+    public void setRightResource(int resourceId) {
+        mIvRightMenu.setImageResource(resourceId);
+        mIvRightMenu.setVisibility(View.VISIBLE);
+    }
+
+    public void setRightOnClickListener(OnClickListener onClickListener) {
+        mIvRightMenu.setOnClickListener(onClickListener);
     }
 }

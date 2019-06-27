@@ -59,7 +59,7 @@
             style="@style/main_tab_bottom"
             android:drawableTop="@drawable/selector_tab_find"
             android:tag="radio_btn_find"
-            android:text="@string/wan_wechat_channel"
+            android:text="@string/wan_find"
             android:textColor="@drawable/selector_tab_textcolor"/>
 
         <RadioButton
