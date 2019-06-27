@@ -32,6 +32,7 @@ public class SpanFragment extends BaseFragment {
         showSpan(view);
         showBulletSpan(view);
         showCustomBulletSpan(view);
+        showChangLine(view);
     }
 
     private void showSpan(View view) {
@@ -77,5 +78,10 @@ public class SpanFragment extends BaseFragment {
         spannable.setSpan(new BulletSpan(6, Color.RED), 20, spannable.length(),
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(spannable);
+    }
+
+    private void showChangLine(View view) {
+        TextView textView = view.findViewById(R.id.tv_change_line);
+        textView.setText("1、新增艺人社区玩法:大众评审、竞演 \\n 2、bug修复及体验优化");
     }
 }
