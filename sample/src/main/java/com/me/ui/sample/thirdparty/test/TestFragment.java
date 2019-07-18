@@ -59,7 +59,10 @@ public class TestFragment extends SampleFragment<String> {
 //        String scheme = "imgotv://minivideo?vid=1d10db2c9dc44756a59e00312ab9144d";
 
         // 微剧
-        String scheme = "imgotv://minivideo?vid=4c4681ab572d476c9a3df452a9eeb5cb&episodeType=1";
+//        String scheme = "imgotv://minivideo?vid=4c4681ab572d476c9a3df452a9eeb5cb&episodeType=1";
+
+        // h5
+        String scheme = "mgqiezi://web?url=https://nm.mgtv.com/artist/dist/red-packet.html";
 
         intent.setData(Uri.parse(scheme));
         startActivity(intent);
