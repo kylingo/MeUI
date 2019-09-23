@@ -62,7 +62,11 @@ public class TestFragment extends SampleFragment<String> {
 //        String scheme = "imgotv://minivideo?vid=4c4681ab572d476c9a3df452a9eeb5cb&episodeType=1";
 
         // h5
-        String scheme = "mgqiezi://web?url=https://nm.mgtv.com/artist/dist/red-packet.html";
+//        String scheme = "mgqiezi://web?url=https://nm.mgtv.com/artist/dist/red-packet.html";
+
+        // 妄想少女MOMO
+//        String scheme = "imgotv://minivideo?vid=cbc1a6c76d4d41b8a5546e93acd7e502&episodeType=1";
+        String scheme = "mgqiezi://player?vid=cbc1a6c76d4d41b8a5546e93acd7e502&episodeType=1";
 
         intent.setData(Uri.parse(scheme));
         startActivity(intent);
