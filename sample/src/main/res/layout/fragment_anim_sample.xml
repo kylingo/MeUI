@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:text="FrameAnimation"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="FrameDynamicAnimation"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_dynamic_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="TweenedAnimation"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_tween"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="TweenedDynamicAnimation"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_dynamic_tween"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="ObjectAnimator"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_object"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="ObjectUpdateAnimation"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_object_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="ValueAnimator"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="ValueAnimatorPlus"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_value_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+    </LinearLayout>
+</ScrollView>

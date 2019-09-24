@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <alpha
+        android:duration="3000"
+        android:fromAlpha="0.1"
+        android:toAlpha="1.0"/>
+
+    <!--
+        accelerate_decelerate_interpolator  加速-减速 动画插入器
+        accelerate_interpolator             加速-动画插入器
+        decelerate_interpolator             减速- 动画插入器
+    -->
+    <scale
+        android:duration="3000"
+        android:fillAfter="false"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.0"
+        android:toYScale="1.0"/>
+
+    <translate
+        android:duration="3000"
+        android:fromXDelta="-20"
+        android:fromYDelta="-20"
+        android:toXDelta="20"
+        android:toYDelta="20"/>
+
+    <rotate
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:duration="3000"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="360"/>
+</set>
