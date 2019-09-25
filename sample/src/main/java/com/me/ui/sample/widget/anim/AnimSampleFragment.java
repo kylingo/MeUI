@@ -2,6 +2,7 @@ package com.me.ui.sample.widget.anim;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
@@ -123,6 +124,7 @@ public class AnimSampleFragment extends BaseFragment {
     private void initPropertyAnim(View view) {
         initObjectAnimator(view);
         initValueAnimator(view);
+        initAnimatorSet(view);
     }
 
     private void initObjectAnimator(View view) {
@@ -214,6 +216,36 @@ public class AnimSampleFragment extends BaseFragment {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
+            }
+        });
+    }
+
+    private void initAnimatorSet(View container) {
+        final ImageView view = container.findViewById(R.id.iv_anim_set);
+        view.setBackgroundResource(R.drawable.ic_launcher);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float translation = 200f;
+
+                ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 0f, 1f);
+                ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 0f, 1f);
+                ObjectAnimator translationX = ObjectAnimator.ofFloat(view, "translationX", translation, 0f);
+                ObjectAnimator translationY = ObjectAnimator.ofFloat(view, "translationY", translation, 0f);
+                ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f);
+                ObjectAnimator rotation = ObjectAnimator.ofFloat(view, "rotation", 0, 360);
+
+                AnimatorSet animatorSet = new AnimatorSet();
+                animatorSet.setInterpolator(new LinearInterpolator());
+                animatorSet.setDuration(500);
+                animatorSet.play(scaleX)
+                        .with(scaleY)
+                        .with(translationX)
+                        .with(translationY)
+                        .with(alpha)
+                        .with(rotation);
+
+                animatorSet.start();
             }
         });
     }

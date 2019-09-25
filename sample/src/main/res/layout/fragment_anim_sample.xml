@@ -96,5 +96,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"/>
+
+        <TextView
+            style="@style/SampleTitleText"
+            android:paddingTop="10dp"
+            android:text="AnimatorSet"/>
+
+        <ImageView
+            android:id="@+id/iv_anim_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
     </LinearLayout>
 </ScrollView>
