@@ -20,5 +20,6 @@ public class BasicFragment extends SampleListFragment {
         items.add(new FragmentBean("协调布局", CoordinatorFragment.class));
         items.add(new FragmentBean("沉浸式", StatusBarFragment.class));
         items.add(new FragmentBean("阴影效果", ShadowFragment.class));
+        items.add(new FragmentBean("连续点击", DebounceFragment.class));
     }
 }
