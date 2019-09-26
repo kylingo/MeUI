@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.me.ui.library.sample.SampleFragment;
+import com.me.ui.sample.library.log.MLog;
 import com.me.ui.sample.thirdparty.aspect.TryCatch;
 
 import java.util.List;
@@ -16,12 +17,19 @@ import java.util.List;
  */
 public class TestFragment extends SampleFragment<String> {
 
+    private static final String TAG = "TestFragment";
+
+    private final static int FLAG_1 = 1;
+    private final static int FLAG_2 = 2;
+    private final static int FLAG_3 = 4;
+
     @Override
     protected void addItems(List<String> items) {
         items.add("Toast");
         items.add("输入法");
         items.add("Scheme");
         items.add("Profile");
+        items.add("FlagMask");
     }
 
     @Override
@@ -49,7 +57,13 @@ public class TestFragment extends SampleFragment<String> {
                 startActivity(intent);
                 break;
             }
+
+            case "FlagMask": {
+                flagMaskTest();
+                break;
+            }
         }
+
     }
 
     @TryCatch
@@ -70,5 +84,37 @@ public class TestFragment extends SampleFragment<String> {
 
         intent.setData(Uri.parse(scheme));
         startActivity(intent);
+    }
+
+    private void flagMaskTest() {
+        for (int i = 0; i < 8; i++) {
+            flagOperation(i, FLAG_1);
+            flagOperation(i, FLAG_2);
+            flagOperation(i, FLAG_3);
+        }
+    }
+
+    private void flagOperation(int flag, int mask) {
+        MLog.d(TAG, "flag:" + flag + ", mask:" + mask + ", hasFlag:" + hasFlag(flag, mask));
+        MLog.d(TAG, "flag:" + flag + ", mask:" + mask + ", hasNotFlag:" + hasNotFlag(flag, mask));
+        MLog.d(TAG, "flag:" + flag + ", mask:" + mask + ", addFlag:" + addFlag(flag, mask));
+        MLog.d(TAG, "flag:" + flag + ", mask:" + mask + ", removeFlag:" + removeFlag(flag, mask));
+    }
+
+    private boolean hasFlag(int flag, int mask) {
+        return (flag & mask) != 0;
+    }
+
+    private boolean hasNotFlag(int flag, int mask) {
+        return (flag & mask) == 0;
+    }
+
+    private int addFlag(int flag, int mask) {
+        return flag | mask;
+    }
+
+    private int removeFlag(int flag, int mask) {
+        flag &= ~mask;
+        return flag;
     }
 }
