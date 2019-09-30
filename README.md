@@ -9,6 +9,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 `compile 'com.github.kylingo:meui:1.0.8'`
 
 ## 汇总
+- [Weekly](./docs/weekly/Weekly.md)
 - [面试经验](./docs/interview/Interview.md)
 
 ## UI
