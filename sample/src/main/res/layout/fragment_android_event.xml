@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.free.interview.android.event.CustomLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.free.interview.android.event.CustomTextView
+        android:id="@+id/tv_android_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="40dp"
+        android:text="EventTest"/>
+
+</com.free.interview.android.event.CustomLinearLayout>

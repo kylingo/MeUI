@@ -23,6 +23,10 @@ public final class LogUtils {
         Log.d(tag, msg);
     }
 
+    public static void i(Class clazz, String text) {
+        i(clazz.getSimpleName(), text);
+    }
+
     public static void i(String tag, String msg) {
         Log.i(tag, msg);
     }

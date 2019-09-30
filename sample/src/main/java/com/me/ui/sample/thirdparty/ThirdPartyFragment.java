@@ -15,8 +15,8 @@ public class ThirdPartyFragment extends SampleListFragment {
 
     @Override
     protected void addItems(List<FragmentBean> items) {
-        items.add(new FragmentBean(TestFragment.class));
-        items.add(new FragmentBean(ARouterFragment.class));
-        items.add(new FragmentBean(AspectFragment.class));
+        items.add(new FragmentBean("测试", TestFragment.class));
+        items.add(new FragmentBean("路由", ARouterFragment.class));
+        items.add(new FragmentBean("AOP", AspectFragment.class));
     }
 }
