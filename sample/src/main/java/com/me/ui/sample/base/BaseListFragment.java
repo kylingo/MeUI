@@ -38,7 +38,6 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
         initRecyclerView(mRecyclerView);
         RecyclerView.Adapter adapter = getAdapter();
         mRecyclerView.setAdapter(adapter);
-
     }
 
     protected void initRecyclerView(RecyclerView recyclerView) {
@@ -54,9 +53,13 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
     }
 
     protected RecyclerView.Adapter getAdapter() {
-        ColorAdapter adapter = new ColorAdapter();
+        ColorAdapter adapter = new ColorAdapter(getItemHeight());
         adapter.setData(getData());
         return adapter;
+    }
+
+    protected int getItemHeight() {
+        return 0;
     }
 
     protected List<ColorItem> getData() {

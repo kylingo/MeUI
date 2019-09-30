@@ -1,5 +1,6 @@
 package com.me.ui.sample.base;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,22 @@ import java.util.List;
 /**
  * @author tangqi on 17-6-19.
  */
-public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.MainHolder> {
+public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorHolder> {
 
-    public List<ColorItem> mItems;
+    private List<ColorItem> mItems;
+    private int mItemHeight;
 
     public ColorAdapter() {
+        init();
+    }
+
+    public ColorAdapter(int itemHeight) {
+        // itemHeight传0，为默认高度
+        mItemHeight = itemHeight;
+        init();
+    }
+
+    private void init() {
         mItems = new ArrayList<>();
     }
 
@@ -36,17 +48,19 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.MainHolder> 
         }
     }
 
-    public ColorItem getItem(int position) {
+    private ColorItem getItem(int position) {
         return mItems.get(position);
     }
 
+    @NonNull
     @Override
-    public ColorAdapter.MainHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MainHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid, parent, false));
+    public ColorHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid, parent, false);
+        return new ColorHolder(view, mItemHeight);
     }
 
     @Override
-    public void onBindViewHolder(ColorAdapter.MainHolder holder, int position) {
+    public void onBindViewHolder(ColorHolder holder, int position) {
         ColorItem mainItem = getItem(position);
         holder.tvMain.setText(String.valueOf(mainItem.index));
         holder.tvMain.setBackgroundColor(mainItem.color);
@@ -57,13 +71,16 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.MainHolder> 
         return mItems.size();
     }
 
-    public static class MainHolder extends RecyclerView.ViewHolder {
+    public static class ColorHolder extends RecyclerView.ViewHolder {
 
         public TextView tvMain;
 
-        public MainHolder(View itemView) {
+        ColorHolder(View itemView, int itemHeight) {
             super(itemView);
-            tvMain = (TextView) itemView.findViewById(R.id.tv_grid);
+            tvMain = itemView.findViewById(R.id.tv_grid);
+            if (itemHeight > 0) {
+                tvMain.getLayoutParams().height = itemHeight;
+            }
         }
     }
 }

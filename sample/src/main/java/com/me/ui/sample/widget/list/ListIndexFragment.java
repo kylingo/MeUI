@@ -13,6 +13,7 @@ public class ListIndexFragment extends SampleListFragment {
 
     @Override
     protected void addItems(List<FragmentBean> items) {
-        items.add(new FragmentBean("SnapPager", SnapPagerFragment.class));
+        items.add(new FragmentBean(SnapPagerFragment.class));
+        items.add(new FragmentBean(LinearPagerFragment.class));
     }
 }

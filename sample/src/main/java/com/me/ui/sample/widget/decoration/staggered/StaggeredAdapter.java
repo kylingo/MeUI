@@ -16,7 +16,7 @@ import java.util.Random;
 public class StaggeredAdapter extends ColorAdapter {
 
     @Override
-    public void onBindViewHolder(MainHolder holder, int position) {
+    public void onBindViewHolder(ColorHolder holder, int position) {
         super.onBindViewHolder(holder, position);
         holder.tvMain.setLayoutParams(
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

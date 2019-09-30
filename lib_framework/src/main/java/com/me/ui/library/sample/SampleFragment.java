@@ -31,7 +31,7 @@ public abstract class SampleFragment<T> extends AbstractSampleFragment implement
 
     @Override
     protected void initView(View view) {
-        mFrameLayout = (FrameLayout) view.findViewById(R.id.fl_fragment_sample);
+        mFrameLayout = view.findViewById(R.id.fl_fragment_sample);
 
         ListView listView = new ListView(getActivity());
         List<T> items = new ArrayList<>();

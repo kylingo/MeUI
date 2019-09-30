@@ -2,6 +2,8 @@ package com.me.ui.library.sample;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.me.ui.quickly.R;
@@ -32,7 +34,13 @@ public abstract class SampleListFragment extends SampleFragment<FragmentBean> {
     }
 
     protected void showFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fl_sample, fragment, fragment.getClass().getSimpleName());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
