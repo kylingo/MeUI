@@ -31,7 +31,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 - [版本适配](./docs/quickly/VersionFit.md)
 - 数据库
 - 算法
-- [设计模式]
+- [设计模式](./docs/Pattern.md)
 - 数据持久化
 - 安全加密
 - 第三方登陆

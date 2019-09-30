@@ -39,6 +39,15 @@
                 tools:replace="name,resource"/>
         </provider>
 
+        <service
+            android:name=".library.pattern.structure.proxy.service.SimpleService"
+            android:exported="false"
+            android:process="com.free.design.SimpleService">
+            <intent-filter>
+                <action android:name="com.free.design.proxy.SimpleService"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name="com.me.ui.sample.SampleMainActivity"
             android:screenOrientation="portrait">

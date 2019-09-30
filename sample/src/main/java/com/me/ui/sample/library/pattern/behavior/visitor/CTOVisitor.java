@@ -1,0 +1,18 @@
+package com.me.ui.sample.library.pattern.behavior.visitor;
+
+import com.me.ui.util.LogUtils;
+
+/**
+ * @author tangqi on 17-5-24.
+ */
+public class CTOVisitor implements Visitor {
+    @Override
+    public void visit(Engineer engineer) {
+        LogUtils.d(CTOVisitor.class, "工程师：" + engineer.name + ", 代码数:" + engineer.getCodeLines());
+    }
+
+    @Override
+    public void visit(Manager manager) {
+        LogUtils.d(CTOVisitor.class, "经理：" + manager.name + ", 产品数:" + manager.getProducts());
+    }
+}

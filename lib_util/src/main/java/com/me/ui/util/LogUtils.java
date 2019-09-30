@@ -15,6 +15,10 @@ public final class LogUtils {
     public LogUtils() {
     }
 
+    public static void d(Class clazz, String text) {
+        d(clazz.getSimpleName(), text);
+    }
+
     public static void d(String tag, String msg) {
         Log.d(tag, msg);
     }
