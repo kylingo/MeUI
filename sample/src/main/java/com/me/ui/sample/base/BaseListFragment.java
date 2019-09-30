@@ -1,5 +1,6 @@
 package com.me.ui.sample.base;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -16,10 +17,6 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
 
     protected RecyclerView mRecyclerView;
 
-    protected abstract RecyclerView.LayoutManager getLayoutManager();
-
-    protected abstract RecyclerView.ItemDecoration getItemDecoration();
-
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_common;
@@ -27,7 +24,7 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
 
     @Override
     protected void initView(View view) {
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_common);
+        mRecyclerView = view.findViewById(R.id.recycler_view_common);
         RecyclerView.LayoutManager layoutManager = getLayoutManager();
         if (layoutManager != null) {
             mRecyclerView.setLayoutManager(layoutManager);
@@ -46,6 +43,14 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
 
     protected void initRecyclerView(RecyclerView recyclerView) {
 
+    }
+
+    protected RecyclerView.LayoutManager getLayoutManager() {
+        return new LinearLayoutManager(getActivity());
+    }
+
+    protected RecyclerView.ItemDecoration getItemDecoration() {
+        return null;
     }
 
     protected RecyclerView.Adapter getAdapter() {
