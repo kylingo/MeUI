@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView android:id="@+id/tv_full_color"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center" />
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_full_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" />
+
+    <com.me.ui.sample.widget.event.EventButton
+        android:id="@+id/btn_event_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone"
+        android:text="@string/app_name" />
+</FrameLayout>

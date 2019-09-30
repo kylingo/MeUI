@@ -53,7 +53,8 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
     }
 
     protected RecyclerView.Adapter getAdapter() {
-        ColorAdapter adapter = new ColorAdapter(getItemHeight());
+        ColorAdapter adapter = new ColorAdapter();
+        adapter.setItemHeight(getItemHeight());
         adapter.setData(getData());
         return adapter;
     }

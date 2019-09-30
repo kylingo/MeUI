@@ -24,10 +24,9 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorHolder>
         init();
     }
 
-    public ColorAdapter(int itemHeight) {
+    public void setItemHeight(int itemHeight) {
         // itemHeight传0，为默认高度
         mItemHeight = itemHeight;
-        init();
     }
 
     private void init() {

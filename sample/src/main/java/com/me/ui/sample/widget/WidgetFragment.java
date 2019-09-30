@@ -6,6 +6,7 @@ import com.me.ui.sample.widget.anim.AnimFragment;
 import com.me.ui.sample.widget.basic.BasicFragment;
 import com.me.ui.sample.widget.custom.CustomFragment;
 import com.me.ui.sample.widget.decoration.DecorationFragment;
+import com.me.ui.sample.widget.event.EventFragment;
 import com.me.ui.sample.widget.image.ImageFragment;
 import com.me.ui.sample.widget.list.ListIndexFragment;
 import com.me.ui.sample.widget.loading.LoadingFragment;
@@ -34,5 +35,6 @@ public class WidgetFragment extends SampleListFragment {
         items.add(new FragmentBean("动画", AnimFragment.class));
         items.add(new FragmentBean("截屏", ScreenFragment.class));
         items.add(new FragmentBean("图片", ImageFragment.class));
+        items.add(new FragmentBean("事件", EventFragment.class));
     }
 }

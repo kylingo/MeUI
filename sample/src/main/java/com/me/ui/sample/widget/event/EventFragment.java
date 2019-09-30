@@ -1,4 +1,4 @@
-package com.me.ui.sample.widget.list;
+package com.me.ui.sample.widget.event;
 
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +10,9 @@ import com.me.ui.sample.library.util.ColorUtils;
 
 /**
  * @author kylingo
- * @since 2019/09/30 09:44
+ * @since 2019/09/30 11:31
  */
-public class SnapPagerFragment extends BaseListFragment {
+public class EventFragment extends BaseListFragment {
 
     @Override
     protected void initRecyclerView(RecyclerView recyclerView) {
@@ -26,6 +26,7 @@ public class SnapPagerFragment extends BaseListFragment {
     protected RecyclerView.Adapter getAdapter() {
         FullColorAdapter adapter = new FullColorAdapter();
         adapter.setData(ColorUtils.getData(20));
+        adapter.updateEventButton(true);
         return adapter;
     }
 }
