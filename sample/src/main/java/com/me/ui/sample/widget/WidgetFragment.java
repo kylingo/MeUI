@@ -7,6 +7,7 @@ import com.me.ui.sample.widget.basic.BasicFragment;
 import com.me.ui.sample.widget.custom.CustomFragment;
 import com.me.ui.sample.widget.decoration.DecorationFragment;
 import com.me.ui.sample.widget.image.ImageFragment;
+import com.me.ui.sample.widget.list.ListIndexFragment;
 import com.me.ui.sample.widget.loading.LoadingFragment;
 import com.me.ui.sample.widget.navigation.NavigationFragment;
 import com.me.ui.sample.widget.refresh.RefreshFragment;
@@ -26,6 +27,7 @@ public class WidgetFragment extends SampleListFragment {
         items.add(new FragmentBean("自定义", CustomFragment.class));
         items.add(new FragmentBean("导航", NavigationFragment.class));
         items.add(new FragmentBean("下拉刷新", RefreshFragment.class));
+        items.add(new FragmentBean("列表", ListIndexFragment.class));
         items.add(new FragmentBean("加载", LoadingFragment.class));
         items.add(new FragmentBean("分割线", DecorationFragment.class));
         items.add(new FragmentBean("网页加载", WebIndexFragment.class));
