@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
@@ -1598,5 +1599,13 @@ public final class ActivityUtils {
             pairs[i] = Pair.create(sharedElements[i], sharedElements[i].getTransitionName());
         }
         return ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pairs).toBundle();
+    }
+
+    public static ActivityInfo tryGetActivity(Context context, ComponentName componentName) {
+        try {
+            return context.getPackageManager().getActivityInfo(componentName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
     }
 }

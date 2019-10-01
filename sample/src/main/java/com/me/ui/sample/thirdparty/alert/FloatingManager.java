@@ -5,17 +5,23 @@ import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.me.ui.sample.R;
 import com.me.ui.sample.SampleApplicationLike;
+import com.me.ui.util.BarUtils;
+import com.me.ui.util.ProcessUtils;
 import com.me.ui.util.ToastUtils;
 
 import java.lang.ref.WeakReference;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * @author kylingo
@@ -28,7 +34,10 @@ public class FloatingManager {
     private WindowManager mWindowManager = null;
     private WindowManager.LayoutParams mWindowLayoutParams = null;
     private WeakReference<View> mFloatingView = null;
+    private WeakReference<TextView> mTvActivity;
+    private String mLastTopActivityName = "";
     private boolean mIsShow = false;
+    private Timer mTimer;
 
     public static FloatingManager getInstance() {
         if (sInstance == null) {
@@ -57,15 +66,17 @@ public class FloatingManager {
             mWindowLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         }
         mWindowLayoutParams.format = PixelFormat.RGBA_8888;
-        mWindowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+        mWindowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR;
         mWindowLayoutParams.gravity = Gravity.LEFT | Gravity.TOP;
         mWindowLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         mWindowLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        mWindowLayoutParams.x = 50;
+        mWindowLayoutParams.y = BarUtils.getStatusBarHeight();
+        mWindowLayoutParams.x = 0;
     }
 
     @TargetApi(Build.VERSION_CODES.M)
-    public void openFloatingView() {
+    void openFloatingView() {
         Context context = SampleApplicationLike.getContext();
         if (Settings.canDrawOverlays(context)) {
             if (mIsShow) {
@@ -76,16 +87,28 @@ public class FloatingManager {
             // 新建悬浮窗控件
             View view = LayoutInflater.from(context).inflate(R.layout.layout_floating_activity, null);
             view.setOnTouchListener(new FloatingOnTouchListener());
+            TextView tvActivity = view.findViewById(R.id.tv_floating_activity);
+            mTvActivity = new WeakReference<>(tvActivity);
             mFloatingView = new WeakReference<>(view);
 
             // 将悬浮窗控件添加到WindowManager
             mWindowManager.addView(view, mWindowLayoutParams);
             mIsShow = true;
+
+            if (mTimer != null) {
+                mTimer.cancel();
+            }
+            mTimer = new Timer();
+            mTimer.schedule(new RefreshTask(), 0, 1000);
         }
     }
 
     @TargetApi(Build.VERSION_CODES.M)
-    public void closeFloatingView() {
+    void closeFloatingView() {
+        if (mTimer != null) {
+            mTimer.cancel();
+        }
+
         Context context = SampleApplicationLike.getContext();
         if (Settings.canDrawOverlays(context)) {
             ToastUtils.showShort("closeFloatingView mIsShow:" + mIsShow);
@@ -94,6 +117,53 @@ public class FloatingManager {
                 mWindowManager.removeView(view);
                 mIsShow = false;
             }
+        }
+    }
+
+    public String getLastTopActivityName() {
+        return mLastTopActivityName;
+    }
+
+    public void setLastTopActivityName(String mLastTopActivityName) {
+        this.mLastTopActivityName = mLastTopActivityName;
+    }
+
+    public class RefreshTask extends TimerTask {
+
+        @Override
+        public void run() {
+            if (mIsShow) {
+                updateFloatingView();
+            } else {
+                if (mTimer != null) {
+                    mTimer.cancel();
+                }
+            }
+        }
+    }
+
+    private void updateFloatingView() {
+        Context context = SampleApplicationLike.getContext();
+        TextView tvActivity = mTvActivity.get();
+        if (tvActivity != null) {
+            StringBuilder sb = new StringBuilder();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                if (AccessibilityServiceHelper.isAccessibilitySettingsOn(context, AppUtils.getAppPackageName() + "/" + ViewDebugHelperService.class.getName())) {
+//                    sb.append(FloatingManager.getInstance().getLastTopActivityName());
+//                } else {
+//                    sb.append("服务未开，数据不一定准确\n").append(ProcessUtils.getTopActivity(context));
+//                }
+                String lastTopActivityName = FloatingManager.getInstance().getLastTopActivityName();
+                if (TextUtils.isEmpty(lastTopActivityName)) {
+                    sb.append("服务未开，数据不一定准确\n");
+                    lastTopActivityName = ProcessUtils.getTopActivity(context);
+                }
+                sb.append(lastTopActivityName);
+            } else {
+                sb.append(ProcessUtils.getTopActivity(context));
+            }
+
+            tvActivity.setText(sb.toString());
         }
     }
 

@@ -25,4 +25,5 @@
     <string name="send_message">发送</string>
     <string name="send_message_hint">有什么想说的吗</string>
 
+    <string name="view_debug_helper_service_description">ViewDebugHelper获取当前activity信息辅助服务，不使用软件时可关闭</string>
 </resources>

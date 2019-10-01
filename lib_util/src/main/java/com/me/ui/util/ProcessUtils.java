@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -220,6 +221,20 @@ public final class ProcessUtils {
                     return aInfo.processName;
                 }
             }
+        }
+        return "";
+    }
+
+    public static String getTopActivity(final Context context) {
+        try {
+            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+            if (!tasks.isEmpty()) {
+                ComponentName topActivity = tasks.get(0).topActivity;
+                return topActivity.getClassName();
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
         }
         return "";
     }
