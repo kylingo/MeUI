@@ -14,8 +14,8 @@ android {
         applicationId "com.me.ui.sample"
         minSdkVersion rootProject.ext.setting.minSdkVersion
         targetSdkVersion rootProject.ext.setting.targetSdkVersion
-        versionCode 100
-        versionName "1.0.0"
+        versionCode 101
+        versionName "1.0.1"
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

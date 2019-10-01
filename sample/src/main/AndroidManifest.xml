@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".SampleApplication"
@@ -47,6 +48,8 @@
                 <action android:name="com.free.design.proxy.SimpleService"/>
             </intent-filter>
         </service>
+
+        <service android:name=".thirdparty.alert.FloatingManager" />
 
         <activity
             android:name="com.me.ui.sample.SampleMainActivity"

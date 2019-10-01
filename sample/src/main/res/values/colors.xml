@@ -7,8 +7,11 @@
 
     <color name="white">#FFFFFF</color>
     <color name="gray">#EBEBEB</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#333333</color>
 
     <color name="thumb_background_color">#000000</color>
     <color name="placeholder_background">#222322</color>
+    <color name="bg_floating">#33000000</color>
 
 </resources>

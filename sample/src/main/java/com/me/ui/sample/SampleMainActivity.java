@@ -32,8 +32,13 @@ public class SampleMainActivity extends SampleActivity {
 
     @Override
     public void onBackPressed() {
+        if (!isFragmentStackEmpty()) {
+            super.onBackPressed();
+            return;
+        }
+
         long currentTime = System.currentTimeMillis();
-        if (isFragmentStackEmpty() && currentTime - mLastExitTime > 2000) {
+        if (currentTime - mLastExitTime > 2000) {
             mLastExitTime = currentTime;
             ToastUtils.showShort("再按一次退出");
         } else {
@@ -44,6 +49,13 @@ public class SampleMainActivity extends SampleActivity {
     private boolean isFragmentStackEmpty() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         List<Fragment> fragments = fragmentManager.getFragments();
+        int fragmentSize = fragments.size();
+        if (fragmentSize == 1) {
+            Fragment fragment = fragments.get(0);
+            if (fragment instanceof SampleMainFragment) {
+                return true;
+            }
+        }
         return fragments.size() == 0;
     }
 }

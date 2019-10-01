@@ -19,7 +19,7 @@ public class SnapPagerFragment extends BaseListFragment {
         super.initRecyclerView(recyclerView);
 
         SnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(mRecyclerView);
+        snapHelper.attachToRecyclerView(recyclerView);
     }
 
     @Override

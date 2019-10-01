@@ -28,6 +28,8 @@ Android的UI控件库，代码仓库，适合快速开发。
 - Banner
 - ScrollView
 - 文字高亮
+- JetPack
+- 悬浮窗，包括权限问题
 
 ## 代码库
 - [工具类](./docs/util/Util.md)
