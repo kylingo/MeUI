@@ -27,7 +27,7 @@ public class SampleMainActivity extends SampleActivity {
 
     @Override
     protected Fragment getSampleFragment() {
-        return new MainFragment();
+        return new SampleMainFragment();
     }
 
     @Override

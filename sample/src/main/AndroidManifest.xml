@@ -40,7 +40,7 @@
         </provider>
 
         <service
-            android:name=".library.pattern.structure.proxy.service.SimpleService"
+            android:name=".pattern.structure.proxy.service.SimpleService"
             android:exported="false"
             android:process="com.free.design.SimpleService">
             <intent-filter>
