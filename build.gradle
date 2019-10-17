@@ -40,6 +40,17 @@ ext {
     ]
 }
 
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            def libModule = details.getRequested()
+            if (libModule.group == 'com.android.support' && !libModule.name.contains('multidex') ) {
+                details.useVersion "${setting.supportVersion}"
+            }
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
