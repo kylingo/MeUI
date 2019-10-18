@@ -5,6 +5,7 @@ import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.sample.thirdparty.alert.FloatingFragment;
 import com.me.ui.sample.thirdparty.arouter.ARouterFragment;
 import com.me.ui.sample.thirdparty.aspect.AspectFragment;
+import com.me.ui.sample.thirdparty.audio.AudioFragment;
 import com.me.ui.sample.thirdparty.test.TestFragment;
 
 import java.util.List;
@@ -20,5 +21,6 @@ public class ThirdPartyFragment extends SampleListFragment {
         items.add(new FragmentBean("路由", ARouterFragment.class));
         items.add(new FragmentBean("AOP", AspectFragment.class));
         items.add(new FragmentBean("悬浮窗", FloatingFragment.class));
+        items.add(new FragmentBean("音频", AudioFragment.class));
     }
 }
