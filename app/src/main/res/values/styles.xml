@@ -5,9 +5,19 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SplashTheme" parent="Root.Theme.AppTheme.Light">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/bg_splash_layer</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="Root.Theme.AppTheme.Light" parent="Theme.AppTheme.Light">
         <!-- 解决activity切换时的黑屏问题 -->
-        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Base.Theme.AppTheme.Light" parent="Theme.AppTheme.Light">
