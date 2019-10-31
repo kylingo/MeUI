@@ -13,5 +13,6 @@ public class NavigationFragment extends SampleListFragment {
     @Override
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("底部导航", BottomNavigationFragment.class));
+        items.add(new FragmentBean("侧滑导航", DrawerNavigationFragment.class));
     }
 }
