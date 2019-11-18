@@ -80,7 +80,10 @@ public class TestFragment extends SampleFragment<String> {
 
         // 妄想少女MOMO
 //        String scheme = "imgotv://minivideo?vid=cbc1a6c76d4d41b8a5546e93acd7e502&episodeType=1";
-        String scheme = "mgqiezi://player?vid=cbc1a6c76d4d41b8a5546e93acd7e502&episodeType=1";
+//        String scheme = "mgqiezi://player?vid=cbc1a6c76d4d41b8a5546e93acd7e502&episodeType=1";
+
+        // 大芒
+        String scheme = "mgqiezi://player?vid=acf6559506dc4869b0f74dc16a0bbeab&mangoType=1";
 
         intent.setData(Uri.parse(scheme));
         startActivity(intent);

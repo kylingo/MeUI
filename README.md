@@ -11,7 +11,7 @@ Android的UI控件库，代码仓库，适合快速开发。
 ## 汇总
 - [MeUI](./docs/meui/Meui.md)
 - [Framework](./docs/framework/Framework.md)
-- [Weekly](./docs/weekly/Weekly.md)
-- [Interview](./docs/interview/Interview.md)
-- [Pattern](./docs/pattern/Pattern.md)
+- [Weekly](./docs/weekly)
+- [Interview](./docs/interview)
+- [Pattern](./docs/pattern)
 
