@@ -3,6 +3,7 @@ package com.me.ui.sample.thirdparty;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.sample.thirdparty.alert.FloatingFragment;
+import com.me.ui.sample.thirdparty.anr.HandlerFragment;
 import com.me.ui.sample.thirdparty.arouter.ARouterFragment;
 import com.me.ui.sample.thirdparty.aspect.AspectFragment;
 import com.me.ui.sample.thirdparty.audio.AudioFragment;
@@ -22,5 +23,6 @@ public class ThirdPartyFragment extends SampleListFragment {
         items.add(new FragmentBean("AOP", AspectFragment.class));
         items.add(new FragmentBean("悬浮窗", FloatingFragment.class));
         items.add(new FragmentBean("音频", AudioFragment.class));
+        items.add(new FragmentBean("ANR", HandlerFragment.class));
     }
 }
