@@ -9,16 +9,36 @@
         android:id="@+id/btn_shrink_show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="show" />
+        android:text="shrink_show" />
 
     <Button
         android:id="@+id/btn_shrink_dismiss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dismiss" />
+        android:text="shrink_dismiss" />
 
     <ImageView
         android:id="@+id/iv_shrink_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_test_01" />
+
+    <Button
+        android:id="@+id/btn_scale_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="scale_show" />
+
+    <Button
+        android:id="@+id/btn_scale_dismiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scale_dismiss" />
+
+    <ImageView
+        android:id="@+id/iv_scale_anim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"

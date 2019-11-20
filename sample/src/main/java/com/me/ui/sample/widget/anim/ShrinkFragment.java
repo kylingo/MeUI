@@ -21,7 +21,8 @@ public class ShrinkFragment extends BaseFragment {
     // 动画默认展示时长
     private static final int TIME_SHOW_ANIM = 300;
 
-    ImageView mImageView;
+    ImageView mIvShrink;
+    ImageView mIvScale;
 
     @Override
     protected int getContentViewId() {
@@ -30,13 +31,13 @@ public class ShrinkFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        mImageView = view.findViewById(R.id.iv_shrink_anim);
+        mIvShrink = view.findViewById(R.id.iv_shrink_anim);
+        mIvScale = view.findViewById(R.id.iv_scale_anim);
 
         view.findViewById(R.id.btn_shrink_show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAppearAnim();
-//                showScaleY();
             }
         });
 
@@ -44,7 +45,20 @@ public class ShrinkFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 showDisappearAnim();
-//                dismissScaleY();
+            }
+        });
+
+        view.findViewById(R.id.btn_scale_show).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showScaleY();
+            }
+        });
+
+        view.findViewById(R.id.btn_scale_dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismissScaleY();
             }
         });
     }
@@ -54,10 +68,11 @@ public class ShrinkFragment extends BaseFragment {
      */
     public void showAppearAnim() {
         // 视图没加载时，无法获取高度，暂时估算为70dp
-        int translationY = -(mImageView.getHeight());
+        View targetView = mIvShrink;
+        int translationY = -(targetView.getHeight());
 
-        ObjectAnimator anim1 = ObjectAnimator.ofFloat(mImageView, "translationY", translationY, 0);
-        ObjectAnimator anim2 = ObjectAnimator.ofFloat(mImageView, "alpha", 0.0f, 1.0f);
+        ObjectAnimator anim1 = ObjectAnimator.ofFloat(targetView, "translationY", translationY, 0);
+        ObjectAnimator anim2 = ObjectAnimator.ofFloat(targetView, "alpha", 0.0f, 1.0f);
         AnimatorSet animSet = new AnimatorSet();
         animSet.setDuration(TIME_SHOW_ANIM);
         animSet.setInterpolator(new LinearInterpolator());
@@ -69,10 +84,11 @@ public class ShrinkFragment extends BaseFragment {
      * 展示消失动画
      */
     public void showDisappearAnim() {
-        int translationY = -(mImageView.getHeight());
+        View targetView = mIvShrink;
+        int translationY = -(targetView.getHeight());
 
-        ObjectAnimator anim1 = ObjectAnimator.ofFloat(mImageView, "translationY", 0, translationY);
-        ObjectAnimator anim2 = ObjectAnimator.ofFloat(mImageView, "alpha", 1.0f, 0.0f);
+        ObjectAnimator anim1 = ObjectAnimator.ofFloat(targetView, "translationY", 0, translationY);
+        ObjectAnimator anim2 = ObjectAnimator.ofFloat(targetView, "alpha", 1.0f, 0.0f);
         AnimatorSet animSet = new AnimatorSet();
         animSet.setDuration(TIME_SHOW_ANIM);
         animSet.setInterpolator(new LinearInterpolator());
@@ -87,8 +103,9 @@ public class ShrinkFragment extends BaseFragment {
     }
 
     public void showScaleY() {
-        ObjectAnimator anim1 = ObjectAnimator.ofFloat(mImageView, "scaleY", 0, 1f);
-        ObjectAnimator anim2 = ObjectAnimator.ofFloat(mImageView, "alpha", 0f, 1f);
+        View targetView = mIvScale;
+        ObjectAnimator anim1 = ObjectAnimator.ofFloat(targetView, "scaleY", 0, 1f);
+        ObjectAnimator anim2 = ObjectAnimator.ofFloat(targetView, "alpha", 0f, 1f);
         AnimatorSet animSet = new AnimatorSet();
         animSet.setDuration(TIME_SHOW_ANIM);
         animSet.setInterpolator(new LinearInterpolator());
@@ -97,8 +114,9 @@ public class ShrinkFragment extends BaseFragment {
     }
 
     public void dismissScaleY() {
-        ObjectAnimator anim1 = ObjectAnimator.ofFloat(mImageView, "scaleY", 1f, 0f);
-        ObjectAnimator anim2 = ObjectAnimator.ofFloat(mImageView, "alpha", 1f, 0f);
+        View targetView = mIvScale;
+        ObjectAnimator anim1 = ObjectAnimator.ofFloat(targetView, "scaleY", 1f, 0f);
+        ObjectAnimator anim2 = ObjectAnimator.ofFloat(targetView, "alpha", 1f, 0f);
         AnimatorSet animSet = new AnimatorSet();
         animSet.setDuration(TIME_SHOW_ANIM);
         animSet.setInterpolator(new LinearInterpolator());
