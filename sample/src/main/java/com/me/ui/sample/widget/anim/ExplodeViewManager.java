@@ -47,6 +47,7 @@ public class ExplodeViewManager {
 
     private int mImageSize;
     private int mDownDuration;
+    private Bitmap mBitmap;
 
     public ExplodeViewManager(View fromView, ViewGroup container) {
         mFromView = fromView;
@@ -89,6 +90,7 @@ public class ExplodeViewManager {
             drawable = (Drawable) resource;
         } else if (resource instanceof Bitmap && !((Bitmap) resource).isRecycled()) {
             bitmap = (Bitmap) resource;
+            mBitmap = bitmap;
         } else {
             return;
         }
@@ -118,7 +120,7 @@ public class ExplodeViewManager {
         // 设置透明度
         float alpha = 1f;
         if (index % 2 == 0) {
-            alpha = new Random().nextInt(7) / 10f + 0.3f;
+            alpha = new Random().nextInt(5) / 10f + 0.5f;
         }
 
         // 设置礼物属性变换动画
@@ -197,7 +199,7 @@ public class ExplodeViewManager {
         valueAnimator.start();
     }
 
-    private void explodeDown(final ImageView imageView, int index) {
+    private void explodeDown(final ImageView imageView, final int index) {
         int startX = new Random().nextInt(mScreenWidth);
         // 元素下落的起点位置，在屏幕上方，终点在屏幕下方
         int startY = mTopY;
@@ -233,10 +235,28 @@ public class ExplodeViewManager {
                 if (mContainer != null) {
                     mContainer.removeView(imageView);
                 }
+
+                if (index == mGiftCount - 1) {
+                    onExplodeFinish();
+                }
             }
         });
 
         valueAnimator.setStartDelay(DELAY_ITEM_ANIM_DOWN * index);
         valueAnimator.start();
+    }
+
+    private void onExplodeFinish() {
+        if (mBitmap != null && !mBitmap.isRecycled()) {
+            mBitmap.recycle();
+        }
+    }
+
+    public void release() {
+        onExplodeFinish();
+
+        if (mContainer != null) {
+            mContainer.removeAllViews();
+        }
     }
 }

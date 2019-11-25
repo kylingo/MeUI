@@ -5,7 +5,6 @@ import android.content.res.AssetManager;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -22,32 +21,36 @@ public class CopyUtils {
         }
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void assetsCopy(Context context, String assetsPath, String dirPath) {
-        File file = new File(dirPath);
-
         AssetManager manager = context.getAssets();
         try {
             String[] list = manager.list(assetsPath);
+            if (list == null) {
+                return;
+            }
+
             if (list.length == 0) { // 文件
                 InputStream in = manager.open(assetsPath);
+                File file = new File(dirPath);
                 file.getParentFile().mkdirs();
                 file.createNewFile();
-                FileOutputStream fout = new FileOutputStream(file);
+                FileOutputStream fos = new FileOutputStream(file);
                 // 复制
                 byte[] buf = new byte[1024];
                 int count;
                 while ((count = in.read(buf)) != -1) {
-                    fout.write(buf, 0, count);
-                    fout.flush();
+                    fos.write(buf, 0, count);
+                    fos.flush();
                 }
                 in.close();
-                fout.close();
+                fos.close();
             } else { // 目录
                 for (String path : list) {
                     assetsCopy(context, assetsPath + "/" + path, dirPath + "/" + path);
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
