@@ -29,6 +29,10 @@ public class AudioFragment extends SampleFragment<String> {
     protected void addItems(List<String> items) {
         items.add("打开扬声器");
         items.add("关闭扬声器");
+        items.add("AUDIOFOCUS_GAIN");
+        items.add("AUDIOFOCUS_GAIN_TRANSIENT");
+        items.add("AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK");
+        items.add("ABANDON_AUDIOFOCUS");
     }
 
     @Override
@@ -47,6 +51,40 @@ public class AudioFragment extends SampleFragment<String> {
                 LogUtils.d(TAG, "mAudioManager.getMode:" + mAudioManager.getMode());
                 LogUtils.d(TAG, "mAudioManager.isSpeakerphoneOn:" + mAudioManager.isSpeakerphoneOn());
                 break;
+
+            case "AUDIOFOCUS_GAIN":
+                requestAudioFocus(AudioManager.AUDIOFOCUS_GAIN);
+                break;
+
+            case "AUDIOFOCUS_GAIN_TRANSIENT":
+                requestAudioFocus(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                break;
+
+            case "AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK":
+                requestAudioFocus(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
+                break;
+
+            case "ABANDON_AUDIOFOCUS":
+                abandonAudioFocus();
+                break;
+        }
+    }
+
+    private void requestAudioFocus(int durationHint) {
+        try {
+            AudioManager am = (AudioManager) getActivity().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+            am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, durationHint);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void abandonAudioFocus() {
+        try {
+            AudioManager am = (AudioManager) getActivity().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+            am.abandonAudioFocus(null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
