@@ -11,8 +11,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 
     <application
         android:name=".SampleApplication"
@@ -50,18 +52,32 @@
             </intent-filter>
         </service>
 
-        <service android:name=".thirdparty.alert.FloatingManager" />
+        <service android:name=".thirdparty.alert.FloatingManager"/>
+
         <service
             android:name=".thirdparty.alert.ViewDebugHelperService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:process=":AccessibilityService">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
             </intent-filter>
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/view_debug_helper" />
+                android:resource="@xml/view_debug_helper"/>
         </service>
+
+        <receiver android:name=".library.music.MediaAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_info" />
+        </receiver>
+
+        <service
+            android:name=".library.music.MediaPlaybackService"/>
 
         <activity
             android:name="com.me.ui.sample.SampleMainActivity"
