@@ -220,13 +220,15 @@ public class MediaPlaybackService extends Service {
         remoteViews.setTextViewText(R.id.title, "朋友请听好");
 
         // Set correct drawable for pause state
+        int resourceId;
         if (isPause) {
-            remoteViews.setImageViewResource(R.id.pause, R.drawable.btn_play);
+            resourceId = R.drawable.btn_play;
         } else {
-            remoteViews.setImageViewResource(R.id.pause, R.drawable.btn_suspend);
+            resourceId = R.drawable.btn_suspend;
         }
+        remoteViews.setImageViewResource(R.id.pause, resourceId);
 
-        Notification notification = new NotificationCompat.Builder(this, "message")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "message")
                 .setContentTitle("朋友请听好") // 创建通知的标题
                 .setContentText("朋友请听好") // 创建通知的内容
                 .setSmallIcon(R.drawable.ic_default) // 创建通知的小图标
@@ -236,9 +238,18 @@ public class MediaPlaybackService extends Service {
                  * 是使用自定义视图还是系统提供的视图，上面4的属性一定要设置，不然这个通知显示不出来
                  */
                 .setDefaults(Notification.DEFAULT_ALL)  // 设置通知提醒方式为系统默认的提醒方式
-                .setContent(remoteViews) // 通过设置RemoteViews对象来设置通知的布局，这里我们设置为自定义布局
-                .build(); // 创建通知（每个通知必须要调用这个方法来创建）
+//                .setContent(remoteViews) // 通过设置RemoteViews对象来设置通知的布局，这里我们设置为自定义布局
+                .addAction(resourceId, "",
+                        pendingIntent);
 
+        builder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+        android.support.v4.media.app.NotificationCompat.MediaStyle style = new android.support.v4.media.app.NotificationCompat.MediaStyle()
+//                .setMediaSession(mediaSessionManager.getMediaSession())
+                .setShowActionsInCompactView(0);
+        builder.setStyle(style);
+
+        Notification notification = builder.build(); // 创建通知（每个通知必须要调用这个方法来创建）
+        notification.flags |= Notification.FLAG_ONGOING_EVENT;
         notificationManager.notify(1, notification); // 发送通知
     }
 
