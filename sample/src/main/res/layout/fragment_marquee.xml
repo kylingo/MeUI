@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMarquee"
+        style="@style/MarqueeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发了疯骄傲东方季道放假到附件大力发掘都发的骄傲放大镜佛大家发动书法家大搜附件奥法骄傲附件" />
+</LinearLayout>

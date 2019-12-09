@@ -9,7 +9,7 @@
     </style>
 
     <!-- 白天主题 -->
-    <style name="AppLightTheme" parent="AppTheme"/>
+    <style name="AppLightTheme" parent="AppTheme" />
 
     <!-- 夜间主题 -->
     <style name="AppDarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -39,4 +39,12 @@
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
 
+    <style name="MarqueeText">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+    </style>
 </resources>
