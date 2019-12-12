@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.tencent.tinker.patch'
 
 configurations.all {
     resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
@@ -95,11 +94,6 @@ dependencies {
     // bugly
     implementation 'com.tencent.bugly:crashreport:latest.release'
 //    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
-
-    //optional, help to generate the final application
-    compileOnly('com.tencent.tinker:tinker-android-anno:1.9.1')
-    //tinker's main Android lib
-    implementation('com.tencent.tinker:tinker-android-lib:1.9.1')
 
     // aspect
     implementation 'org.aspectj:aspectjrt:1.8.9'
