@@ -19,6 +19,8 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.me.ui.sample.Global;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
@@ -88,7 +90,7 @@ public class OSUtils {
 
     /**
      * User-Agent
-     * 
+     *
      * @return user-agent
      */
     public static String getUser_Agent(Context ctx) {
@@ -100,7 +102,7 @@ public class OSUtils {
 
     /**
      * device model name, e.g: GT-I9100 得到设备型号
-     * 
+     *
      * @return the user_Agent
      */
     public static String getDevice() {
@@ -109,7 +111,7 @@ public class OSUtils {
 
     /**
      * device factory name, e.g: Samsung 得到品牌
-     * 
+     *
      * @return the vENDOR
      */
     public static String getVendor() {
@@ -132,7 +134,7 @@ public class OSUtils {
 
     /**
      * Retrieves application's version number from the manifest 得到版本名
-     * 
+     *
      * @return versionName
      */
     public static String getVersionName(Context ctx) {
@@ -173,7 +175,7 @@ public class OSUtils {
 
     /**
      * 获取渠道名
-     * 
+     *
      * @param ctx
      *            此处习惯性的设置为activity，实际上context就可以
      * @return 如果没有获取成功，那么返回值为空
@@ -205,8 +207,8 @@ public class OSUtils {
 
     /**
      * 获取application中指定的meta-data
-     * 
-     * @return 如果没有获取成功(没有对应值，或者异常)，则返回值为空
+     *
+     * @return 如果没有获取成功(没有对应值 ， 或者异常)，则返回值为空
      */
     public static String getAppMetaData(Context ctx, String key) {
         if (ctx == null || TextUtils.isEmpty(key)) {
@@ -299,17 +301,17 @@ public class OSUtils {
 
         return platform;
     }
-    
-    public static boolean isTargetActivityAvailable(Context context,Intent intent){
-        if(context!=null){
-          PackageManager pm = context.getPackageManager();  
-          if(pm!=null){
-             ComponentName cn = intent.resolveActivity(pm);  
-             if(cn!=null){
-               return true; 
-             }
-          }
-       }
-       return false;
+
+    public static boolean isTargetActivityAvailable(Context context, Intent intent) {
+        if (context != null) {
+            PackageManager pm = context.getPackageManager();
+            if (pm != null) {
+                ComponentName cn = intent.resolveActivity(pm);
+                if (cn != null) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

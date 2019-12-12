@@ -8,7 +8,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 import com.me.ui.library.sample.SampleFragment;
-import com.me.ui.sample.SampleApplicationLike;
+import com.me.ui.sample.Global;
 import com.me.ui.util.ToastUtils;
 
 import java.util.List;
@@ -55,7 +55,7 @@ public class FloatingFragment extends SampleFragment<String> {
             openFloatingView();
         } else {
             ToastUtils.showShort("checkPermission failure");
-            String packageName = SampleApplicationLike.getContext().getPackageName();
+            String packageName = Global.getContext().getPackageName();
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + packageName));
             startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);

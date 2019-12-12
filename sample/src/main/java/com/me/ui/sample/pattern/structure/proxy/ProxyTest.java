@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 
 import com.free.design.structure.proxy.service.aidl.ISimpleAIDL;
-import com.me.ui.sample.SampleApplicationLike;
+import com.me.ui.sample.Global;
 import com.me.ui.sample.pattern.PatternTest;
 import com.me.ui.sample.pattern.structure.proxy.dynamic.DynamicProxy;
 import com.me.ui.sample.pattern.structure.proxy.service.SimpleService;
@@ -45,7 +45,7 @@ public class ProxyTest extends PatternTest {
                 .newProxyInstance(loader, new Class[]{ISimpleProxy.class}, dynamicProxy);
         simpleProxy1.shop();
 
-        this.context = SampleApplicationLike.getContext();
+        this.context = Global.getContext();
         bindService();
     }
 

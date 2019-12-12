@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.me.ui.sample.Global;
 import com.me.ui.sample.R;
-import com.me.ui.sample.SampleApplicationLike;
 import com.me.ui.util.BarUtils;
 import com.me.ui.util.ProcessUtils;
 import com.me.ui.util.ToastUtils;
@@ -56,7 +56,7 @@ public class FloatingManager {
 
     private void initWindow() {
         // 获取WindowManager服务
-        mWindowManager = (WindowManager) SampleApplicationLike.getContext().getSystemService(Context.WINDOW_SERVICE);
+        mWindowManager = (WindowManager) Global.getContext().getSystemService(Context.WINDOW_SERVICE);
 
         // 设置LayoutParam
         mWindowLayoutParams = new WindowManager.LayoutParams();
@@ -77,7 +77,7 @@ public class FloatingManager {
 
     @TargetApi(Build.VERSION_CODES.M)
     void openFloatingView() {
-        Context context = SampleApplicationLike.getContext();
+        Context context = Global.getContext();
         if (Settings.canDrawOverlays(context)) {
             if (mIsShow) {
                 ToastUtils.showShort("Already add floating view !");
@@ -109,7 +109,7 @@ public class FloatingManager {
             mTimer.cancel();
         }
 
-        Context context = SampleApplicationLike.getContext();
+        Context context = Global.getContext();
         if (Settings.canDrawOverlays(context)) {
             ToastUtils.showShort("closeFloatingView mIsShow:" + mIsShow);
             if (mIsShow && mFloatingView != null) {
@@ -143,7 +143,7 @@ public class FloatingManager {
     }
 
     private void updateFloatingView() {
-        Context context = SampleApplicationLike.getContext();
+        Context context = Global.getContext();
         TextView tvActivity = mTvActivity.get();
         if (tvActivity != null) {
             StringBuilder sb = new StringBuilder();
