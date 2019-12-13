@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.me.ui.sample"
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.me.ui.sample">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 
@@ -27,7 +27,18 @@
         <!-- 适配全面屏 -->
         <meta-data
             android:name="android.max_aspect"
-            android:value="2.4"/>
+            android:value="2.4" />
+
+        <!-- 首页 -->
+        <activity
+            android:name="com.me.ui.sample.SampleMainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!-- 适配7.0系统的共享文件 -->
         <provider
@@ -40,89 +51,76 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"
-                tools:replace="name,resource"/>
+                tools:replace="name,resource" />
         </provider>
 
+        <!-- 简单服务 -->
         <service
             android:name=".pattern.structure.proxy.service.SimpleService"
             android:exported="false"
             android:process="com.free.design.SimpleService">
             <intent-filter>
-                <action android:name="com.free.design.proxy.SimpleService"/>
+                <action android:name="com.free.design.proxy.SimpleService" />
             </intent-filter>
         </service>
 
-        <service android:name=".thirdparty.alert.FloatingManager"/>
+        <!-- 悬浮窗 -->
+        <service android:name=".thirdparty.alert.FloatingManager" />
 
+        <!-- 无障碍服务 -->
         <service
             android:name=".thirdparty.alert.ViewDebugHelperService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:process=":AccessibilityService">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService"/>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/view_debug_helper"/>
+                android:resource="@xml/view_debug_helper" />
         </service>
 
-        <receiver android:name=".library.music.MediaAppWidgetProvider">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/appwidget_info" />
-        </receiver>
-
-        <service
-            android:name=".library.music.MediaPlaybackService"/>
-
-        <activity
-            android:name="com.me.ui.sample.SampleMainActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <!-- 音乐服务 -->
+        <service android:name=".library.music.MediaPlaybackService" />
 
         <!-- ARouter -->
         <activity
             android:name="com.me.ui.sample.thirdparty.arouter.activity.RouterTestActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.me.ui.sample.thirdparty.arouter.activity.RouterSchemeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name="com.me.ui.sample.thirdparty.arouter.activity.SchemeFilterActivity">
             <intent-filter>
                 <data
                     android:host="kylingo.com"
-                    android:scheme="arouter"/>
+                    android:scheme="arouter" />
 
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
 
+        <!-- 沉浸式 -->
         <activity
             android:name="com.me.ui.sample.widget.basic.StatusBarColorActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.me.ui.sample.widget.basic.StatusBarImageActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <!-- 输入法 -->
         <activity
             android:name="com.me.ui.sample.thirdparty.test.InputMethodActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+
+        <!-- DataBinding -->
         <activity
             android:name="com.me.ui.sample.library.basic.DataBindingActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

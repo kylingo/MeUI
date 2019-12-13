@@ -1,6 +1,5 @@
 package com.me.ui.sample.library.music;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -8,7 +7,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -16,9 +14,7 @@ import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
@@ -63,7 +59,6 @@ public class MediaPlaybackService extends Service {
     private boolean isPause;
 
     private NotificationManager notificationManager;
-    private MediaAppWidgetProvider mAppWidgetProvider = MediaAppWidgetProvider.getInstance();
 
     @Override
     public void onCreate() {
@@ -129,7 +124,7 @@ public class MediaPlaybackService extends Service {
     }
 
     private void startPlay() {
-        int ret = mAudioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC,
+        mAudioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC,
                 AudioManager.AUDIOFOCUS_GAIN);
 
         if (isPause || isPlaying()) {
@@ -140,14 +135,14 @@ public class MediaPlaybackService extends Service {
             mCurrentPlayer.startPlay(path);
         }
 
-        notifyChange(MediaPlaybackService.META_CHANGED);
+        notifyChange();
     }
 
     private void pause() {
         isPause = true;
         mCurrentPlayer.pausePlay();
 
-        notifyChange(MediaPlaybackService.META_CHANGED);
+        notifyChange();
     }
 
     public boolean isPlaying() {
@@ -159,63 +154,25 @@ public class MediaPlaybackService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                mMediaplayPlayStateCheckHandler.removeCallbacksAndMessages(null);
-                Message.obtain(mMediaplayPlayStateCheckHandler, 0, 1, 0).sendToTarget();
+
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                mMediaplayPlayStateCheckHandler.removeCallbacksAndMessages(null);
+                updateNotification();
             }
         }
     };
 
-    @SuppressLint("HandlerLeak")
-    private Handler mMediaplayPlayStateCheckHandler = new Handler() {
-
-        @Override
-        public void handleMessage(Message message) {
-            super.handleMessage(message);
-
-            int next = 0;
-
-            if (mCurrentPlayer.getPosition() < 5000) {
-                next = 5500 - mCurrentPlayer.getPosition();
-            }
-
-            if ((isPlaying() || message.arg1 == 1)) {
-                next = next == 0 ? 1000 : Math.min(1000, next);
-            }
-
-            updateAppWidget(MediaPlaybackService.META_CHANGED);
-
-//            if (next > 0) {
-            sendEmptyMessageDelayed(0, next);
-//            }
-        }
-    };
-
-    private void notifyChange(String what) {
-        updateNotifition(what);
-        updateAppWidget(what);
+    private void notifyChange() {
+        updateNotification();
     }
 
-    private void updateNotifition(String what) {
+    private void updateNotification() {
         //创建一个message通道，名字为消息
-        createNotificationChannel("message", "消息", NotificationManager.IMPORTANCE_DEFAULT);
+        initChannel();
 
-        final ComponentName serviceName = new ComponentName(getApplicationContext(), MediaPlaybackService.class);
-        Intent intent = new Intent(MediaPlaybackService.TOGGLEPAUSE_ACTION);
-        intent.setComponent(serviceName);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(),
-                0 /* no requestCode */, intent, 0 /* no flags */);
-        /*
-         * 通知布局如果使用自定义布局文件中的话要通过RemoteViews类来实现，
-         * 其实无论是使用系统提供的布局还是自定义布局，都是通过RemoteViews类实现，如果使用系统提供的布局，
-         * 系统会默认提供一个RemoteViews对象。如果使用自定义布局的话这个RemoteViews对象需要我们自己创建，
-         * 并且加入我们需要的对应的控件事件处理，然后通过setContent(RemoteViews remoteViews)方法传参实现
-         */
+        Intent intent = new Intent(getApplicationContext(), MediaPlaybackService.class);
+        intent.setAction(MediaPlaybackService.TOGGLEPAUSE_ACTION);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.album_appwidget);
-        /*
-         * 对于自定义布局文件中的控件通过RemoteViews类的对象进行事件处理
-         */
         remoteViews.setOnClickPendingIntent(R.id.pause, pendingIntent);
         remoteViews.setTextViewText(R.id.title, "朋友请听好");
 
@@ -229,41 +186,27 @@ public class MediaPlaybackService extends Service {
         remoteViews.setImageViewResource(R.id.pause, resourceId);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "message")
-                .setContentTitle("朋友请听好") // 创建通知的标题
-                .setContentText("朋友请听好") // 创建通知的内容
-                .setSmallIcon(R.drawable.ic_default) // 创建通知的小图标
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(),
-                        R.drawable.ic_launcher)) // 创建通知的大图标
-                /*
-                 * 是使用自定义视图还是系统提供的视图，上面4的属性一定要设置，不然这个通知显示不出来
-                 */
-                .setDefaults(Notification.DEFAULT_ALL)  // 设置通知提醒方式为系统默认的提醒方式
-//                .setContent(remoteViews) // 通过设置RemoteViews对象来设置通知的布局，这里我们设置为自定义布局
-                .addAction(resourceId, "",
-                        pendingIntent);
+                .setContentTitle("音频FM")
+                .setContentText("朋友请听好")
+                .setSmallIcon(R.drawable.ic_default)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setContent(remoteViews);
 
         builder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
-        android.support.v4.media.app.NotificationCompat.MediaStyle style = new android.support.v4.media.app.NotificationCompat.MediaStyle()
-//                .setMediaSession(mediaSessionManager.getMediaSession())
-                .setShowActionsInCompactView(0);
-        builder.setStyle(style);
-
-        Notification notification = builder.build(); // 创建通知（每个通知必须要调用这个方法来创建）
+        Notification notification = builder.build();
         notification.flags |= Notification.FLAG_ONGOING_EVENT;
-        notificationManager.notify(1, notification); // 发送通知
+        notificationManager.notify(1, notification);
+    }
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private void initChannel() {
+        createNotificationChannel("message", "消息", NotificationManager.IMPORTANCE_DEFAULT);
     }
 
     @TargetApi(Build.VERSION_CODES.O)
     private void createNotificationChannel(String channelId, String channelName, int importance) {
         NotificationChannel notificationChannel = new NotificationChannel(channelId, channelName, importance);
         notificationManager.createNotificationChannel(notificationChannel);
-    }
-
-    private boolean updateAppWidget(String what) {
-//        if (OSUtils.isLockWidgetVisible()) {
-        mAppWidgetProvider.notifyChange(this, what);
-        return true;
-//        }
-//        return false;
     }
 }
