@@ -4,7 +4,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="natigation_open">Navigation View</string>
     <string name="navigation_closed">Navigation View Closed</string>
@@ -20,4 +19,5 @@
     <string name="wan_mine_collect">我的收藏</string>
     <string name="wan_search">搜索</string>
     <string name="wan_search_hint">发现更多干货</string>
+    <string name="wan_goto_zhihu">知乎</string>
 </resources>

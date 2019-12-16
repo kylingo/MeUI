@@ -12,6 +12,7 @@ import com.me.ui.app.wanandroid.data.WanLoginData;
 import com.me.ui.app.wanandroid.data.WanModule;
 import com.me.ui.app.wanandroid.page.activity.WanCollectActivity;
 import com.me.ui.app.wanandroid.page.view.WanTitleView;
+import com.me.ui.app.zhihu.page.activity.ZhiHuMainActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -107,6 +108,12 @@ public class WanMeFragment extends BaseFragment {
     @OnClick(R.id.tv_wan_mine_collect)
     public void onClickMineCollect() {
         Intent intent = new Intent(getActivity(), WanCollectActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.tv_wan_mine_zhihu)
+    public void onClickZhihu() {
+        Intent intent = new Intent(getActivity(), ZhiHuMainActivity.class);
         startActivity(intent);
     }
 }
