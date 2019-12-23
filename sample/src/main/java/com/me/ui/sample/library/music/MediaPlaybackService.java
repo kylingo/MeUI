@@ -189,7 +189,7 @@ public class MediaPlaybackService extends Service {
                 .setContentTitle("音频FM")
                 .setContentText("朋友请听好")
                 .setSmallIcon(R.drawable.ic_default)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_sample_launcher))
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setContent(remoteViews);
 

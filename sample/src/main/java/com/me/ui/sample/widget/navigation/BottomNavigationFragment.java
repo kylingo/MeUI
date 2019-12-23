@@ -56,7 +56,7 @@ public class BottomNavigationFragment extends BaseFragment implements
         for (int i = 0; i < 4; i++) {
             NavigationItem item = new NavigationItem();
             item.setContent("tab" + i);
-            item.setResId(R.drawable.ic_launcher);
+            item.setResId(R.drawable.ic_sample_launcher);
 
             items.add(item);
         }

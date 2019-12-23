@@ -79,7 +79,7 @@ public class AnimSampleFragment extends BaseFragment {
     private void initTweenAnim(View view) {
         // xml
         ImageView ivTween = view.findViewById(R.id.iv_anim_tween);
-        ivTween.setBackgroundResource(R.drawable.ic_launcher);
+        ivTween.setBackgroundResource(R.drawable.ic_sample_launcher);
         final Animation tweenAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_tweened);
         ivTween.startAnimation(tweenAnimation);
         ivTween.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +91,7 @@ public class AnimSampleFragment extends BaseFragment {
 
         // dynamic
         ImageView ivTweenDynamic = view.findViewById(R.id.iv_anim_dynamic_tween);
-        ivTweenDynamic.setBackgroundResource(R.drawable.ic_launcher);
+        ivTweenDynamic.setBackgroundResource(R.drawable.ic_sample_launcher);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
         alphaAnimation.setDuration(DURATION_ANIM);
 
@@ -129,7 +129,7 @@ public class AnimSampleFragment extends BaseFragment {
 
     private void initObjectAnimator(View view) {
         ImageView ivObjectAnim = view.findViewById(R.id.iv_anim_object);
-        ivObjectAnim.setBackgroundResource(R.drawable.ic_launcher);
+        ivObjectAnim.setBackgroundResource(R.drawable.ic_sample_launcher);
         ivObjectAnim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,7 +140,7 @@ public class AnimSampleFragment extends BaseFragment {
         });
 
         ImageView ivObjectUpdateAnim = view.findViewById(R.id.iv_anim_object_update);
-        ivObjectUpdateAnim.setBackgroundResource(R.drawable.ic_launcher);
+        ivObjectUpdateAnim.setBackgroundResource(R.drawable.ic_sample_launcher);
         ivObjectUpdateAnim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -174,7 +174,7 @@ public class AnimSampleFragment extends BaseFragment {
 
     private void initValueAnimator(View view) {
         final ImageView ivValueAnim = view.findViewById(R.id.iv_anim_value);
-        ivValueAnim.setBackgroundResource(R.drawable.ic_launcher);
+        ivValueAnim.setBackgroundResource(R.drawable.ic_sample_launcher);
         ValueAnimator animator = ValueAnimator.ofFloat(0, 400);
         animator.setTarget(ivValueAnim);
         animator.setDuration(500).start();
@@ -186,7 +186,7 @@ public class AnimSampleFragment extends BaseFragment {
         });
 
         final ImageView ivValuePlusAnim = view.findViewById(R.id.iv_anim_value_plus);
-        ivValuePlusAnim.setBackgroundResource(R.drawable.ic_launcher);
+        ivValuePlusAnim.setBackgroundResource(R.drawable.ic_sample_launcher);
         ValueAnimator valueAnimator = new ValueAnimator();
         valueAnimator.setDuration(DURATION_ANIM);
         valueAnimator.setObjectValues(new PointF(0, 0));
@@ -222,7 +222,7 @@ public class AnimSampleFragment extends BaseFragment {
 
     private void initAnimatorSet(View container) {
         final ImageView view = container.findViewById(R.id.iv_anim_set);
-        view.setBackgroundResource(R.drawable.ic_launcher);
+        view.setBackgroundResource(R.drawable.ic_sample_launcher);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

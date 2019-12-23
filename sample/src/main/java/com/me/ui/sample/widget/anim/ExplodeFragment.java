@@ -35,7 +35,7 @@ public class ExplodeFragment extends BaseFragment {
     }
 
     protected void showAnim() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_sample_launcher);
         mExplodeViewManager.show(bitmap);
     }
 }

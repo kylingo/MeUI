@@ -39,7 +39,7 @@ public class SpanFragment extends BaseFragment {
         TextView textView = view.findViewById(R.id.tv_span_text);
         SpannableString spannable = new SpannableString("[img]Text style scale line");
 
-        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_launcher);
+        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_sample_launcher);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
                 drawable.getIntrinsicHeight());
         ImageSpan imageSpan = new ImageSpan(drawable);
