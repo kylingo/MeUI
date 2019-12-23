@@ -28,22 +28,20 @@ allprojects {
 }
 
 ext {
-    setting = [
-            "compileSdkVersion": 28,
-            "minSdkVersion"    : 15,
-            "buildToolsVersion": '28.0.3',
-            "targetSdkVersion" : 26,
+    compileSdkVersion = 28
+    minSdkVersion = 15
+    buildToolsVersion = "28.0.3"
+    targetSdkVersion = 26
 
-            "supportVersion": '28.0.0'
-    ]
+    supportVersion = "28.0.0"
 }
 
 subprojects {
     project.configurations.all {
         resolutionStrategy.eachDependency { details ->
             def libModule = details.getRequested()
-            if (libModule.group == 'com.android.support' && !libModule.name.contains('multidex') ) {
-                details.useVersion "${setting.supportVersion}"
+            if (libModule.group == 'com.android.support' && !libModule.name.contains('multidex')) {
+                details.useVersion "${supportVersion}"
             }
         }
     }
