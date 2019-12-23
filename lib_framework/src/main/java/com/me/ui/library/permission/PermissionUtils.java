@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 权限检查（设置targetSDK >= 23）
+ * 权限检查（设置targetSDK 大于 23）
  *
  * @author kylingo on 18/8/30
  */
