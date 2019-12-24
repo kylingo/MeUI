@@ -1,7 +1,7 @@
 apply plugin: 'groovy'
 
-boolean isLocalPlugin = (project.properties."isLocalPlugin" == "true")
-if (isLocalPlugin) {
+boolean localPluginFlag = isLocalPlugin.toBoolean()
+if (localPluginFlag) {
     apply plugin: 'maven'
 } else {
     apply plugin: 'com.novoda.bintray-release'
@@ -22,7 +22,7 @@ repositories {
 def plugin_version = '1.0.4'
 
 // Local maven
-if (isLocalPlugin) {
+if (localPluginFlag) {
     uploadArchives {
         repositories {
             mavenDeployer {

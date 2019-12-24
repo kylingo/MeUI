@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
-        if ((project.properties."isLocalPlugin" == "true")) {
+        if (isLocalPlugin.toBoolean()) {
             maven {
                 url uri('../plugin/repo')
             }
