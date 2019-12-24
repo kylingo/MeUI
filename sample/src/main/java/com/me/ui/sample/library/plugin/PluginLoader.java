@@ -15,7 +15,7 @@ public class PluginLoader {
 
     // 需要将assets目录的以下资源放到SD卡"/storage/emulated/0/Android/data/com.kylingo.plugin/cache/"
     public static final String PLUGIN_DEX = "plugin_dex.jar";
-    public static final String PLUGIN_CLASS = "custom-debug.apk";
+    public static final String PLUGIN_CLASS = "custom-debug.zip";
 
     // 插件类名称
     public static final String PLUGIN_IMPL = "com.kylingo.plugin.custom.PluginImpl";
