@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.kylingo.plugin.publish'
 
 configurations.all {
     resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
