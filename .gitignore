@@ -42,4 +42,6 @@ captures/
 # Mac ds store files
 *.DS_Store
 
+# Maven
 upload
+repo

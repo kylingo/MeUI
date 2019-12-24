@@ -1,9 +1,22 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.kylingo.plugin.publish'
 
-configurations.all {
-    resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
+buildscript {
+    repositories {
+        if ((project.properties."isLocalPlugin" == "true")) {
+            maven {
+                url uri('../plugin/repo')
+            }
+        } else {
+            jcenter()
+        }
+    }
+
+    dependencies {
+        classpath 'com.github.kylingo:plugin-publish:1.0.4'
+    }
 }
+
+apply plugin: 'com.kylingo.plugin.publish'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
