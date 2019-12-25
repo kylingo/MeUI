@@ -1,0 +1,19 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'com.github.kylingo'
+            pom.artifactId = 'plugin-publish'
+            pom.version = rootProject.ext.pluginVersion
+            println("------------ push local maven publishVersion: " + pom.version + " ------------")
+
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址设置为
+            repository(url: uri('../repo'))
+        }
+    }
+}

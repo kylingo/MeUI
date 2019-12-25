@@ -1,0 +1,12 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'kylingo'
+    groupId = 'com.github.kylingo'
+    artifactId = 'plugin-publish'
+    publishVersion = rootProject.ext.pluginVersion
+    desc = 'Android common publish plugin'
+    website = 'https://github.com/kylingo/MeUI'
+
+    println("------------ push remote maven publishVersion: " + publishVersion + " ------------")
+}

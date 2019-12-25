@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+// Plugin publish
 buildscript {
     repositories {
         if (isLocalPlugin.toBoolean()) {
@@ -12,10 +13,10 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.github.kylingo:plugin-publish:1.0.4'
+        // 为了解决编译问题，这个版本号自增
+        classpath 'com.github.kylingo:plugin-publish:1.0.8'
     }
 }
-
 apply plugin: 'com.kylingo.plugin.publish'
 
 android {

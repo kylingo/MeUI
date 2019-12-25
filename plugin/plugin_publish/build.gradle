@@ -1,10 +1,9 @@
 apply plugin: 'groovy'
 
-boolean localPluginFlag = isLocalPlugin.toBoolean()
-if (localPluginFlag) {
-    apply plugin: 'maven'
+if (isLocalPlugin.toBoolean()) {
+    apply from: './push_local_maven.gradle'
 } else {
-    apply plugin: 'com.novoda.bintray-release'
+    apply from: './push_remote_maven.gradle'
 }
 
 dependencies {
@@ -16,37 +15,4 @@ dependencies {
 
 repositories {
     mavenCentral()
-}
-
-// Plugin params
-def plugin_version = '1.0.4'
-
-// Local maven
-if (localPluginFlag) {
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                pom.groupId = 'com.github.kylingo'
-                pom.artifactId = 'plugin-publish'
-                pom.version = plugin_version
-
-                //提交到远程服务器：
-                // repository(url: "http://www.xxx.com/repos") {
-                //    authentication(userName: "admin", password: "admin")
-                // }
-                //本地的Maven地址设置为
-                repository(url: uri('../repo'))
-            }
-        }
-    }
-} else {
-    // Jcenter
-    publish {
-        userOrg = 'kylingo'
-        groupId = 'com.github.kylingo'
-        artifactId = 'plugin-publish'
-        publishVersion = plugin_version
-        desc = 'Android common publish plugin'
-        website = 'https://github.com/kylingo/MeUI'
-    }
 }
