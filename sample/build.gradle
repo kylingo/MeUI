@@ -75,9 +75,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     // internal library
-    implementation project(':lib_meui')
-    implementation project(':lib_framework')
-    implementation project(':lib_util')
+    implementation project(':lib-meui')
+    implementation project(':lib-framework')
+    implementation project(':lib-util')
 
     // support
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"

@@ -1,1 +1,1 @@
-include ':lib_meui', ':lib_framework', ':lib_util', ':sample', ':plugin:plugin_publish', 'sample_app'
+include ':lib-meui', ':lib-framework', ':lib-util', ':plugin:plugin-publish', ':sample', ':sample-app'
