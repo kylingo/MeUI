@@ -22,9 +22,13 @@ public abstract class BaseListFragment extends AbstractSampleFragment {
         return R.layout.fragment_common;
     }
 
+    protected int getRecyclerViewId() {
+        return R.id.recycler_view_common;
+    }
+
     @Override
     protected void initView(View view) {
-        mRecyclerView = view.findViewById(R.id.recycler_view_common);
+        mRecyclerView = view.findViewById(getRecyclerViewId());
         RecyclerView.LayoutManager layoutManager = getLayoutManager();
         if (layoutManager != null) {
             mRecyclerView.setLayoutManager(layoutManager);

@@ -1,6 +1,7 @@
 package com.me.ui.sample.thirdparty.test;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 import com.me.ui.library.sample.SampleFragment;
@@ -27,6 +28,8 @@ public class TestFragment extends SampleFragment<String> {
         items.add("Toast");
         items.add("输入法");
         items.add("FlagMask");
+        items.add("Scheme");
+        items.add("Host");
     }
 
     @Override
@@ -47,8 +50,34 @@ public class TestFragment extends SampleFragment<String> {
                 flagMaskTest();
                 break;
             }
+
+            case "Scheme": {
+                schemeTest();
+                break;
+            }
+
+            case "Host": {
+                schemeHost();
+                break;
+            }
         }
 
+    }
+
+    private void schemeTest() {
+        Intent intent = new Intent();
+        String scheme = "imgotv://mediahall?fid=17";
+
+        intent.setData(Uri.parse(scheme));
+        startActivity(intent);
+    }
+
+    private void schemeHost() {
+        Intent intent = new Intent();
+        String scheme = "imgotv://mediahall?fid=50";
+
+        intent.setData(Uri.parse(scheme));
+        startActivity(intent);
     }
 
     @TryCatch

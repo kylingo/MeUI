@@ -15,5 +15,6 @@ public class ListIndexFragment extends SampleListFragment {
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean(SnapPagerFragment.class));
         items.add(new FragmentBean(LinearPagerFragment.class));
+        items.add(new FragmentBean(GradualListFragment.class));
     }
 }
