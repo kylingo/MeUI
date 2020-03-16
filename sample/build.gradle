@@ -116,3 +116,17 @@ dependencies {
     // aspect
     implementation 'org.aspectj:aspectjrt:1.8.9'
 }
+
+/**
+ * 分析依赖包大小：https://github.com/znyang/library-analysis
+ * 脚本：gradle libReportReleaseCompileClasspath
+ */
+apply plugin: 'com.zen.lib.analysis'
+libReport {
+    output = [
+            "txt", "html" // default
+    ]
+    ignore = [
+            "com.android.support:support-v4"
+    ]
+}
