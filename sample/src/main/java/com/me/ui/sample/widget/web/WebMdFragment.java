@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
  */
 public class WebMdFragment extends AbstractSampleFragment {
 
-    private static final String DEFAULT_URL = "file:///android_asset/web_index.html";
+    private static final String DEFAULT_URL = "file:///android_asset/web/web_index.html";
     private WebView mWebView;
 
     @Override
@@ -27,7 +27,7 @@ public class WebMdFragment extends AbstractSampleFragment {
 
     @Override
     protected void initView(View view) {
-        mWebView = (WebView) view.findViewById(R.id.wv_md_test);
+        mWebView = view.findViewById(R.id.wv_md_test);
         mWebView.getSettings().setDefaultTextEncodingName("UTF-8");
         mWebView.getSettings().setJavaScriptEnabled(true);
         loadDefaultUrl();
@@ -68,7 +68,7 @@ public class WebMdFragment extends AbstractSampleFragment {
         BufferedReader br;
         try {
             InputStreamReader inputReader = new InputStreamReader(
-                    getResources().getAssets().open("web_readme.md"));
+                    getResources().getAssets().open("web/web_readme.md"));
             br = new BufferedReader(inputReader);
         } catch (IOException e) {
             e.printStackTrace();
