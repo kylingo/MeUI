@@ -3,6 +3,8 @@ package com.me.ui.sample.widget.web;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -14,6 +16,11 @@ import android.webkit.WebViewClient;
  * @since 2020/03/16 10:40
  */
 public class MeWebView extends WebView {
+
+    private static final int MIN_FONT_SIZE = 8;
+    private static final int MIN_LOGICAL_FONT_SIZE = 8;
+    private static final int DEFAULT_FONT_SIZE = 16;
+    private static final int DEFAULT_FIXED_FONT_SIZE = 13;
 
     private WebViewClient mWebViewClient;
     private WebChromeClient mWebChromeClient;
@@ -35,6 +42,7 @@ public class MeWebView extends WebView {
 
     private void init() {
         initSettings();
+        initListener();
     }
 
     protected void initSettings() {
@@ -58,12 +66,35 @@ public class MeWebView extends WebView {
             webSettings.setAppCacheEnabled(true);
             webSettings.setDomStorageEnabled(true);
             webSettings.setDatabaseEnabled(true);
+
+            webSettings.setMinimumFontSize(MIN_FONT_SIZE);
+            webSettings.setMinimumLogicalFontSize(MIN_LOGICAL_FONT_SIZE);
+            webSettings.setDefaultFontSize(DEFAULT_FONT_SIZE);
+            webSettings.setDefaultFixedFontSize(DEFAULT_FIXED_FONT_SIZE);
+
             if (Build.VERSION.SDK_INT >= 21) {
                 webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptThirdPartyCookies(this, true);
             }
         }
+    }
+
+    private void initListener() {
+        setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP &&
+                        keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (canGoBack()) {
+                        goBack();
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        });
     }
 
     @Override

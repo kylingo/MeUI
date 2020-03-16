@@ -9,6 +9,7 @@ import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.me.ui.sample.R;
@@ -19,11 +20,9 @@ import com.me.ui.util.ToastUtils;
  * @author studiotang on 17/9/19
  */
 public class WebLocalFragment extends BaseMenuFragment {
-//    private static final String DEFAULT_URL = "https://kylingo.github.io";
     private static final String DEFAULT_URL = "file:///android_asset/web/test.html";
 
-
-    protected WebView mWebView;
+    protected MeWebView mWebView;
     protected ProgressBar mProgressBar;
 
     @Override
@@ -34,9 +33,9 @@ public class WebLocalFragment extends BaseMenuFragment {
     @Override
     protected void initView(View view) {
         mProgressBar = view.findViewById(R.id.pb_web_load);
-
-        mWebView = view.findViewById(R.id.wv_web);
-        loadDefaultUrl();
+        mWebView = new MeWebView(getContext());
+        FrameLayout flWeb = view.findViewById(R.id.fl_web);
+        flWeb.addView(mWebView);
 
         mWebView.setWebViewClient(new CustomWebViewClient());
         mWebView.setWebChromeClient(new CustomWebChromeClient());
@@ -54,6 +53,8 @@ public class WebLocalFragment extends BaseMenuFragment {
                 return false;
             }
         });
+
+        loadUrl(getDefaultUrl());
     }
 
     @Override
@@ -73,7 +74,6 @@ public class WebLocalFragment extends BaseMenuFragment {
             super.onPageStarted(webView, url, favicon);
             mProgressBar.setProgress(0);
             mProgressBar.setVisibility(View.VISIBLE);
-//            webView.loadUrl("javascript:document.getElementsByTagName('body')[0].style.backgroundColor='#0000FF'");
         }
 
         @Override
@@ -82,8 +82,8 @@ public class WebLocalFragment extends BaseMenuFragment {
             mProgressBar.setProgress(0);
             mProgressBar.setVisibility(View.GONE);
 
-//            webView.loadUrl("javascript:document.getElementsByTagName(\"body\")[0].style.backgroundColor=\"#0000FF\"");
-            webView.loadUrl("javascript: alert('Invoke js');");
+            webView.loadUrl("javascript:document.getElementsByTagName(\"body\")[0].style.backgroundColor=\"#0000FF\";");
+//            webView.loadUrl("javascript: alert('Invoke js');");
         }
     }
 
@@ -117,12 +117,6 @@ public class WebLocalFragment extends BaseMenuFragment {
         }
     }
 
-
-
-    protected void loadDefaultUrl() {
-        loadUrl(getDefaultUrl());
-    }
-
     private void loadUrl(String url) {
         mWebView.loadUrl(url);
     }
@@ -130,5 +124,4 @@ public class WebLocalFragment extends BaseMenuFragment {
     protected String getDefaultUrl() {
         return DEFAULT_URL;
     }
-
 }
