@@ -5,8 +5,10 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.me.ui.library.sample.SampleFragment;
+import com.me.ui.library.util.StringHelper;
 import com.me.ui.sample.library.log.MLog;
 import com.me.ui.sample.thirdparty.aspect.TryCatch;
+import com.me.ui.util.LogUtils;
 
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class TestFragment extends SampleFragment<String> {
         items.add("FlagMask");
         items.add("Scheme");
         items.add("Host");
+        items.add("StringCrop");
     }
 
     @Override
@@ -60,8 +63,27 @@ public class TestFragment extends SampleFragment<String> {
                 schemeHost();
                 break;
             }
+
+            case "StringCrop": {
+                stringCropTest();
+                break;
+            }
         }
 
+    }
+
+    private void stringCropTest() {
+        LogUtils.d(TestFragment.class, StringHelper.cropText("我爱你啊啊啊安安abc", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("放个假快案件佛", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("放个假快快啊", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("放个假假快1bc", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("放个假假快1啊", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("1234567890aa1", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("123456啊789啊", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("123456啊7啊89", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("啊啊啊啊啊1", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("啊啊啊啊啊12", 12));
+        LogUtils.d(TestFragment.class, StringHelper.cropText("阿发啊啊4", 12));
     }
 
     private void schemeTest() {
