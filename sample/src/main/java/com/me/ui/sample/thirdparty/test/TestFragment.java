@@ -32,6 +32,7 @@ public class TestFragment extends SampleFragment<String> {
         items.add("FlagMask");
         items.add("Scheme");
         items.add("Host");
+        items.add("Barrage");
         items.add("StringCrop");
     }
 
@@ -61,6 +62,11 @@ public class TestFragment extends SampleFragment<String> {
 
             case "Host": {
                 schemeHost();
+                break;
+            }
+
+            case "Barrage": {
+                schemeBarrage();
                 break;
             }
 
@@ -97,6 +103,14 @@ public class TestFragment extends SampleFragment<String> {
     private void schemeHost() {
         Intent intent = new Intent();
         String scheme = "imgotv://mediahall?fid=50";
+
+        intent.setData(Uri.parse(scheme));
+        startActivity(intent);
+    }
+
+    private void schemeBarrage() {
+        Intent intent = new Intent();
+        String scheme = "imgotv://mediahall?fid=39";
 
         intent.setData(Uri.parse(scheme));
         startActivity(intent);
