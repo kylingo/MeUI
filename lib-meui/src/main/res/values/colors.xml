@@ -6,5 +6,5 @@
     <color name="tab_text_color_checked">#5AAE3E</color>
     <color name="tab_text_color">#999999</color>
 
-    <color name="meui_main_color">#00a0ea</color>
+<!--    <color name="meui_main_color">#00a0ea</color>-->
 </resources>

@@ -22,5 +22,6 @@ public class BasicFragment extends SampleListFragment {
         items.add(new FragmentBean("阴影效果", ShadowFragment.class));
         items.add(new FragmentBean("连续点击", DebounceFragment.class));
         items.add(new FragmentBean("跑马的汉子", MarqueeFragment.class));
+        items.add(new FragmentBean("资源冲突", ResourceFragment.class));
     }
 }
