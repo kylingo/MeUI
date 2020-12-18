@@ -21,6 +21,7 @@ public class TransitionActivity extends BaseActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition);
+        setTitle("Demo");
 
         findViewById(R.id.iv_transition).setOnClickListener(new View.OnClickListener() {
             @Override
