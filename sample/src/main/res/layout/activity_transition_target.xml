@@ -11,6 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_test_01"
+        android:src="@drawable/img_test_02"
         android:transitionName="sharedImage" />
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:transitionName="sharedImage"-->
+<!--        android:text="测试"-->
+<!--        android:layout_gravity="center" />-->
 </LinearLayout>
