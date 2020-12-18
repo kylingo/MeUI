@@ -121,6 +121,14 @@
         <activity
             android:name="com.me.ui.sample.library.basic.DataBindingActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.me.ui.sample.widget.anim.TransitionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.me.ui.sample.widget.anim.TransitionTargetActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

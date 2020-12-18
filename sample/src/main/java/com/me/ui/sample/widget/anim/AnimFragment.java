@@ -15,5 +15,6 @@ public class AnimFragment extends SampleListFragment {
         items.add(new FragmentBean("Lottie动画", LottieFragment.class));
         items.add(new FragmentBean("飘屏动画", ExplodeFragment.class));
         items.add(new FragmentBean("收缩动画", ShrinkFragment.class));
+        items.add(new FragmentBean("页面动画", TransitionFragment.class));
     }
 }
