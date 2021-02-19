@@ -9,7 +9,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath 'com.novoda:bintray-release:0.8.1'
+        classpath 'com.novoda:bintray-release:0.9.1'
         classpath 'com.alibaba:arouter-register:1.0.2'
         classpath 'com.github.znyang:library-analysis:0.2.2'
         // NOTE: Do not place your application dependencies here; they belong
