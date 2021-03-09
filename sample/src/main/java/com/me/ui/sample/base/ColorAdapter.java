@@ -18,7 +18,7 @@ import java.util.List;
 public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorHolder> {
 
     private List<ColorItem> mItems;
-    private int mItemHeight;
+    protected int mItemHeight;
 
     public ColorAdapter() {
         init();
@@ -74,7 +74,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorHolder>
 
         public TextView tvMain;
 
-        ColorHolder(View itemView, int itemHeight) {
+        public ColorHolder(View itemView, int itemHeight) {
             super(itemView);
             tvMain = itemView.findViewById(R.id.tv_grid);
             if (itemHeight > 0) {
