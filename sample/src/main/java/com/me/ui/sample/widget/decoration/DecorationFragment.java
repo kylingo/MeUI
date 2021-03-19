@@ -3,6 +3,7 @@ package com.me.ui.sample.widget.decoration;
 import com.me.ui.library.sample.FragmentBean;
 import com.me.ui.library.sample.SampleListFragment;
 import com.me.ui.sample.widget.decoration.grid.GridColorFragment;
+import com.me.ui.sample.widget.decoration.linear.BannerMarginColorFragment;
 import com.me.ui.sample.widget.decoration.linear.LinearColorFragment;
 import com.me.ui.sample.widget.decoration.linear.LinearMarginColorFragment;
 import com.me.ui.sample.widget.decoration.staggered.StaggeredFragment;
@@ -20,7 +21,8 @@ public class DecorationFragment extends SampleListFragment {
     protected void addItems(List<FragmentBean> items) {
         items.add(new FragmentBean("网格布局", GridColorFragment.class));
         items.add(new FragmentBean("线性布局", LinearColorFragment.class));
-        items.add(new FragmentBean("线性叠加布局", LinearMarginColorFragment.class));
+        items.add(new FragmentBean("线性叠加", LinearMarginColorFragment.class));
+        items.add(new FragmentBean("闪图叠加", BannerMarginColorFragment.class));
         items.add(new FragmentBean("瀑布布局", StaggeredFragment.class));
     }
 }

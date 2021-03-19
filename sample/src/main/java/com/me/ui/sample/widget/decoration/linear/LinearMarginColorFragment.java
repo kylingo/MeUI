@@ -59,15 +59,15 @@ public class LinearMarginColorFragment extends BaseListFragment {
             super.onBindViewHolder(holder, position);
             ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
             if (position == 0) {
-                layoutParams.height = SizeUtils.dp2px(200);
+                layoutParams.height = SizeUtils.dp2px(500);
             } else {
-                layoutParams.height = SizeUtils.dp2px(120);
+                layoutParams.height = SizeUtils.dp2px(100);
             }
 
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 if (position == 1) {
-                    holder.itemView.setAlpha(0.7f);
-                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = -1 * layoutParams.height;
+                    holder.itemView.setAlpha(0.5f);
+                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = -1 * layoutParams.height - SizeUtils.dp2px(200);
                 } else {
                     ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = 0;
                 }
