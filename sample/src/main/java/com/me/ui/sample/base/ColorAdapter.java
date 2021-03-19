@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.me.ui.sample.R;
+import com.me.ui.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,13 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorHolder>
         ColorItem mainItem = getItem(position);
         holder.tvMain.setText(String.valueOf(mainItem.index));
         holder.tvMain.setBackgroundColor(mainItem.color);
+        final int currentPosition = position;
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showLong("click pos:" + currentPosition);
+            }
+        });
     }
 
     @Override

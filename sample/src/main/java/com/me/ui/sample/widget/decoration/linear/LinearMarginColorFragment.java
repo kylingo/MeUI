@@ -12,6 +12,7 @@ import com.me.ui.sample.base.BaseListFragment;
 import com.me.ui.sample.base.ColorAdapter;
 import com.me.ui.sample.base.ColorItem;
 import com.me.ui.sample.library.util.ColorUtils;
+import com.me.ui.util.SizeUtils;
 import com.me.ui.widget.decoration.LinearItemDecoration;
 
 import java.util.List;
@@ -38,19 +39,39 @@ public class LinearMarginColorFragment extends BaseListFragment {
     }
 
     protected RecyclerView.Adapter getAdapter() {
-        ColorAdapter adapter = new OverlayAdapter();
+        ColorAdapter adapter = new MarginAdapter();
         adapter.setItemHeight(getItemHeight());
         adapter.setData(getData());
         return adapter;
     }
 
-    public static class OverlayAdapter extends ColorAdapter {
+    public static class MarginAdapter extends ColorAdapter {
 
         @NonNull
         @Override
         public ColorHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_margin, parent, false);
             return new ColorHolder(view, mItemHeight);
+        }
+
+        @Override
+        public void onBindViewHolder(ColorHolder holder, int position) {
+            super.onBindViewHolder(holder, position);
+            ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
+            if (position == 0) {
+                layoutParams.height = SizeUtils.dp2px(200);
+            } else {
+                layoutParams.height = SizeUtils.dp2px(120);
+            }
+
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                if (position == 1) {
+                    holder.itemView.setAlpha(0.7f);
+                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = -1 * layoutParams.height;
+                } else {
+                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = 0;
+                }
+            }
         }
     }
 }
